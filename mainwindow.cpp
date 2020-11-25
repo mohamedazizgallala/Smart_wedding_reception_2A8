@@ -7,7 +7,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     //ui->stackedWidget; no need for this
     ui->table_car->setModel(cartemp.afficher_car()); //actualiser la table
-
+    ui->table_car->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->table_car->setSelectionMode(QAbstractItemView::SingleSelection);
 
 }
 
@@ -198,31 +199,25 @@ void MainWindow::on_supprimer_car_listButton_clicked()
 
 }
 
+
+
+
 void MainWindow::on_modifier_car_listButton_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(9);
+    if (ui->modifier_car_listButton->isChecked())
+           {
+               //ui->modifier_car_listButton->setDisabled(true);
+               ui->modifier_car_listButton->setText("Modifiable");
+               QSqlTableModel *tableModel= new QSqlTableModel();
+               tableModel->setTable("CAR");
+               tableModel->select();
+               ui->table_car->setModel(tableModel);
+           }
+           else
+           {
+               ui->modifier_car_listButton->setText("Modifier");
+               ui->table_car->setModel(cartemp.afficher_car());
 
-}
+           }
 
-void MainWindow::on_modifier_carButton_clicked()
-{
-    /*QString matricule=ui->car_listEdit->text();
-    QString marque=ui->marqueEdit_m->text();
-    QString entreprise=ui->entreprise_carEdit_m->text();
-    QString couleur=ui->couleurEdit_m->text();
-    int prix = ui->prix_jourEdit_m->text().toInt();
-    car c(marque,couleur,entreprise,matricule,prix);
-    bool test=c.modifier_car(matricule);
-    if (test==true)
-    {  ui->table_car->setModel(cartemp.afficher_car()); //actualiser la table
-        QMessageBox::information(nullptr, QObject::tr("modification d'une voiture"),
-                                 QObject::tr("une voiture a été modifiée."), QMessageBox::Ok); }
-    else {  QMessageBox::critical(nullptr, QObject::tr("modification d'une voiture"),
-                                     QObject::tr("la modification a échoué."), QMessageBox::Cancel); }*/
-
-}
-
-void MainWindow::on_return_modifier_carButton_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(4);
 }

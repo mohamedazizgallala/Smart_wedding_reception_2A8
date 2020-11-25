@@ -60,11 +60,11 @@ private slots:
 
     void on_supprimer_car_listButton_clicked();
 
+
+
+
+
     void on_modifier_car_listButton_clicked();
-
-    void on_modifier_carButton_clicked();
-
-    void on_return_modifier_carButton_clicked();
 
 private:
     Ui::MainWindow *ui;

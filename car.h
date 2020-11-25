@@ -17,7 +17,7 @@ public:
     bool ajouter_car();
     QSqlQueryModel * afficher_car();
     bool supprimer_car(QString);
-    bool modifier_car(QString);
+    bool modifier_car();
 
 };
 

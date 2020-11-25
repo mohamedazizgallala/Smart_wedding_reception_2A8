@@ -43,7 +43,7 @@ bool car::supprimer_car(QString m)
     return query.exec();
 }
 
-bool car::modifier_car(QString m)
+bool car::modifier_car()
 {
     /* QSqlQuery query;
      query.prepare("update car " " entreprise=:entreprise,couleur=:couleur,prix=:prix,marque=:marque" "where matricule=:matricule");
@@ -53,5 +53,9 @@ bool car::modifier_car(QString m)
      query.bindValue(":marque",marque);
      query.bindValue(":entreprise",entreprise);
      return query.exec(); */
+
+    QSqlQuery query;
+       query.prepare ("update car" "SET matricule = :matricule, couleur = :couleur, prix = :prix, marque = :marque,entreprise = :entreprise" );
+   return query.exec();
 
 }
