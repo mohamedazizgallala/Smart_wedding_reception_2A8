@@ -1,6 +1,6 @@
 #include "connection.h"
 
-
+//test turoril git
 Connection::Connection()
 {
 
