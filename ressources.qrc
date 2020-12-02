@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/ressources"/>
+    <qresource prefix="/">
+        <file>img/121527165_283003159406450_6476818707641022998_n.jpg</file>
+        <file>img/126205197_181879636821640_5647087082797402769_n.png</file>
+        <file>img/computer-icons-button-arrow-png-favpng-1sXz4GPFdZq5tvjfd9Q8gYCVt.png</file>
+        <file>img/creme.jpg</file>
+        <file>img/thebigdaylogo.png</file>
+        <file>img/vanguardslogo.png</file>
+        <file>img/bfa_power-off_flat-circle-white-on-ios-pink-gradient_512x512.png</file>
+        <file>img/logout-icon-5-256.png</file>
+        <file>img/trash.png</file>
+        <file>img/refresh.png</file>
+        <file>img/eng.png</file>
+        <file>img/france.png</file>
+    </qresource>
+</RCC>
