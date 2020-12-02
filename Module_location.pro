@@ -1,4 +1,8 @@
 QT       += core gui sql
+QT += network
+QT += printsupport
+QT += charts
+QT +=multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -19,16 +23,26 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     car.cpp \
     connexion.cpp \
+    dialog.cpp \
+    local.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    pie.cpp \
+    smtp.cpp
 
 HEADERS += \
     car.h \
     connexion.h \
-    mainwindow.h
+    dialog.h \
+    local.h \
+    mainwindow.h \
+    pie.h \
+    smtp.h
 
 FORMS += \
-    mainwindow.ui
+    dialog.ui \
+    mainwindow.ui \
+    pie.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

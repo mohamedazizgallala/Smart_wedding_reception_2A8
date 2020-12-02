@@ -50,7 +50,7 @@
 }</string>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="loginWindow">
      <widget class="QFrame" name="login_frame">
@@ -611,16 +611,6 @@ color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(35, 40, 3, 255), st
         <string>Entreprise:</string>
        </property>
       </widget>
-      <widget class="QCalendarWidget" name="calendar_car">
-       <property name="geometry">
-        <rect>
-         <x>280</x>
-         <y>30</y>
-         <width>251</width>
-         <height>191</height>
-        </rect>
-       </property>
-      </widget>
       <widget class="QLineEdit" name="marqueEdit">
        <property name="geometry">
         <rect>
@@ -645,22 +635,6 @@ color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(35, 40, 3, 255), st
        </property>
        <property name="text">
         <string>Couleur:</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="disponibilite_car">
-       <property name="geometry">
-        <rect>
-         <x>280</x>
-         <y>10</y>
-         <width>71</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background:transparent;</string>
-       </property>
-       <property name="text">
-        <string>Disponibilité:</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="couleurEdit">
@@ -775,10 +749,10 @@ QPushButton:hover{
      <widget class="QWidget" name="widget_search_car" native="true">
       <property name="geometry">
        <rect>
-        <x>40</x>
-        <y>110</y>
-        <width>541</width>
-        <height>251</height>
+        <x>10</x>
+        <y>20</y>
+        <width>591</width>
+        <height>401</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -802,37 +776,7 @@ color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(35, 40, 3, 255), st
         <string>Chercher une voiture via:</string>
        </property>
       </widget>
-      <widget class="QComboBox" name="critere_1_car">
-       <property name="geometry">
-        <rect>
-         <x>40</x>
-         <y>60</y>
-         <width>131</width>
-         <height>21</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="critere_2_car">
-       <property name="geometry">
-        <rect>
-         <x>210</x>
-         <y>60</y>
-         <width>131</width>
-         <height>21</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="critere_3_car">
-       <property name="geometry">
-        <rect>
-         <x>380</x>
-         <y>60</y>
-         <width>131</width>
-         <height>21</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="critere_1_carEdit">
+      <widget class="QLineEdit" name="critere_marqueEdit">
        <property name="geometry">
         <rect>
          <x>50</x>
@@ -845,7 +789,7 @@ color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(35, 40, 3, 255), st
         <string notr="true">background:transparent;</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="critere_2_carEdit">
+      <widget class="QLineEdit" name="critere_couleurEdit">
        <property name="geometry">
         <rect>
          <x>220</x>
@@ -858,7 +802,7 @@ color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(35, 40, 3, 255), st
         <string notr="true">background:transparent;</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="critere_3_carEdit">
+      <widget class="QLineEdit" name="critere_entrepriseEdit">
        <property name="geometry">
         <rect>
          <x>390</x>
@@ -874,10 +818,10 @@ color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(35, 40, 3, 255), st
       <widget class="QPushButton" name="search_carButton">
        <property name="geometry">
         <rect>
-         <x>180</x>
-         <y>140</y>
-         <width>171</width>
-         <height>41</height>
+         <x>490</x>
+         <y>180</y>
+         <width>91</width>
+         <height>31</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -901,8 +845,8 @@ QPushButton:hover{
       <widget class="QPushButton" name="return_search_carButton">
        <property name="geometry">
         <rect>
-         <x>220</x>
-         <y>200</y>
+         <x>490</x>
+         <y>220</y>
          <width>91</width>
          <height>31</height>
         </rect>
@@ -923,6 +867,55 @@ QPushButton:hover{
        </property>
        <property name="text">
         <string>Retour</string>
+       </property>
+      </widget>
+      <widget class="QTableView" name="tableView">
+       <property name="geometry">
+        <rect>
+         <x>15</x>
+         <y>171</y>
+         <width>461</width>
+         <height>211</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBox_marque">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>70</y>
+         <width>70</width>
+         <height>18</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Marque</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBox_couleur">
+       <property name="geometry">
+        <rect>
+         <x>220</x>
+         <y>70</y>
+         <width>70</width>
+         <height>18</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Couleur</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBox_entreprise">
+       <property name="geometry">
+        <rect>
+         <x>390</x>
+         <y>70</y>
+         <width>81</width>
+         <height>18</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Entreprise</string>
        </property>
       </widget>
      </widget>
@@ -1025,6 +1018,9 @@ QPushButton:hover{
        <property name="styleSheet">
         <string notr="true">background:transparent;</string>
        </property>
+       <property name="maxLength">
+        <number>10</number>
+       </property>
       </widget>
       <widget class="QPushButton" name="modifier_car_listButton">
        <property name="geometry">
@@ -1089,8 +1085,8 @@ QPushButton:hover{
       <widget class="QPushButton" name="imprimer_car_listButton">
        <property name="geometry">
         <rect>
-         <x>50</x>
-         <y>160</y>
+         <x>240</x>
+         <y>340</y>
          <width>91</width>
          <height>31</height>
         </rect>
@@ -1113,99 +1109,11 @@ QPushButton:hover{
         <string>Imprimer</string>
        </property>
       </widget>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="sendEmailWindow">
-     <widget class="QWidget" name="widget_send_email" native="true">
-      <property name="geometry">
-       <rect>
-        <x>80</x>
-        <y>40</y>
-        <width>471</width>
-        <height>361</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-image: url(:/new/prefix1/image/103854343_259019528641376_3453490155072435271_n.jpg);
-font: italic 9pt &quot;Century Gothic&quot;;
-color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(35, 40, 3, 255), stop:0.16 rgba(136, 106, 22, 255), stop:0.225 rgba(166, 140, 41, 255), stop:0.285 rgba(204, 181, 74, 255), stop:0.345 rgba(235, 219, 102, 255), stop:0.415 rgba(245, 236, 112, 255), stop:0.52 rgba(209, 190, 76, 255), stop:0.57 rgba(187, 156, 51, 255), stop:0.635 rgba(168, 142, 42, 255), stop:0.695 rgba(202, 174, 68, 255), stop:0.75 rgba(218, 202, 86, 255), stop:0.815 rgba(208, 187, 73, 255), stop:0.88 rgba(187, 156, 51, 255), stop:0.935 rgba(137, 108, 26, 255), stop:1 rgba(35, 40, 3, 255));</string>
-      </property>
-      <widget class="QLineEdit" name="aEdit">
+      <widget class="QPushButton" name="imprimer_car_listButton_2">
        <property name="geometry">
         <rect>
-         <x>80</x>
-         <y>50</y>
-         <width>321</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background:transparent;</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="emailLabel">
-       <property name="geometry">
-        <rect>
-         <x>40</x>
-         <y>140</y>
-         <width>47</width>
-         <height>14</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background:transparent;</string>
-       </property>
-       <property name="text">
-        <string>E-mail:</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="aLabel">
-       <property name="geometry">
-        <rect>
-         <x>40</x>
-         <y>50</y>
-         <width>47</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background:transparent;</string>
-       </property>
-       <property name="text">
-        <string>A: </string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="ObjetLabel">
-       <property name="geometry">
-        <rect>
-         <x>80</x>
-         <y>90</y>
-         <width>321</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background:transparent;</string>
-       </property>
-      </widget>
-      <widget class="QTextEdit" name="emailTextEdit">
-       <property name="geometry">
-        <rect>
-         <x>80</x>
-         <y>140</y>
-         <width>321</width>
-         <height>131</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background:transparent;</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="send_emailButton">
-       <property name="geometry">
-        <rect>
-         <x>324</x>
-         <y>290</y>
+         <x>140</x>
+         <y>340</y>
          <width>91</width>
          <height>31</height>
         </rect>
@@ -1225,54 +1133,12 @@ QPushButton:hover{
 </string>
        </property>
        <property name="text">
-        <string>Envoyer</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="objetLabel">
-       <property name="geometry">
-        <rect>
-         <x>40</x>
-         <y>90</y>
-         <width>47</width>
-         <height>14</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background:transparent;</string>
-       </property>
-       <property name="text">
-        <string>Objet:</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="return_send_emailButton">
-       <property name="geometry">
-        <rect>
-         <x>220</x>
-         <y>290</y>
-         <width>91</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background:transparent;
-font: italic 12pt &quot;Century Gothic&quot;;
-color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(35, 40, 3, 255), stop:0.16 rgba(136, 106, 22, 255), stop:0.225 rgba(166, 140, 41, 255), stop:0.285 rgba(204, 181, 74, 255), stop:0.345 rgba(235, 219, 102, 255), stop:0.415 rgba(245, 236, 112, 255), stop:0.52 rgba(209, 190, 76, 255), stop:0.57 rgba(187, 156, 51, 255), stop:0.635 rgba(168, 142, 42, 255), stop:0.695 rgba(202, 174, 68, 255), stop:0.75 rgba(218, 202, 86, 255), stop:0.815 rgba(208, 187, 73, 255), stop:0.88 rgba(187, 156, 51, 255), stop:0.935 rgba(137, 108, 26, 255), stop:1 rgba(35, 40, 3, 255));
-border-bottom:2px solid#717072;
-border-color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(35, 40, 3, 255), stop:0.16 rgba(136, 106, 22, 255), stop:0.225 rgba(166, 140, 41, 255), stop:0.285 rgba(204, 181, 74, 255), stop:0.345 rgba(235, 219, 102, 255), stop:0.415 rgba(245, 236, 112, 255), stop:0.52 rgba(209, 190, 76, 255), stop:0.57 rgba(187, 156, 51, 255), stop:0.635 rgba(168, 142, 42, 255), stop:0.695 rgba(202, 174, 68, 255), stop:0.75 rgba(218, 202, 86, 255), stop:0.815 rgba(208, 187, 73, 255), stop:0.88 rgba(187, 156, 51, 255), stop:0.935 rgba(137, 108, 26, 255), stop:1 rgba(35, 40, 3, 255));
-background-color: rgb(255, 212, 250);
-
-border-radius:15px;}
-QPushButton:hover{
-	
-	background-color: rgb(234, 78, 117);
-</string>
-       </property>
-       <property name="text">
-        <string>Retour</string>
+        <string>Statistiques</string>
        </property>
       </widget>
      </widget>
     </widget>
+    <widget class="QWidget" name="sendEmailWindow"/>
     <widget class="QWidget" name="addLocalWindow">
      <widget class="QWidget" name="widget_add_local" native="true">
       <property name="geometry">
@@ -1291,37 +1157,11 @@ color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(35, 40, 3, 255), st
       <widget class="QLineEdit" name="prix_heureEdit">
        <property name="geometry">
         <rect>
-         <x>350</x>
-         <y>240</y>
+         <x>370</x>
+         <y>30</y>
          <width>113</width>
          <height>20</height>
         </rect>
-       </property>
-      </widget>
-      <widget class="QCalendarWidget" name="calendar_local">
-       <property name="geometry">
-        <rect>
-         <x>280</x>
-         <y>30</y>
-         <width>251</width>
-         <height>191</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLabel" name="disponibilite_local">
-       <property name="geometry">
-        <rect>
-         <x>280</x>
-         <y>10</y>
-         <width>71</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background:transparent;</string>
-       </property>
-       <property name="text">
-        <string>Disponibilité:</string>
        </property>
       </widget>
       <widget class="QPushButton" name="add_localButton">
@@ -1354,8 +1194,8 @@ QPushButton:hover{
       <widget class="QLabel" name="prix_heure">
        <property name="geometry">
         <rect>
-         <x>280</x>
-         <y>240</y>
+         <x>290</x>
+         <y>30</y>
          <width>71</width>
          <height>16</height>
         </rect>
@@ -1541,16 +1381,42 @@ QPushButton:hover{
         <string>Retour</string>
        </property>
       </widget>
+      <widget class="QLabel" name="prix_heure_2">
+       <property name="geometry">
+        <rect>
+         <x>290</x>
+         <y>80</y>
+         <width>71</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:transparent;</string>
+       </property>
+       <property name="text">
+        <string>ID:</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="idEdit">
+       <property name="geometry">
+        <rect>
+         <x>370</x>
+         <y>80</y>
+         <width>113</width>
+         <height>20</height>
+        </rect>
+       </property>
+      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="searchLocalWindow">
      <widget class="QWidget" name="widget_search_local" native="true">
       <property name="geometry">
        <rect>
-        <x>50</x>
-        <y>110</y>
-        <width>541</width>
-        <height>251</height>
+        <x>10</x>
+        <y>30</y>
+        <width>581</width>
+        <height>391</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -1574,107 +1440,24 @@ color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(35, 40, 3, 255), st
         <string>Chercher un local via:</string>
        </property>
       </widget>
-      <widget class="QComboBox" name="critere_1_local">
+      <widget class="QCheckBox" name="checkBox_entreprise_2">
        <property name="geometry">
         <rect>
-         <x>40</x>
-         <y>60</y>
-         <width>131</width>
-         <height>21</height>
+         <x>440</x>
+         <y>70</y>
+         <width>81</width>
+         <height>18</height>
         </rect>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="critere_2_local">
-       <property name="geometry">
-        <rect>
-         <x>210</x>
-         <y>60</y>
-         <width>131</width>
-         <height>21</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="critere_3_local">
-       <property name="geometry">
-        <rect>
-         <x>380</x>
-         <y>60</y>
-         <width>131</width>
-         <height>21</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="critere_1_localEdit">
-       <property name="geometry">
-        <rect>
-         <x>50</x>
-         <y>100</y>
-         <width>113</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background:transparent;</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="critere_2_localEdit">
-       <property name="geometry">
-        <rect>
-         <x>220</x>
-         <y>100</y>
-         <width>113</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background:transparent;</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="critere_3_localEdit">
-       <property name="geometry">
-        <rect>
-         <x>390</x>
-         <y>100</y>
-         <width>113</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background:transparent;</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="search_localButton">
-       <property name="geometry">
-        <rect>
-         <x>180</x>
-         <y>140</y>
-         <width>171</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background:transparent;
-font: italic 12pt &quot;Century Gothic&quot;;
-color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(35, 40, 3, 255), stop:0.16 rgba(136, 106, 22, 255), stop:0.225 rgba(166, 140, 41, 255), stop:0.285 rgba(204, 181, 74, 255), stop:0.345 rgba(235, 219, 102, 255), stop:0.415 rgba(245, 236, 112, 255), stop:0.52 rgba(209, 190, 76, 255), stop:0.57 rgba(187, 156, 51, 255), stop:0.635 rgba(168, 142, 42, 255), stop:0.695 rgba(202, 174, 68, 255), stop:0.75 rgba(218, 202, 86, 255), stop:0.815 rgba(208, 187, 73, 255), stop:0.88 rgba(187, 156, 51, 255), stop:0.935 rgba(137, 108, 26, 255), stop:1 rgba(35, 40, 3, 255));
-border-bottom:2px solid#717072;
-border-color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(35, 40, 3, 255), stop:0.16 rgba(136, 106, 22, 255), stop:0.225 rgba(166, 140, 41, 255), stop:0.285 rgba(204, 181, 74, 255), stop:0.345 rgba(235, 219, 102, 255), stop:0.415 rgba(245, 236, 112, 255), stop:0.52 rgba(209, 190, 76, 255), stop:0.57 rgba(187, 156, 51, 255), stop:0.635 rgba(168, 142, 42, 255), stop:0.695 rgba(202, 174, 68, 255), stop:0.75 rgba(218, 202, 86, 255), stop:0.815 rgba(208, 187, 73, 255), stop:0.88 rgba(187, 156, 51, 255), stop:0.935 rgba(137, 108, 26, 255), stop:1 rgba(35, 40, 3, 255));
-background-color: rgb(255, 212, 250);
-
-border-radius:15px;}
-QPushButton:hover{
-	
-	background-color: rgb(234, 78, 117);
-</string>
        </property>
        <property name="text">
-        <string>Chercher</string>
+        <string>Entreprise</string>
        </property>
       </widget>
       <widget class="QPushButton" name="return_search_localButton">
        <property name="geometry">
         <rect>
-         <x>220</x>
-         <y>200</y>
+         <x>480</x>
+         <y>220</y>
          <width>91</width>
          <height>31</height>
         </rect>
@@ -1695,6 +1478,147 @@ QPushButton:hover{
        </property>
        <property name="text">
         <string>Retour</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="search_localButton">
+       <property name="geometry">
+        <rect>
+         <x>480</x>
+         <y>180</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:transparent;
+font: italic 12pt &quot;Century Gothic&quot;;
+color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(35, 40, 3, 255), stop:0.16 rgba(136, 106, 22, 255), stop:0.225 rgba(166, 140, 41, 255), stop:0.285 rgba(204, 181, 74, 255), stop:0.345 rgba(235, 219, 102, 255), stop:0.415 rgba(245, 236, 112, 255), stop:0.52 rgba(209, 190, 76, 255), stop:0.57 rgba(187, 156, 51, 255), stop:0.635 rgba(168, 142, 42, 255), stop:0.695 rgba(202, 174, 68, 255), stop:0.75 rgba(218, 202, 86, 255), stop:0.815 rgba(208, 187, 73, 255), stop:0.88 rgba(187, 156, 51, 255), stop:0.935 rgba(137, 108, 26, 255), stop:1 rgba(35, 40, 3, 255));
+border-bottom:2px solid#717072;
+border-color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(35, 40, 3, 255), stop:0.16 rgba(136, 106, 22, 255), stop:0.225 rgba(166, 140, 41, 255), stop:0.285 rgba(204, 181, 74, 255), stop:0.345 rgba(235, 219, 102, 255), stop:0.415 rgba(245, 236, 112, 255), stop:0.52 rgba(209, 190, 76, 255), stop:0.57 rgba(187, 156, 51, 255), stop:0.635 rgba(168, 142, 42, 255), stop:0.695 rgba(202, 174, 68, 255), stop:0.75 rgba(218, 202, 86, 255), stop:0.815 rgba(208, 187, 73, 255), stop:0.88 rgba(187, 156, 51, 255), stop:0.935 rgba(137, 108, 26, 255), stop:1 rgba(35, 40, 3, 255));
+background-color: rgb(255, 212, 250);
+
+border-radius:15px;}
+QPushButton:hover{
+	
+	background-color: rgb(234, 78, 117);
+</string>
+       </property>
+       <property name="text">
+        <string>Chercher</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="critere_endroitEdit">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>100</y>
+         <width>113</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:transparent;</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBox_type">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>70</y>
+         <width>70</width>
+         <height>18</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Type</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="critere_entrepriseEdit_2">
+       <property name="geometry">
+        <rect>
+         <x>440</x>
+         <y>100</y>
+         <width>113</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:transparent;</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBox_endroit">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>70</y>
+         <width>70</width>
+         <height>18</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Endroit</string>
+       </property>
+      </widget>
+      <widget class="QTableView" name="tableView_2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>160</y>
+         <width>461</width>
+         <height>211</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="critere_terraincouvert">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>90</y>
+         <width>111</width>
+         <height>18</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Terrain couvert</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="critere_terrainnoncouvert">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>110</y>
+         <width>131</width>
+         <height>18</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Terrain non couvert</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="critere_salledefete">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>90</y>
+         <width>101</width>
+         <height>18</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Salle de fete</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="critere_hotel">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>110</y>
+         <width>83</width>
+         <height>18</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Hotel</string>
        </property>
       </widget>
      </widget>
@@ -1731,10 +1655,50 @@ color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(35, 40, 3, 255), st
         <string>Voici la liste de nos locaux:</string>
        </property>
       </widget>
+      <widget class="QTableView" name="table_local">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>60</y>
+         <width>351</width>
+         <height>221</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="local_listEdit">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>90</y>
+         <width>113</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:transparent;</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="local_idLabel">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>60</y>
+         <width>171</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:transparent;
+</string>
+       </property>
+       <property name="text">
+        <string>Entrez un ID:</string>
+       </property>
+      </widget>
       <widget class="QPushButton" name="return_local_listButton">
        <property name="geometry">
         <rect>
-         <x>440</x>
+         <x>420</x>
          <y>340</y>
          <width>91</width>
          <height>31</height>
@@ -1758,9 +1722,112 @@ QPushButton:hover{
         <string>Retour</string>
        </property>
       </widget>
+      <widget class="QPushButton" name="supprimer_local_listButton">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>120</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:transparent;
+font: italic 12pt &quot;Century Gothic&quot;;
+color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(35, 40, 3, 255), stop:0.16 rgba(136, 106, 22, 255), stop:0.225 rgba(166, 140, 41, 255), stop:0.285 rgba(204, 181, 74, 255), stop:0.345 rgba(235, 219, 102, 255), stop:0.415 rgba(245, 236, 112, 255), stop:0.52 rgba(209, 190, 76, 255), stop:0.57 rgba(187, 156, 51, 255), stop:0.635 rgba(168, 142, 42, 255), stop:0.695 rgba(202, 174, 68, 255), stop:0.75 rgba(218, 202, 86, 255), stop:0.815 rgba(208, 187, 73, 255), stop:0.88 rgba(187, 156, 51, 255), stop:0.935 rgba(137, 108, 26, 255), stop:1 rgba(35, 40, 3, 255));
+border-bottom:2px solid#717072;
+border-color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(35, 40, 3, 255), stop:0.16 rgba(136, 106, 22, 255), stop:0.225 rgba(166, 140, 41, 255), stop:0.285 rgba(204, 181, 74, 255), stop:0.345 rgba(235, 219, 102, 255), stop:0.415 rgba(245, 236, 112, 255), stop:0.52 rgba(209, 190, 76, 255), stop:0.57 rgba(187, 156, 51, 255), stop:0.635 rgba(168, 142, 42, 255), stop:0.695 rgba(202, 174, 68, 255), stop:0.75 rgba(218, 202, 86, 255), stop:0.815 rgba(208, 187, 73, 255), stop:0.88 rgba(187, 156, 51, 255), stop:0.935 rgba(137, 108, 26, 255), stop:1 rgba(35, 40, 3, 255));
+background-color: rgb(255, 212, 250);
+
+border-radius:15px;}
+QPushButton:hover{
+	
+	background-color: rgb(234, 78, 117);
+</string>
+       </property>
+       <property name="text">
+        <string>Supprimer</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="modifier_local_listButton">
+       <property name="geometry">
+        <rect>
+         <x>320</x>
+         <y>340</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:transparent;
+font: italic 12pt &quot;Century Gothic&quot;;
+color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(35, 40, 3, 255), stop:0.16 rgba(136, 106, 22, 255), stop:0.225 rgba(166, 140, 41, 255), stop:0.285 rgba(204, 181, 74, 255), stop:0.345 rgba(235, 219, 102, 255), stop:0.415 rgba(245, 236, 112, 255), stop:0.52 rgba(209, 190, 76, 255), stop:0.57 rgba(187, 156, 51, 255), stop:0.635 rgba(168, 142, 42, 255), stop:0.695 rgba(202, 174, 68, 255), stop:0.75 rgba(218, 202, 86, 255), stop:0.815 rgba(208, 187, 73, 255), stop:0.88 rgba(187, 156, 51, 255), stop:0.935 rgba(137, 108, 26, 255), stop:1 rgba(35, 40, 3, 255));
+border-bottom:2px solid#717072;
+border-color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(35, 40, 3, 255), stop:0.16 rgba(136, 106, 22, 255), stop:0.225 rgba(166, 140, 41, 255), stop:0.285 rgba(204, 181, 74, 255), stop:0.345 rgba(235, 219, 102, 255), stop:0.415 rgba(245, 236, 112, 255), stop:0.52 rgba(209, 190, 76, 255), stop:0.57 rgba(187, 156, 51, 255), stop:0.635 rgba(168, 142, 42, 255), stop:0.695 rgba(202, 174, 68, 255), stop:0.75 rgba(218, 202, 86, 255), stop:0.815 rgba(208, 187, 73, 255), stop:0.88 rgba(187, 156, 51, 255), stop:0.935 rgba(137, 108, 26, 255), stop:1 rgba(35, 40, 3, 255));
+background-color: rgb(255, 212, 250);
+
+border-radius:15px;}
+QPushButton:hover{
+	
+	background-color: rgb(234, 78, 117);
+</string>
+       </property>
+       <property name="text">
+        <string>Modifier</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="imprimer_local_listButton">
+       <property name="geometry">
+        <rect>
+         <x>220</x>
+         <y>340</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:transparent;
+font: italic 12pt &quot;Century Gothic&quot;;
+color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(35, 40, 3, 255), stop:0.16 rgba(136, 106, 22, 255), stop:0.225 rgba(166, 140, 41, 255), stop:0.285 rgba(204, 181, 74, 255), stop:0.345 rgba(235, 219, 102, 255), stop:0.415 rgba(245, 236, 112, 255), stop:0.52 rgba(209, 190, 76, 255), stop:0.57 rgba(187, 156, 51, 255), stop:0.635 rgba(168, 142, 42, 255), stop:0.695 rgba(202, 174, 68, 255), stop:0.75 rgba(218, 202, 86, 255), stop:0.815 rgba(208, 187, 73, 255), stop:0.88 rgba(187, 156, 51, 255), stop:0.935 rgba(137, 108, 26, 255), stop:1 rgba(35, 40, 3, 255));
+border-bottom:2px solid#717072;
+border-color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(35, 40, 3, 255), stop:0.16 rgba(136, 106, 22, 255), stop:0.225 rgba(166, 140, 41, 255), stop:0.285 rgba(204, 181, 74, 255), stop:0.345 rgba(235, 219, 102, 255), stop:0.415 rgba(245, 236, 112, 255), stop:0.52 rgba(209, 190, 76, 255), stop:0.57 rgba(187, 156, 51, 255), stop:0.635 rgba(168, 142, 42, 255), stop:0.695 rgba(202, 174, 68, 255), stop:0.75 rgba(218, 202, 86, 255), stop:0.815 rgba(208, 187, 73, 255), stop:0.88 rgba(187, 156, 51, 255), stop:0.935 rgba(137, 108, 26, 255), stop:1 rgba(35, 40, 3, 255));
+background-color: rgb(255, 212, 250);
+
+border-radius:15px;}
+QPushButton:hover{
+	
+	background-color: rgb(234, 78, 117);
+</string>
+       </property>
+       <property name="text">
+        <string>Imprimer</string>
+       </property>
+      </widget>
      </widget>
     </widget>
-    <widget class="QWidget" name="modifierCarWindow"/>
+    <widget class="QWidget" name="pieWindow">
+     <widget class="QWidget" name="piewidget" native="true">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>20</y>
+        <width>541</width>
+        <height>381</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-image: url(:/new/prefix1/image/103854343_259019528641376_3453490155072435271_n.jpg);
+font: italic 9pt &quot;Century Gothic&quot;;
+color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(35, 40, 3, 255), stop:0.16 rgba(136, 106, 22, 255), stop:0.225 rgba(166, 140, 41, 255), stop:0.285 rgba(204, 181, 74, 255), stop:0.345 rgba(235, 219, 102, 255), stop:0.415 rgba(245, 236, 112, 255), stop:0.52 rgba(209, 190, 76, 255), stop:0.57 rgba(187, 156, 51, 255), stop:0.635 rgba(168, 142, 42, 255), stop:0.695 rgba(202, 174, 68, 255), stop:0.75 rgba(218, 202, 86, 255), stop:0.815 rgba(208, 187, 73, 255), stop:0.88 rgba(187, 156, 51, 255), stop:0.935 rgba(137, 108, 26, 255), stop:1 rgba(35, 40, 3, 255));</string>
+      </property>
+     </widget>
+    </widget>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>

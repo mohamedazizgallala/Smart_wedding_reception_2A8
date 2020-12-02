@@ -1,9 +1,15 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 #include "car.h"
+#include "local.h"
 #include <QMessageBox>
 #include <QMainWindow>
 #include <QSqlTableModel>
+#include <QFileDialog>
+#include <QPrinter>
+#include <QPrintDialog>
+#include <QTextDocument>
+#include <QMediaPlayer>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -66,8 +72,25 @@ private slots:
 
     void on_modifier_car_listButton_clicked();
 
+    void on_imprimer_car_listButton_clicked();
+
+    void on_search_carButton_clicked();
+
+    void on_imprimer_car_listButton_2_clicked();
+
+    void on_supprimer_local_listButton_clicked();
+
+    void on_modifier_local_listButton_clicked();
+
+    void on_search_localButton_clicked();
+
+    void on_imprimer_local_listButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     car cartemp; //to use for crud other than ajouter
+    local localtemp;
+   QMediaPlayer player;
+
 };
 #endif // MAINWINDOW_H

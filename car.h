@@ -18,6 +18,14 @@ public:
     QSqlQueryModel * afficher_car();
     bool supprimer_car(QString);
     bool modifier_car();
+    QSqlQueryModel *rechercher_combinaison_all(QString,QString,QString);
+    QSqlQueryModel *rechercher_combinaison_marque_couleur(QString,QString);
+    QSqlQueryModel *rechercher_combinaison_marque_entreprise(QString,QString);
+    QSqlQueryModel *rechercher_combinaison_couleur_entreprise(QString,QString);
+    QSqlQueryModel *rechercher_marque(QString);
+    QSqlQueryModel *rechercher_couleur(QString);
+    QSqlQueryModel *rechercher_entreprise(QString);
+    int count_couleur(QString);
 
 };
 
