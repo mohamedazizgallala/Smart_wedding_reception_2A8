@@ -1,0 +1,22 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>image/110-512.png</file>
+        <file>image/12997.jpg</file>
+        <file>image/68840726_2267592723458428_7100249795545006080_n.png</file>
+        <file>image/78975623_971263409919499_1806784770244345856_n.png</file>
+        <file>image/103854343_259019528641376_3453490155072435271_n.jpg</file>
+        <file>image/121527165_283003159406450_6476818707641022998_n.jpg</file>
+        <file>image/125871065_3794055493961849_7751899743945070489_n.png</file>
+        <file>image/126064855_175837537500749_1998602065331782012_n.png</file>
+        <file>image/126137263_849557825870724_5678220104470593087_n.png</file>
+        <file>image/evenement.png</file>
+        <file>image/image.qrc</file>
+        <file>image/istockphoto-1013470804-1024x1024.jpg</file>
+        <file>image/kisspng-solar-calendar-symbol-computer-icons-encapsulated-calendar-icon-5ac41db82504c0.0773126515228021041516.jpg</file>
+        <file>image/offre.png</file>
+        <file>image/pngtree-add-vector-icon-png-image_470700.jpg</file>
+        <file>image/—Pngtree—add vector icon_3791307.png</file>
+        <file>image/5848576ba6aca45b5a5c95b7.png</file>
+        <file>image/—Pngtree—printer vector icon_3791373.png</file>
+    </qresource>
+</RCC>
