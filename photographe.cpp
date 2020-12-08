@@ -1,5 +1,5 @@
 #include "photographe.h"
-
+#include <QMediaPlayer>
 
 Photographe::Photographe()
 {

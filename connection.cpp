@@ -1,6 +1,7 @@
 #include "connection.h"
 
-//test turoril git
+
+
 Connection::Connection()
 {
 
@@ -17,9 +18,9 @@ if (db.open())
 test=true;
    return  test;
 }
+
 bool Connection::loginconnection(QString username, QString password){
     bool connected = false;
-
     QSqlQuery query(QSqlDatabase::database("projet"));
     query.prepare(QString("SELECT * FROM EMPLOYEES_LOGIN WHERE ID =:username AND PASSWORD =:password"));
     query.bindValue(":username",username);

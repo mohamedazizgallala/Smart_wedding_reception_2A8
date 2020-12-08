@@ -1,8 +1,12 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "photographe.h"
+#include "graphiste.h"
 #include <QDebug>
 #include <QMediaPlayer>
+#include <QWidget>
+/*#include <QPrinter>
+#include <QPrintDialog>*/
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -15,8 +19,15 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tablephotographes->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui->tablephotographes->setSelectionMode(QAbstractItemView::SingleSelection);
 
+    ui->tablegraphistes->setModel(tempgraph.afficher());
+    ui->tablegraphistes->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->tablegraphistes->setSelectionMode(QAbstractItemView::SingleSelection);
+
     QItemSelectionModel *select = ui->tablephotographes->selectionModel();
     email_recipient =select->selectedRows(4).value(0).data().toString();
+
+    QItemSelectionModel *selectt = ui->tablegraphistes->selectionModel();
+    email_recipient =selectt->selectedRows(4).value(0).data().toString();
 }
 
 
@@ -46,7 +57,22 @@ void MainWindow::on_Login_clicked()
 
 void MainWindow::on_pushButton_clicked()
 {
+    QMediaPlayer * bulletsound = new QMediaPlayer();
+       bulletsound->setMedia(QUrl::fromLocalFile(":/new/prefix1/soundss/zapsplat_multimedia_button_click_fast_plastic_49161.mp3"));
+       if (bulletsound->state() == QMediaPlayer::PlayingState){
+           bulletsound->setPosition(0);
+       }
+       else if (bulletsound->state() == QMediaPlayer::StoppedState){
+           bulletsound->play();
+       }
     ui->stackedWidget->setCurrentIndex(3);
+}
+
+
+
+void MainWindow::on_pushButton_espacegraph_clicked()
+{
+      ui->stackedWidget->setCurrentIndex(4);
 }
 
 
@@ -72,14 +98,7 @@ void MainWindow::on_ajouter_button_clicked()
 
 void MainWindow::on_SUPPRIMER8BUTTON_clicked()
 {
-   int id = ui->lineEdit_2->text().toInt();
-    bool test = tempphoto.supprimer(id);
-    if (test)
-     {
-        ui->tablephotographes->setModel(tempphoto.afficher());
-      QMessageBox::information(nullptr, QObject::tr(" suppression photographe "),
-                             QObject::tr("photographe supprimé :"), QMessageBox::Cancel);
-     }
+
  }
 
 
@@ -194,14 +213,194 @@ void MainWindow::on_pushButton_2_clicked()
     Smtp * smtp=new Smtp("wissal.soudani@esprit.tn","wissalesprit","smtp.gmail.com",465);
     smtp->sendMail("wissal.soudani@esprit.tn",ui->recepteur->text(),ui->objet->text(),ui->msg->toPlainText());
 
+
 }
 
 void MainWindow::on_pushButton_4_clicked()
 {
-    QItemSelectionModel *select = ui->tablephotographes->selectionModel();
+    QItemSelectionModel *select = ui->tablegraphistes->selectionModel();
     email_recipient =select->selectedRows(4).value(0).data().toString();
     ui->recepteur->setText(email_recipient);
 }
 
 
 
+
+
+void MainWindow::on__ajouter_button_2_clicked()
+{
+    int id = ui->_lineedit_id_2->text().toInt();
+    QString nom = ui->_lineedit_nom_2->text();
+    QString prenom = ui->_lineedit_prenom_2->text();
+    int tel = ui->_lineeedit_tel_2->text().toInt();
+    QString adresse = ui->_lineedit_adresse_2->text();
+    Graphiste g(id,nom,prenom,tel,adresse);
+    bool test =g.ajouter();
+      if (test)
+
+     {  ui->tablegraphistes->setModel(tempgraph.afficher());
+        QMessageBox::information(nullptr, QObject::tr("ajout graphiste"),
+                                 QObject::tr("graphiste ajouté :"), QMessageBox::Cancel);
+
+     }
+
+}
+
+void MainWindow::on__pushButton_5_clicked()
+{
+     ui->stackedWidget->setCurrentIndex(3);
+}
+
+void MainWindow::on__pushButton_recherche_2_clicked()
+{
+    Graphiste g;
+    QString text;
+
+    if (ui->_radioButton_ID_2->isChecked()==true)
+   {
+   text=ui->_lineEdit_rechercher_2->text();
+     if(text == "")
+     {
+         ui->tablegraphistes->setModel(g.afficher());
+     }
+
+     else
+     {
+         ui->tablegraphistes->setModel(g.chercher_photo_id(text));
+     }
+    }
+
+
+   if(ui->_radioButton_nom_2->isChecked()==true)
+    {
+        text=ui->_lineEdit_rechercher_2->text();
+             if(text == "")
+
+             {
+                 ui->tablegraphistes->setModel(g.afficher());
+
+             }
+
+             else
+
+             {
+                 ui->tablegraphistes->setModel(g.chercher_photo_nom(text));
+             }
+
+    }
+
+     else if     (ui->_radioButton_prenom_2->isChecked()==true)
+     {
+
+         text=ui->_lineEdit_rechercher_2->text();
+              if(text == "")
+
+              {
+                  ui->tablegraphistes->setModel(g.afficher());
+              }
+
+              else
+
+              {
+                  ui->tablegraphistes->setModel(g.chercher_photo_prenom(text));
+              }
+     }
+}
+
+void MainWindow::on_tri_button_2_clicked()
+{
+    Graphiste g;
+       /*QString critere=ui->cb_historique->currentText();*/
+           QString mode;
+            if (ui->_rb_asc_historique_2->isChecked()==true)
+       {
+                ui->tablegraphistes->setModel(g.trie());
+
+
+       }
+            else if(ui->_rb_desc_historique_2->isChecked()==true)
+
+                ui->tablegraphistes->setModel(g.trie2());
+}
+
+
+void MainWindow::on__modifier_button_2_clicked()
+{
+    if (ui->_modifier_button_2->isChecked())
+        {
+            ui->_modifier_button_2->setDisabled(true);
+            ui->_modifier_button_2->setText("Modifiable");
+            QSqlTableModel *tableModel= new QSqlTableModel();
+            tableModel->setTable("GRAPHISTE");
+            tableModel->select();
+            ui->tablegraphistes->setModel(tableModel);
+        }
+        else
+        {
+            ui->_modifier_button_2->setText("Modifier");
+            ui->tablegraphistes->setModel(tempgraph.afficher());
+
+        }
+}
+
+void MainWindow::on__pushButton_6_clicked()
+{
+    QItemSelectionModel *select = ui->tablegraphistes->selectionModel();
+    email_recipient =select->selectedRows(4).value(0).data().toString();
+    ui->recepteur_2->setText(email_recipient);
+}
+
+void MainWindow::on__quit_button_2_clicked()
+{
+    close();
+}
+
+void MainWindow::on_SUPPRIMER8BUTTON_2_clicked()
+{
+    int id = ui->lineEdit_2->text().toInt();
+     bool test = tempgraph.supprimer(id);
+     if (test)
+      {
+         ui->tablegraphistes->setModel(tempgraph.afficher());
+       QMessageBox::information(nullptr, QObject::tr(" suppression graphiste "),
+                              QObject::tr("graphiste supprimé :"), QMessageBox::Cancel);
+      }
+}
+
+void MainWindow::on_pushButton_7_clicked()
+{
+    Smtp * smtp=new Smtp("wissal.soudani@esprit.tn","wissalesprit","smtp.gmail.com",465);
+    smtp->sendMail("wissal.soudani@esprit.tn",ui->recepteur_2->text(),ui->objet_2->text(),ui->msg_2->toPlainText());
+}
+
+
+
+
+
+
+void MainWindow::on_exporter_button_clicked()
+{
+    QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Export PDF", QString(), "*.pdf");
+        if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append("liste_invites.pdf"); }
+
+        QPrinter printer(QPrinter::PrinterResolution);
+        printer.setOutputFormat(QPrinter::PdfFormat);
+        printer.setPaperSize(QPrinter::A4);
+        printer.setOutputFileName(fileName);
+
+        QTextDocument doc;
+        QSqlQuery q;
+        q.prepare("SELECT * FROM PHOTO ");
+        q.exec();
+        QString pdf="<br> <img src='C:/Users/wissa/OneDrive/Bureau/projet/logo.png' height='42' width='144'/> <h1  style='color:red'>       LISTE DES PHOTOGRAPHES  <br></h1>\n <br> <table>  <tr>  <th> ID </th> <th> NOM </th> <th> PRENOM </th> <th> TEL  </th> <th> E-MAIL </th>  </tr>" ;
+
+
+        while ( q.next()) {
+
+            pdf= pdf+ " <br> <tr> <td>"+ q.value(0).toString()+"    </td>  <td>   " + q.value(1).toString() +"</td>  <td>" +q.value(2).toString() +"  "" " "</td>      <td>     "+q.value(3).toString()+"--------"+"</td>       <td>"+q.value(4).toString()+"       </td>" ;
+
+        }
+        doc.setHtml(pdf);
+        doc.setPageSize(printer.pageRect().size()); // This is necessary if you want to hide the page number
+        doc.print(&printer);
+}
