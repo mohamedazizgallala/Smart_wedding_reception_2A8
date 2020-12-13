@@ -29,42 +29,52 @@ public:
 
 
 private slots:
-     void on_pushButton_clicked();
-    void on_Login_clicked();
-    void on_ajouter_button_clicked();
-    void on_SUPPRIMER8BUTTON_clicked();
-    void on_modifier_button_clicked();
-    void login();
-    void on_pushButton_3_clicked();
-    void on_tri_button_clicked();
+
     void on_quit_button_clicked();
-    void on_pushButton_recherche_clicked();
-    void on_pushButton_2_clicked();
-    void on_pushButton_4_clicked();
-    //void on_recherche_clicked();
-    void on_pushButton_espacegraph_clicked();
 
-    void on__ajouter_button_2_clicked();
+    void on_ajouter_photographe_clicked();
 
-    void on__pushButton_5_clicked();
+    void on_recherche_photographe_clicked();
 
-    void on__pushButton_recherche_2_clicked();
+    void on_exporterpdf_graphiste_clicked();
 
-    void on_tri_button_2_clicked();
+    void on_exporterpdf_photographe_clicked();
 
-    void on__modifier_button_2_clicked();
+    void on_tri_photographe_clicked();
 
-    void on__pushButton_6_clicked();
+    void on_modifier_photographe_clicked();
+
+    void on_envoyermail_graphiste_clicked();
+
+    void on_supprimer_graphiste_clicked();
+
+    void on_rechercher_graphiste_clicked();
+
+    void on_ajouter_graphiste_clicked();
+
+    void on_modifier_graphiste_clicked();
+
+    void on_envoyermail_photographe_clicked();
+
+    void on_selectionnermail_photographe_clicked();
+
+    void on_tri_graphiste_clicked();
+
+    void on_selectionnermail_graphiste_clicked();
+
+    void on_supprimer_photographe_clicked();
+
+    void on_retour_clicked();
+
+    void on_retour2_clicked();
+
+    void on_Login_graphisme_clicked();
 
     void on__quit_button_2_clicked();
 
-    void on_SUPPRIMER8BUTTON_2_clicked();
+    void on_Button_espacegraphistes_clicked();
 
-    void on_pushButton_7_clicked();
-
-    //void on_exporte_button_clicked();
-
-    void on_exporter_button_clicked();
+    void on_button_espace_photographes_clicked();
 
 private:
     Ui::MainWindow *ui;
