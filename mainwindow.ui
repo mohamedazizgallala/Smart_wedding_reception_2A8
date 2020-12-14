@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>939</width>
-    <height>562</height>
+    <width>1132</width>
+    <height>647</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -27,9 +27,9 @@
      <string notr="true">background-image: url(:/new/prefix1/image/12997.jpg);</string>
     </property>
     <property name="currentIndex">
-     <number>8</number>
+     <number>9</number>
     </property>
-    <widget class="QWidget" name="autentification">
+    <widget class="QWidget" name="autentification_mar">
      <widget class="QFrame" name="frame">
       <property name="geometry">
        <rect>
@@ -162,7 +162,7 @@ border-bottom:2px solid#717072;
        </property>
       </widget>
      </widget>
-     <widget class="QPushButton" name="pushButton_10">
+     <widget class="QPushButton" name="pushButton_10_mar">
       <property name="geometry">
        <rect>
         <x>370</x>
@@ -188,7 +188,7 @@ QPushButton:hover{
        <string>Login</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_15">
+     <widget class="QPushButton" name="pushButton_15_mar">
       <property name="geometry">
        <rect>
         <x>720</x>
@@ -215,7 +215,7 @@ QPushButton:hover{
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="page_12">
+    <widget class="QWidget" name="page_12_mar">
      <widget class="QTabWidget" name="tabWidget">
       <property name="geometry">
        <rect>
@@ -240,7 +240,7 @@ border-bottom:2px solid#717072;
        <attribute name="title">
         <string>Ajouter une offre</string>
        </attribute>
-       <widget class="QPushButton" name="pushButton_5">
+       <widget class="QPushButton" name="pushButton_5_mar">
         <property name="geometry">
          <rect>
           <x>60</x>
@@ -266,7 +266,7 @@ QPushButton:hover{
          <string>Ajouter</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="retour4_3">
+       <widget class="QPushButton" name="retour4_3_mar">
         <property name="geometry">
          <rect>
           <x>670</x>
@@ -292,7 +292,7 @@ QPushButton:hover{
          <string>Retour</string>
         </property>
        </widget>
-       <widget class="QLabel" name="label_2">
+       <widget class="QLabel" name="label_2_mar">
         <property name="geometry">
          <rect>
           <x>245</x>
@@ -323,7 +323,7 @@ border-bottom:2px solid#717072;
          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Veuillez remplir le formulaire:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
-       <widget class="QLabel" name="label_5">
+       <widget class="QLabel" name="label_5_mar">
         <property name="geometry">
          <rect>
           <x>245</x>
@@ -345,7 +345,7 @@ border-bottom:2px solid#717072;
          <string>date debut:</string>
         </property>
        </widget>
-       <widget class="QLabel" name="label_6">
+       <widget class="QLabel" name="label_6_mar">
         <property name="geometry">
          <rect>
           <x>245</x>
@@ -367,7 +367,7 @@ border-bottom:2px solid#717072;
          <string>date fin:</string>
         </property>
        </widget>
-       <widget class="QLabel" name="label_3">
+       <widget class="QLabel" name="label_3_mar">
         <property name="geometry">
          <rect>
           <x>245</x>
@@ -389,7 +389,7 @@ border-bottom:2px solid#717072;
          <string>ID:</string>
         </property>
        </widget>
-       <widget class="QLabel" name="label_4">
+       <widget class="QLabel" name="label_4_mar">
         <property name="geometry">
          <rect>
           <x>245</x>
@@ -411,7 +411,7 @@ border-bottom:2px solid#717072;
          <string>nom:</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="dated_ajout">
+       <widget class="QLineEdit" name="dated_ajout_mar">
         <property name="geometry">
          <rect>
           <x>610</x>
@@ -442,7 +442,7 @@ border-bottom:2px solid#717072;
 </string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="datef_ajout">
+       <widget class="QLineEdit" name="datef_ajout_mar">
         <property name="geometry">
          <rect>
           <x>610</x>
@@ -473,7 +473,7 @@ border-bottom:2px solid#717072;
 </string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="id_ajout">
+       <widget class="QLineEdit" name="id_ajout_mar">
         <property name="geometry">
          <rect>
           <x>610</x>
@@ -504,7 +504,7 @@ border-bottom:2px solid#717072;
 </string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="nom_ajout">
+       <widget class="QLineEdit" name="nom_ajout_mar">
         <property name="geometry">
          <rect>
           <x>610</x>
@@ -535,7 +535,7 @@ border-bottom:2px solid#717072;
 </string>
         </property>
        </widget>
-       <widget class="QLabel" name="label_26">
+       <widget class="QLabel" name="label_26_mar">
         <property name="geometry">
          <rect>
           <x>400</x>
@@ -557,7 +557,7 @@ image: url(:/new/prefix1/image/—Pngtree—add vector icon_3791307.png);</strin
        <attribute name="title">
         <string>Consulter une offre</string>
        </attribute>
-       <widget class="QLineEdit" name="lineEdit">
+       <widget class="QLineEdit" name="lineEdit_mar">
         <property name="geometry">
          <rect>
           <x>70</x>
@@ -579,7 +579,7 @@ border-bottom:2px solid#717072;
          <string>veuillez saisir le nom a rechercher</string>
         </property>
        </widget>
-       <widget class="QTableView" name="tableView">
+       <widget class="QTableView" name="tableView_mar">
         <property name="geometry">
          <rect>
           <x>10</x>
@@ -598,7 +598,7 @@ border-bottom:2px solid#717072;
 </string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="id_supp">
+       <widget class="QLineEdit" name="id_supp_mar">
         <property name="geometry">
          <rect>
           <x>640</x>
@@ -616,7 +616,7 @@ border-bottom:2px solid#717072;
 </string>
         </property>
        </widget>
-       <widget class="QLabel" name="label_7">
+       <widget class="QLabel" name="label_7_mar">
         <property name="geometry">
          <rect>
           <x>20</x>
@@ -647,7 +647,7 @@ border-bottom:2px solid#717072;
          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Veuillez saisir l'id del'offre:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="SUPPRIMER">
+       <widget class="QPushButton" name="SUPPRIMER_mar">
         <property name="geometry">
          <rect>
           <x>780</x>
@@ -673,7 +673,7 @@ QPushButton:hover{
          <string>Supprimer</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="SUPPRIMER_2">
+       <widget class="QPushButton" name="SUPPRIMER_2_mar">
         <property name="geometry">
          <rect>
           <x>780</x>
@@ -699,7 +699,7 @@ QPushButton:hover{
          <string>Modifier</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton_65">
+       <widget class="QPushButton" name="pushButton_65_mar">
         <property name="geometry">
          <rect>
           <x>690</x>
@@ -725,7 +725,7 @@ QPushButton:hover{
          <string>Envoyer un email</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="tri">
+       <widget class="QPushButton" name="tri_mar">
         <property name="geometry">
          <rect>
           <x>700</x>
@@ -751,7 +751,7 @@ QPushButton:hover{
          <string>Trier</string>
         </property>
        </widget>
-       <widget class="QRadioButton" name="rb_asc_historique">
+       <widget class="QRadioButton" name="rb_asc_historique_mar">
         <property name="geometry">
          <rect>
           <x>766</x>
@@ -777,7 +777,7 @@ QPushButton:hover{
          <string>ID croissant</string>
         </property>
        </widget>
-       <widget class="QRadioButton" name="rb_desc_historique">
+       <widget class="QRadioButton" name="rb_desc_historique_mar">
         <property name="geometry">
          <rect>
           <x>590</x>
@@ -803,7 +803,7 @@ QPushButton:hover{
          <string>ID décroissant</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="recherche">
+       <widget class="QPushButton" name="recherche_mar">
         <property name="geometry">
          <rect>
           <x>700</x>
@@ -829,7 +829,7 @@ QPushButton:hover{
          <string>recherche</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="rech">
+       <widget class="QLineEdit" name="rech_mar">
         <property name="geometry">
          <rect>
           <x>710</x>
@@ -848,7 +848,7 @@ border-bottom:2px solid#717072;
 </string>
         </property>
        </widget>
-       <widget class="QRadioButton" name="rnom">
+       <widget class="QRadioButton" name="rnom_mar">
         <property name="geometry">
          <rect>
           <x>790</x>
@@ -874,7 +874,7 @@ QPushButton:hover{
          <string>nom</string>
         </property>
        </widget>
-       <widget class="QRadioButton" name="rid">
+       <widget class="QRadioButton" name="rid_mar">
         <property name="geometry">
          <rect>
           <x>650</x>
@@ -900,7 +900,7 @@ QPushButton:hover{
          <string>id</string>
         </property>
        </widget>
-       <widget class="QRadioButton" name="rdate">
+       <widget class="QRadioButton" name="rdate_mar">
         <property name="geometry">
          <rect>
           <x>690</x>
@@ -929,11 +929,11 @@ QPushButton:hover{
       </widget>
      </widget>
     </widget>
-    <widget class="QWidget" name="page_2"/>
-    <widget class="QWidget" name="page_3"/>
-    <widget class="QWidget" name="page_4"/>
-    <widget class="QWidget" name="page_5">
-     <widget class="QPushButton" name="MODIF">
+    <widget class="QWidget" name="page_2_mar"/>
+    <widget class="QWidget" name="page_3_mar"/>
+    <widget class="QWidget" name="page_4_mar"/>
+    <widget class="QWidget" name="page_5_mar">
+     <widget class="QPushButton" name="MODIF_mar">
       <property name="geometry">
        <rect>
         <x>620</x>
@@ -959,7 +959,7 @@ QPushButton:hover{
        <string>MODIFIER</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_3">
+     <widget class="QPushButton" name="pushButton_3_mar">
       <property name="geometry">
        <rect>
         <x>70</x>
@@ -996,7 +996,7 @@ QPushButton:hover{
       </property>
       <layout class="QGridLayout" name="gridLayout_3">
        <item row="0" column="0" colspan="2">
-        <widget class="QLabel" name="label_8">
+        <widget class="QLabel" name="label_8_mar">
          <property name="font">
           <font>
            <family>Century Gothic</family>
@@ -1021,7 +1021,7 @@ border-bottom:2px solid#717072;
         </widget>
        </item>
        <item row="1" column="0">
-        <widget class="QLabel" name="label_9">
+        <widget class="QLabel" name="label_9_mar">
          <property name="styleSheet">
           <string notr="true">color: rgb(0, 0, 0);
 font: 75 10pt &quot;Century Gothic&quot;;
@@ -1037,7 +1037,7 @@ border-bottom:2px solid#717072;
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QLineEdit" name="id_Modif">
+        <widget class="QLineEdit" name="id_Modif_mar">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -1062,7 +1062,7 @@ border-bottom:2px solid#717072;
         </widget>
        </item>
        <item row="2" column="0">
-        <widget class="QLabel" name="label_12">
+        <widget class="QLabel" name="label_12_mar">
          <property name="styleSheet">
           <string notr="true">color: rgb(0, 0, 0);
 font: 75 10pt &quot;Century Gothic&quot;;
@@ -1078,7 +1078,7 @@ border-bottom:2px solid#717072;
         </widget>
        </item>
        <item row="2" column="1">
-        <widget class="QLineEdit" name="nom_Modif">
+        <widget class="QLineEdit" name="nom_Modif_mar">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -1103,7 +1103,7 @@ border-bottom:2px solid#717072;
         </widget>
        </item>
        <item row="3" column="0">
-        <widget class="QLabel" name="label_11">
+        <widget class="QLabel" name="label_11_mar">
          <property name="styleSheet">
           <string notr="true">color: rgb(0, 0, 0);
 font: 75 10pt &quot;Century Gothic&quot;;
@@ -1119,7 +1119,7 @@ border-bottom:2px solid#717072;
         </widget>
        </item>
        <item row="3" column="1">
-        <widget class="QLineEdit" name="dated_Modif">
+        <widget class="QLineEdit" name="dated_Modif_mar">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -1144,7 +1144,7 @@ border-bottom:2px solid#717072;
         </widget>
        </item>
        <item row="4" column="0">
-        <widget class="QLabel" name="label_10">
+        <widget class="QLabel" name="label_10_mar">
          <property name="styleSheet">
           <string notr="true">color: rgb(0, 0, 0);
 font: 75 10pt &quot;Century Gothic&quot;;
@@ -1160,7 +1160,7 @@ border-bottom:2px solid#717072;
         </widget>
        </item>
        <item row="4" column="1">
-        <widget class="QLineEdit" name="datef_Modif">
+        <widget class="QLineEdit" name="datef_Modif_mar">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -1187,8 +1187,8 @@ border-bottom:2px solid#717072;
       </layout>
      </widget>
     </widget>
-    <widget class="QWidget" name="page">
-     <widget class="QPushButton" name="pushButton_6">
+    <widget class="QWidget" name="page_mar">
+     <widget class="QPushButton" name="pushButton_6_mar">
       <property name="geometry">
        <rect>
         <x>680</x>
@@ -1214,7 +1214,7 @@ QPushButton:hover{
        <string>envoyer</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_14">
+     <widget class="QPushButton" name="pushButton_14_mar">
       <property name="geometry">
        <rect>
         <x>80</x>
@@ -1240,7 +1240,7 @@ QPushButton:hover{
        <string>Retour</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_21">
+     <widget class="QLabel" name="label_21_mar">
       <property name="geometry">
        <rect>
         <x>250</x>
@@ -1277,7 +1277,7 @@ border-bottom:2px solid#717072;
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Mailing&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_20">
+     <widget class="QLabel" name="label_20_mar">
       <property name="geometry">
        <rect>
         <x>210</x>
@@ -1299,7 +1299,7 @@ border-bottom:2px solid#717072;
        <string>Contenu</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="msg">
+     <widget class="QLineEdit" name="msg_mar">
       <property name="geometry">
        <rect>
         <x>297</x>
@@ -1318,7 +1318,7 @@ border-bottom:2px solid#717072;
 </string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="objet">
+     <widget class="QLineEdit" name="objet_mar">
       <property name="geometry">
        <rect>
         <x>297</x>
@@ -1337,7 +1337,7 @@ border-bottom:2px solid#717072;
 </string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="recepteur">
+     <widget class="QLineEdit" name="recepteur_mar">
       <property name="geometry">
        <rect>
         <x>297</x>
@@ -1356,7 +1356,7 @@ border-bottom:2px solid#717072;
 </string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_19">
+     <widget class="QLabel" name="label_19_mar">
       <property name="geometry">
        <rect>
         <x>210</x>
@@ -1378,7 +1378,7 @@ border-bottom:2px solid#717072;
        <string>Sujet</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_17">
+     <widget class="QLabel" name="label_17_mar">
       <property name="geometry">
        <rect>
         <x>210</x>
@@ -1400,7 +1400,7 @@ border-bottom:2px solid#717072;
        <string>adresse</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_25">
+     <widget class="QLabel" name="label_25_mar">
       <property name="geometry">
        <rect>
         <x>400</x>
@@ -1418,7 +1418,7 @@ image: url(:/new/prefix1/image/5848576ba6aca45b5a5c95b7.png);
        <string/>
       </property>
      </widget>
-     <widget class="QPushButton" name="testtest">
+     <widget class="QPushButton" name="testtest_mar">
       <property name="geometry">
        <rect>
         <x>550</x>
@@ -1432,8 +1432,8 @@ image: url(:/new/prefix1/image/5848576ba6aca45b5a5c95b7.png);
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="page_6">
-     <widget class="QPushButton" name="pushButton_13">
+    <widget class="QWidget" name="page_6_mar">
+     <widget class="QPushButton" name="pushButton_13_mar">
       <property name="geometry">
        <rect>
         <x>100</x>
@@ -1459,7 +1459,7 @@ QPushButton:hover{
        <string>GESTION DES OFFRES</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_7">
+     <widget class="QPushButton" name="pushButton_7_mar">
       <property name="geometry">
        <rect>
         <x>550</x>
@@ -1485,7 +1485,7 @@ QPushButton:hover{
        <string>GESTION DES SESSIONS</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QPushButton" name="pushButton_2_mar">
       <property name="geometry">
        <rect>
         <x>760</x>
@@ -1511,7 +1511,7 @@ QPushButton:hover{
        <string>Quitter</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label">
+     <widget class="QLabel" name="label_mar">
       <property name="geometry">
        <rect>
         <x>60</x>
@@ -1528,7 +1528,7 @@ image: url(:/new/prefix1/image/offre.png);</string>
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_27">
+     <widget class="QLabel" name="label_27_mar">
       <property name="geometry">
        <rect>
         <x>510</x>
@@ -1546,8 +1546,8 @@ image: url(:/new/prefix1/image/evenement.png);</string>
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="page_7">
-     <widget class="QTabWidget" name="tabWidget_2">
+    <widget class="QWidget" name="page_7_mar">
+     <widget class="QTabWidget" name="tabWidget_2_mar">
       <property name="geometry">
        <rect>
         <x>0</x>
@@ -1567,11 +1567,11 @@ border-bottom:2px solid#717072;
       <property name="currentIndex">
        <number>1</number>
       </property>
-      <widget class="QWidget" name="tab_5">
+      <widget class="QWidget" name="tab_5_mar">
        <attribute name="title">
         <string>Ajouter une session</string>
        </attribute>
-       <widget class="QLineEdit" name="date_ajout_2">
+       <widget class="QLineEdit" name="date_ajout_2_mar">
         <property name="geometry">
          <rect>
           <x>610</x>
@@ -1602,7 +1602,7 @@ border-bottom:2px solid#717072;
 </string>
         </property>
        </widget>
-       <widget class="QPushButton" name="retour4_2">
+       <widget class="QPushButton" name="retour4_2_mar">
         <property name="geometry">
          <rect>
           <x>50</x>
@@ -1628,7 +1628,7 @@ QPushButton:hover{
          <string>retour</string>
         </property>
        </widget>
-       <widget class="QLabel" name="label_15">
+       <widget class="QLabel" name="label_15_mar">
         <property name="geometry">
          <rect>
           <x>245</x>
@@ -1650,7 +1650,7 @@ border-bottom:2px solid#717072;
          <string>nom:</string>
         </property>
        </widget>
-       <widget class="QLabel" name="label_18">
+       <widget class="QLabel" name="label_18_mar">
         <property name="geometry">
          <rect>
           <x>245</x>
@@ -1672,7 +1672,7 @@ border-bottom:2px solid#717072;
          <string>ID:</string>
         </property>
        </widget>
-       <widget class="QLabel" name="label_14">
+       <widget class="QLabel" name="label_14_mar">
         <property name="geometry">
          <rect>
           <x>245</x>
@@ -1694,7 +1694,7 @@ border-bottom:2px solid#717072;
          <string>date:</string>
         </property>
        </widget>
-       <widget class="QLabel" name="label_16">
+       <widget class="QLabel" name="label_16_mar">
         <property name="geometry">
          <rect>
           <x>245</x>
@@ -1725,7 +1725,7 @@ border-bottom:2px solid#717072;
          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;veuillez remplir le formulaire:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton_9">
+       <widget class="QPushButton" name="pushButton_9_mar">
         <property name="geometry">
          <rect>
           <x>710</x>
@@ -1751,7 +1751,7 @@ QPushButton:hover{
          <string>ajouter</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="nom_ajout_2">
+       <widget class="QLineEdit" name="nom_ajout_2_mar">
         <property name="geometry">
          <rect>
           <x>610</x>
@@ -1782,7 +1782,7 @@ QPushButton:hover{
 </string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="id_ajout_2">
+       <widget class="QLineEdit" name="id_ajout_2_mar">
         <property name="geometry">
          <rect>
           <x>610</x>
@@ -1813,7 +1813,7 @@ QPushButton:hover{
 </string>
         </property>
        </widget>
-       <widget class="QLabel" name="label_13">
+       <widget class="QLabel" name="label_13_mar">
         <property name="geometry">
          <rect>
           <x>410</x>
@@ -1835,7 +1835,7 @@ image: url(:/new/prefix1/image/—Pngtree—add vector icon_3791307.png);</strin
        <attribute name="title">
         <string>Consulter une session</string>
        </attribute>
-       <widget class="QLineEdit" name="lineEdit_2">
+       <widget class="QLineEdit" name="lineEdit_2_mar">
         <property name="geometry">
          <rect>
           <x>80</x>
@@ -1857,7 +1857,7 @@ border-bottom:2px solid#717072;
          <string>veuillez saisir le nom a rechercher</string>
         </property>
        </widget>
-       <widget class="QTableView" name="tableView_2">
+       <widget class="QTableView" name="tableView_2_mar">
         <property name="geometry">
          <rect>
           <x>30</x>
@@ -1876,7 +1876,7 @@ border-bottom:2px solid#717072;
 </string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="id_supp_3">
+       <widget class="QLineEdit" name="id_supp_3_mar">
         <property name="geometry">
          <rect>
           <x>620</x>
@@ -1895,7 +1895,7 @@ border-bottom:2px solid#717072;
 </string>
         </property>
        </widget>
-       <widget class="QLabel" name="label_35">
+       <widget class="QLabel" name="label_35_mar">
         <property name="geometry">
          <rect>
           <x>30</x>
@@ -1926,7 +1926,7 @@ border-bottom:2px solid#717072;
          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Veuillez saisir l'id de l'evenement a supprimer:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="SUPPRIMER_3">
+       <widget class="QPushButton" name="SUPPRIMER_3_mar">
         <property name="geometry">
          <rect>
           <x>760</x>
@@ -1952,7 +1952,7 @@ QPushButton:hover{
          <string>Supprimer</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="SUPPRIMER_4">
+       <widget class="QPushButton" name="SUPPRIMER_4_mar">
         <property name="geometry">
          <rect>
           <x>760</x>
@@ -1978,7 +1978,7 @@ QPushButton:hover{
          <string>Modifier</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="pushButton_mar">
         <property name="geometry">
          <rect>
           <x>710</x>
@@ -2004,7 +2004,7 @@ QPushButton:hover{
          <string>Impression</string>
         </property>
        </widget>
-       <widget class="QLabel" name="label_28">
+       <widget class="QLabel" name="label_28_mar">
         <property name="geometry">
          <rect>
           <x>740</x>
@@ -2021,7 +2021,7 @@ image: url(:/new/prefix1/image/—Pngtree—printer vector icon_3791373.png);</s
          <string/>
         </property>
        </widget>
-       <widget class="QPushButton" name="recherchee">
+       <widget class="QPushButton" name="recherchee_mar">
         <property name="geometry">
          <rect>
           <x>720</x>
@@ -2047,7 +2047,7 @@ QPushButton:hover{
          <string>Recherche</string>
         </property>
        </widget>
-       <widget class="QRadioButton" name="ridd">
+       <widget class="QRadioButton" name="ridd_mar">
         <property name="geometry">
          <rect>
           <x>670</x>
@@ -2073,7 +2073,7 @@ QPushButton:hover{
          <string>ID</string>
         </property>
        </widget>
-       <widget class="QRadioButton" name="nomm">
+       <widget class="QRadioButton" name="nomm_mar">
         <property name="geometry">
          <rect>
           <x>810</x>
@@ -2099,7 +2099,7 @@ QPushButton:hover{
          <string>Nom</string>
         </property>
        </widget>
-       <widget class="QRadioButton" name="datess">
+       <widget class="QRadioButton" name="datess_mar">
         <property name="geometry">
          <rect>
           <x>740</x>
@@ -2125,7 +2125,7 @@ QPushButton:hover{
          <string>Dates</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="ra">
+       <widget class="QLineEdit" name="ra_mar">
         <property name="geometry">
          <rect>
           <x>740</x>
@@ -2144,7 +2144,7 @@ border-bottom:2px solid#717072;
 </string>
         </property>
        </widget>
-       <widget class="QPushButton" name="trii">
+       <widget class="QPushButton" name="trii_mar">
         <property name="geometry">
          <rect>
           <x>740</x>
@@ -2170,7 +2170,7 @@ QPushButton:hover{
          <string>Trier</string>
         </property>
        </widget>
-       <widget class="QRadioButton" name="radioButton">
+       <widget class="QRadioButton" name="radioButton_mar">
         <property name="geometry">
          <rect>
           <x>600</x>
@@ -2196,7 +2196,7 @@ QPushButton:hover{
          <string>ID Croissant</string>
         </property>
        </widget>
-       <widget class="QRadioButton" name="radioButton_2">
+       <widget class="QRadioButton" name="radioButton_2_mar">
         <property name="geometry">
          <rect>
           <x>750</x>
@@ -2225,8 +2225,8 @@ QPushButton:hover{
       </widget>
      </widget>
     </widget>
-    <widget class="QWidget" name="page_8">
-     <widget class="QPushButton" name="retour4_5">
+    <widget class="QWidget" name="page_8_mar">
+     <widget class="QPushButton" name="retour4_5_mar">
       <property name="geometry">
        <rect>
         <x>60</x>
@@ -2261,9 +2261,9 @@ QPushButton:hover{
         <height>211</height>
        </rect>
       </property>
-      <layout class="QGridLayout" name="gridLayout_11">
+      <layout class="QGridLayout" name="gridLayout_11_mar">
        <item row="2" column="0">
-        <widget class="QLabel" name="label_36">
+        <widget class="QLabel" name="label_36_mar">
          <property name="styleSheet">
           <string notr="true">color: rgb(0, 0, 0);
 font: 75 10pt &quot;Century Gothic&quot;;
@@ -2279,7 +2279,7 @@ border-bottom:2px solid#717072;
         </widget>
        </item>
        <item row="2" column="1">
-        <widget class="QLineEdit" name="nom_ajout_5">
+        <widget class="QLineEdit" name="nom_ajout_5_mar">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -2304,7 +2304,7 @@ border-bottom:2px solid#717072;
         </widget>
        </item>
        <item row="3" column="0">
-        <widget class="QLabel" name="label_37">
+        <widget class="QLabel" name="label_37_mar">
          <property name="styleSheet">
           <string notr="true">color: rgb(0, 0, 0);
 font: 75 10pt &quot;Century Gothic&quot;;
@@ -2320,7 +2320,7 @@ border-bottom:2px solid#717072;
         </widget>
        </item>
        <item row="0" column="0" colspan="2">
-        <widget class="QLabel" name="label_38">
+        <widget class="QLabel" name="label_38_mar">
          <property name="font">
           <font>
            <family>Century Gothic</family>
@@ -2345,7 +2345,7 @@ border-bottom:2px solid#717072;
         </widget>
        </item>
        <item row="1" column="0">
-        <widget class="QLabel" name="label_39">
+        <widget class="QLabel" name="label_39_mar">
          <property name="styleSheet">
           <string notr="true">color: rgb(0, 0, 0);
 font: 75 10pt &quot;Century Gothic&quot;;
@@ -2361,7 +2361,7 @@ border-bottom:2px solid#717072;
         </widget>
        </item>
        <item row="3" column="1">
-        <widget class="QLineEdit" name="date_ajout_4">
+        <widget class="QLineEdit" name="date_ajout_4_mar">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -2386,7 +2386,7 @@ border-bottom:2px solid#717072;
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QLineEdit" name="id_ajout_5">
+        <widget class="QLineEdit" name="id_ajout_5_mar">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -2412,7 +2412,7 @@ border-bottom:2px solid#717072;
        </item>
       </layout>
      </widget>
-     <widget class="QPushButton" name="pushButton_24">
+     <widget class="QPushButton" name="pushButton_24_mar">
       <property name="geometry">
        <rect>
         <x>670</x>
@@ -2439,13 +2439,13 @@ QPushButton:hover{
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="page_9"/>
-    <widget class="QWidget" name="page_10"/>
-    <widget class="QWidget" name="page_21"/>
+    <widget class="QWidget" name="page_9_mar"/>
+    <widget class="QWidget" name="page_10_mar"/>
+    <widget class="QWidget" name="page_21_mar"/>
    </widget>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
-  <widget class="QToolBar" name="toolBar">
+  <widget class="QStatusBar" name="statusbar_mar"/>
+  <widget class="QToolBar" name="toolBar_mar">
    <property name="windowTitle">
     <string>toolBar</string>
    </property>
