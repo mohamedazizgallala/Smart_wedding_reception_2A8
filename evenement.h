@@ -20,6 +20,12 @@ public:
     bool supprimer(QString);
     bool modifier();
     QSqlQueryModel * rechercher2(const QString);
+    QSqlQueryModel * trie();
+     QSqlQueryModel * trie2();
+     QSqlQueryModel *chercher_evenement_id(const QString &aux);
+     QSqlQueryModel *chercher_evenement_nom(const QString &aux);
+     QSqlQueryModel *chercher_evenement_dates(const QString &aux);
+
 };
 
 #endif // EVENEMENT_H

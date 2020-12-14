@@ -112,10 +112,13 @@ void notif(QString t,QString m);
 
     void on_testtest_clicked();
 
+    void on_trii_clicked();
+
+    void on_recherchee_clicked();
+
 private:
     Ui::MainWindow *ui;
     evenement tmpev;
-    QString email_recipient;
 
 };
 #endif // MAINWINDOW_H

@@ -7,7 +7,7 @@
 #include<QPrintDialog>
 #include<QTextDocument>
 #include<QTextStream>
-
+#include <QDate>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -453,12 +453,78 @@ void MainWindow::on_recherche_clicked()
 
 
 
-void MainWindow::on_testtest_clicked()
+
+void MainWindow::on_trii_clicked()
 {
 
-        QItemSelectionModel *select = ui->tableView->selectionModel();
-        email_recipient =select->selectedRows(4).value(0).data().toString();
-        ui->recepteur->setText(email_recipient);
+    evenement o;
+       /*QString critere=ui->cb_historique->currentText();*/
+           QString mode;
+            if (ui->radioButton->isChecked()==true)
+       {
+                ui->tableView_2->setModel(o.trie());
 
 
+       }
+            else if(ui->radioButton_2->isChecked()==true)
+
+                ui->tableView_2->setModel(o.trie2());
+}
+
+
+
+void MainWindow::on_recherchee_clicked()
+{
+    evenement P;
+           QString text;
+
+           if (ui->ridd->isChecked()==true)
+          {
+          text=ui->ra->text();
+            if(text == "")
+            {
+                ui->tableView_2->setModel(P.afficher());
+            }
+
+            else
+            {
+                ui->tableView_2->setModel(P.chercher_evenement_id(text));
+            }
+           }
+
+
+          if(ui->nomm->isChecked()==true)
+           {
+               text=ui->ra->text();
+                    if(text == "")
+
+                    {
+                        ui->tableView_2->setModel(P.afficher());
+
+                    }
+
+                    else
+
+                    {
+                        ui->tableView_2->setModel(P.chercher_evenement_nom(text));
+                    }
+
+           }
+
+            else if     (ui->datess->isChecked()==true)
+            {
+
+                text=ui->ra->text();
+                     if(text == "")
+
+                     {
+                         ui->tableView_2->setModel(P.afficher());
+                     }
+
+                     else
+
+                     {
+                         ui->tableView_2->setModel(P.chercher_evenement_dates(text));
+                     }
+            }
 }

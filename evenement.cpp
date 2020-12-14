@@ -72,5 +72,67 @@ QSqlQueryModel * evenement :: rechercher2(QString ch)
     return model;
 }
 
+QSqlQueryModel* evenement::trie()
+{
+    QSqlQueryModel* model = new QSqlQueryModel();
+
+        model->setQuery("select *from EVENEMENT ORDER BY ID asc");
+
+        model->setHeaderData(0, Qt::Horizontal, QObject::tr("id"));
+         model->setHeaderData(1, Qt::Horizontal, QObject::tr("nom"));
+         model->setHeaderData(2, Qt::Horizontal, QObject::tr(" dates"));
+
+
+    return model;
+}
+
+
+QSqlQueryModel* evenement::trie2()
+{
+    QSqlQueryModel* model = new QSqlQueryModel();
+        model->setQuery("select *from EVENEMENT ORDER BY ID desc");
+
+        model->setHeaderData(0, Qt::Horizontal, QObject::tr("id"));
+         model->setHeaderData(1, Qt::Horizontal, QObject::tr("nom"));
+         model->setHeaderData(2, Qt::Horizontal, QObject::tr(" dates"));
+
+
+
+    return model;
+}
+
+QSqlQueryModel * evenement::chercher_evenement_id(const QString &aux)
+{
+    QSqlQueryModel * model = new QSqlQueryModel();
+    model->setQuery("select * from EVENEMENT where ((ID ) LIKE '%"+aux+"%')");
+    model->setHeaderData(0,Qt::Vertical,QObject::tr("id"));
+    model->setHeaderData(1,Qt::Vertical,QObject::tr("nom"));
+    model->setHeaderData(2,Qt::Vertical,QObject::tr("dates"));
+
+    return model;
+}
+
+
+QSqlQueryModel * evenement::chercher_evenement_nom(const QString &aux)
+{
+    QSqlQueryModel * model = new QSqlQueryModel();
+    model->setQuery("select * from EVENEMENT where ((nom ) LIKE '%"+aux+"%')");
+    model->setHeaderData(0,Qt::Vertical,QObject::tr("id"));
+    model->setHeaderData(1,Qt::Vertical,QObject::tr("nom"));
+    model->setHeaderData(2,Qt::Vertical,QObject::tr("dates"));
+
+    return model;
+}
+
+QSqlQueryModel * evenement::chercher_evenement_dates(const QString &aux)
+{
+    QSqlQueryModel * model = new QSqlQueryModel();
+    model->setQuery("select * from EVENEMENT where ((dates ) LIKE '%"+aux+"%')");
+    model->setHeaderData(0,Qt::Vertical,QObject::tr("id"));
+    model->setHeaderData(1,Qt::Vertical,QObject::tr("nom"));
+    model->setHeaderData(2,Qt::Vertical,QObject::tr("dates"));
+
+    return model;
+}
 
 
