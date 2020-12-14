@@ -12,12 +12,12 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->tableView_4->setModel(tempanimateur.afficher());
-    ui->tableView_4->setSelectionBehavior(QAbstractItemView::SelectRows);
-    ui->tableView_4->setSelectionMode(QAbstractItemView::SingleSelection);
-    ui->tableView_5->setModel(temptraiteur.afficher());
-    ui->tableView_5->setSelectionBehavior(QAbstractItemView::SelectRows);
-    ui->tableView_5->setSelectionMode(QAbstractItemView::SingleSelection);
+    ui->tableView_4_org->setModel(tempanimateur.afficher());
+    ui->tableView_4_org->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->tableView_4_org->setSelectionMode(QAbstractItemView::SingleSelection);
+    ui->tableView_5_org->setModel(temptraiteur.afficher());
+    ui->tableView_5_org->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->tableView_5_org->setSelectionMode(QAbstractItemView::SingleSelection);
 
 
 }
@@ -27,11 +27,11 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
- void MainWindow::on_buttonajouter_clicked()
+ void MainWindow::on_buttonajouter_org_clicked()
     {
 
         bool test_saisie=true;
-        int id_animateur=ui->lineEdit_id->text().toInt();
+        int id_animateur=ui->lineEdit_id_org->text().toInt();
         if(id_animateur<1111 || id_animateur>9999)
         { //test_saisie de saisie
             test_saisie = false;
@@ -39,7 +39,7 @@ MainWindow::~MainWindow()
                         QObject::tr("ID invalide!\n"
                                     "OK pour quitter."), QMessageBox::Ok);
         }
-        QString nom=ui->lineEdit_nom->text();
+        QString nom=ui->lineEdit_nom_org->text();
         if(nom==""||nom.size()>20)
         {
             test_saisie = false;
@@ -47,7 +47,7 @@ MainWindow::~MainWindow()
                         QObject::tr("nom vide/limite atteinte!\n"
                                     "OK pour quitter."), QMessageBox::Ok);
         }
-        QString adresse=ui->lineEdit_adresse->text();
+        QString adresse=ui->lineEdit_adresse_org->text();
         if(adresse==""||adresse.size()>100)
         {
             test_saisie = false;
@@ -55,7 +55,7 @@ MainWindow::~MainWindow()
                         QObject::tr("adresse vide!/limite atteinte\n"
                                     "OK pour quitter."), QMessageBox::Ok);
         }
-        QString description=ui->lineEdit_description->text();
+        QString description=ui->lineEdit_description_org->text();
         if(description==""||description.size()>500)
         {
             test_saisie = false;
@@ -63,7 +63,7 @@ MainWindow::~MainWindow()
                         QObject::tr("description vide ou trop longue!\n"
                                     "OK pour quitter."), QMessageBox::Ok);
         }
-        QString contacts=ui->lineEdit_contacts->text();
+        QString contacts=ui->lineEdit_contacts_org->text();
         if(contacts==""||contacts.size()>200)
         {
             test_saisie = false;
@@ -71,7 +71,7 @@ MainWindow::~MainWindow()
                         QObject::tr("contacts trop long ou vide!\n"
                                     "OK pour quitter."), QMessageBox::Ok);
         }
-        int prix=ui->lineEdit_prix->text().toInt();
+        int prix=ui->lineEdit_prix_org->text().toInt();
         if(prix<0)
         { //test_saisie de saisie
             test_saisie = false;
@@ -86,7 +86,7 @@ MainWindow::~MainWindow()
         bool test=a.ajouter();
         if (test)
             {
-            ui->tableView_4->setModel(tempanimateur.afficher());
+            ui->tableView_4_org->setModel(tempanimateur.afficher());
            QMessageBox::information(nullptr,QObject::tr("Ajout animateur"),
                                     QObject::tr("animateur ajouté.\n"
                                                 "Click to exit"), QMessageBox::Cancel);
@@ -98,12 +98,12 @@ MainWindow::~MainWindow()
     }
 
 
-void MainWindow::on_pushButton_3_clicked()
+void MainWindow::on_pushButton_3_org_clicked()
 {
-    int id=ui->lineEdit_supprimer->text().toInt();
+    int id=ui->lineEdit_supprimer_org->text().toInt();
     bool test=tempanimateur.supprimer(id);
     if (test)
-    {   ui->tableView_4->setModel(tempanimateur.afficher());
+    {   ui->tableView_4_org->setModel(tempanimateur.afficher());
         QMessageBox::information(nullptr,"Suppression Animateur","Supprimé avec succés");
     }
     else
@@ -114,61 +114,61 @@ void MainWindow::on_pushButton_3_clicked()
 
 }
 
-void MainWindow::on_pushButton_4_clicked()//imprimer pdf
+void MainWindow::on_pushButton_4_org_clicked()//imprimer pdf
 {
     QPrinter printer;
     printer.setPrinterName("desirer printer name");
     QPrintDialog dialog(&printer,this);
     if(dialog.exec()==QDialog::Rejected) return;
-    ui->tableView_4->render(&printer);
+    ui->tableView_4_org->render(&printer);
 
 
 }
 
-void MainWindow::on_search_carButton_8_clicked()//search animateur
+void MainWindow::on_search_carButton_8_org_clicked()//search animateur
 {
 
-    int i=ui->lineEdit->text().toInt();
-    ui->tableView_4->setModel(tempanimateur.recherche(i));
-}
-
-
-
-
-void MainWindow::on_pushButton_6_clicked()
-{
-    ui->tableView_4->setModel(tempanimateur.afficher());
+    int i=ui->lineEdit_org->text().toInt();
+    ui->tableView_4_org->setModel(tempanimateur.recherche(i));
 }
 
 
 
 
-void MainWindow::on_pushButton_7_clicked()
+void MainWindow::on_pushButton_6_org_clicked()
 {
-    if (ui->pushButton_7->isChecked())
+    ui->tableView_4_org->setModel(tempanimateur.afficher());
+}
+
+
+
+
+void MainWindow::on_pushButton_7_org_clicked()
+{
+    if (ui->pushButton_7_org->isChecked())
            {
                //ui->pushButton_7->setDisabled(true);
-               ui->pushButton_7->setText("Modifiable");
+               ui->pushButton_7_org->setText("Modifiable");
                QSqlTableModel *tableModel= new QSqlTableModel();
                tableModel->setTable("ANIMATEUR");
                tableModel->select();
-               ui->tableView_4->setModel(tableModel);
+               ui->tableView_4_org->setModel(tableModel);
            }
            else
            {
-               ui->pushButton_7->setText("Modifier");
-               ui->tableView_4->setModel(tempanimateur.afficher());
+               ui->pushButton_7_org->setText("Modifier");
+               ui->tableView_4_org->setModel(tempanimateur.afficher());
 
            }
 
 }
 
-void MainWindow::on_buttonajouter_2_clicked()
+void MainWindow::on_buttonajouter_2_org_clicked()
 {
     {
 
         bool test_saisie=true;
-        int id_traiteur=ui->lineEdit_id_2->text().toInt();
+        int id_traiteur=ui->lineEdit_id_2_org->text().toInt();
         if(id_traiteur<1111 || id_traiteur>9999)
         { //test_saisie de saisie
             test_saisie = false;
@@ -176,7 +176,7 @@ void MainWindow::on_buttonajouter_2_clicked()
                         QObject::tr("ID invalide!\n"
                                     "OK pour quitter."), QMessageBox::Ok);
         }
-        QString nom=ui->lineEdit_nom_2->text();
+        QString nom=ui->lineEdit_nom_2_org->text();
         if(nom==""||nom.size()>20)
         {
             test_saisie = false;
@@ -184,7 +184,7 @@ void MainWindow::on_buttonajouter_2_clicked()
                         QObject::tr("nom vide/limite atteinte!\n"
                                     "OK pour quitter."), QMessageBox::Ok);
         }
-        QString adresse=ui->lineEdit_adresse_2->text();
+        QString adresse=ui->lineEdit_adresse_2_org->text();
         if(adresse==""||adresse.size()>100)
         {
             test_saisie = false;
@@ -192,7 +192,7 @@ void MainWindow::on_buttonajouter_2_clicked()
                         QObject::tr("adresse vide!/limite atteinte\n"
                                     "OK pour quitter."), QMessageBox::Ok);
         }
-        QString description=ui->lineEdit_description_2->text();
+        QString description=ui->lineEdit_description_2_org->text();
         if(description==""||description.size()>500)
         {
             test_saisie = false;
@@ -200,7 +200,7 @@ void MainWindow::on_buttonajouter_2_clicked()
                         QObject::tr("description vide ou trop longue!\n"
                                     "OK pour quitter."), QMessageBox::Ok);
         }
-        QString contacts=ui->lineEdit_contacts_2->text();
+        QString contacts=ui->lineEdit_contacts_2_org->text();
         if(contacts==""||contacts.size()>200)
         {
             test_saisie = false;
@@ -208,7 +208,7 @@ void MainWindow::on_buttonajouter_2_clicked()
                         QObject::tr("contacts trop long ou vide!\n"
                                     "OK pour quitter."), QMessageBox::Ok);
         }
-        int prix=ui->lineEdit_prix_2->text().toInt();
+        int prix=ui->lineEdit_prix_2_org->text().toInt();
         if(prix<0)
         { //test_saisie de saisie
             test_saisie = false;
@@ -223,7 +223,7 @@ void MainWindow::on_buttonajouter_2_clicked()
         bool test=a.ajouter();
         if (test)
             {
-            ui->tableView_5->setModel(temptraiteur.afficher());
+            ui->tableView_5_org->setModel(temptraiteur.afficher());
            QMessageBox::information(nullptr,QObject::tr("Ajout traiteur"),
                                     QObject::tr("traiteur ajouté.\n"
                                                 "Click to exit"), QMessageBox::Cancel);
@@ -236,39 +236,39 @@ void MainWindow::on_buttonajouter_2_clicked()
 
 }
 
-void MainWindow::on_search_carButton_9_clicked()
+void MainWindow::on_search_carButton_9_org_clicked()
 {
-    int i=ui->lineEdit_8->text().toInt();
-    ui->tableView_5->setModel(temptraiteur.recherche(i));
+    int i=ui->lineEdit_8_org->text().toInt();
+    ui->tableView_5_org->setModel(temptraiteur.recherche(i));
 }
 
-void MainWindow::on_pushButton_11_clicked()
+void MainWindow::on_pushButton_11_org_clicked()
 {
-    if (ui->pushButton_11->isChecked())
+    if (ui->pushButton_11_org->isChecked())
            {
-               //ui->pushButton_11->setDisabled(true);
-               ui->pushButton_11->setText("Modifiable");
+               //ui->pushButton_11_org->setDisabled(true);
+               ui->pushButton_11_org->setText("Modifiable");
                QSqlTableModel *tableModel= new QSqlTableModel();
                tableModel->setTable("traiteur");
                tableModel->select();
-               ui->tableView_5->setModel(tableModel);
+               ui->tableView_5_org->setModel(tableModel);
            }
            else
            {
-               ui->pushButton_11->setText("Modifier");
-               ui->tableView_5->setModel(temptraiteur.afficher());
+               ui->pushButton_11_org->setText("Modifier");
+               ui->tableView_5_org->setModel(temptraiteur.afficher());
 
            }
 }
 
-void MainWindow::on_pushButton_8_clicked()
+void MainWindow::on_pushButton_8_org_clicked()
 {
     QString fileName = QFileDialog::getSaveFileName(this, tr("Exportation en fichier Excel"), qApp->applicationDirPath (),
                                                         tr("Fichiers d'extension Excel (*.xls)"));
         if (fileName.isEmpty())
             return;
 
-        ExportExcelObject obj(fileName, "mydata", ui->tableView_5);
+        ExportExcelObject obj(fileName, "mydata", ui->tableView_5_org);
 
         // you can change the column order and
         // choose which colum to export
@@ -290,21 +290,21 @@ void MainWindow::on_pushButton_8_clicked()
         }
 }
 
-void MainWindow::on_pushButton_9_clicked()
+void MainWindow::on_pushButton_9_org_clicked()
 {
     QPrinter printer;
     printer.setPrinterName("desirer printer name");
     QPrintDialog dialog(&printer,this);
     if(dialog.exec()==QDialog::Rejected) return;
-    ui->tableView_5->render(&printer);
+    ui->tableView_5_org->render(&printer);
 }
 
-void MainWindow::on_pushButton_12_clicked()
+void MainWindow::on_pushButton_12_org_clicked()
 {
-    int id=ui->lineEdit_supprimer_2->text().toInt();
+    int id=ui->lineEdit_supprimer_2_org->text().toInt();
     bool test=temptraiteur.supprimer(id);
     if (test)
-    {   ui->tableView_5->setModel(temptraiteur.afficher());
+    {   ui->tableView_5_org->setModel(temptraiteur.afficher());
         QMessageBox::information(nullptr,"Suppression traiteur","Supprimé avec succés");
     }
     else
@@ -314,14 +314,14 @@ void MainWindow::on_pushButton_12_clicked()
 }
 }
 
-void MainWindow::on_pushButton_5_clicked()//excel
+void MainWindow::on_pushButton_5_org_clicked()//excel
 {
     QString fileName = QFileDialog::getSaveFileName(this, tr("Exportation en fichier Excel"), qApp->applicationDirPath (),
                                                         tr("Fichiers d'extension Excel (*.xls)"));
         if (fileName.isEmpty())
             return;
 
-        ExportExcelObject obj(fileName, "mydata", ui->tableView_4);
+        ExportExcelObject obj(fileName, "mydata", ui->tableView_4_org);
 
         // you can change the column order and
         // choose which colum to export
@@ -343,107 +343,107 @@ void MainWindow::on_pushButton_5_clicked()//excel
         }
 }
 
-void MainWindow::on_pushButton_10_clicked()
+void MainWindow::on_pushButton_10_org_clicked()
 {
-    ui->tableView_5->setModel(temptraiteur.afficher());
+    ui->tableView_5_org->setModel(temptraiteur.afficher());
 }
 
-void MainWindow::on_login_button_clicked()
+void MainWindow::on_login_button_org_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
 }
 
-void MainWindow::on_buttonquitter_6_clicked()
+void MainWindow::on_buttonquitter_6_org_clicked()
 {
     close();
 }
 
-void MainWindow::on_buttonquitter_clicked()
+void MainWindow::on_buttonquitter_org_clicked()
 {
    close();
 }
 
-void MainWindow::on_buttonsedeconn_clicked()
+void MainWindow::on_buttonsedeconn_org_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
 }
 
-void MainWindow::on_buttonquitter_2_clicked()
+void MainWindow::on_buttonquitter_2_org_clicked()
 {
     close();
 }
 
-void MainWindow::on_buttonsedeconn_2_clicked()
+void MainWindow::on_buttonsedeconn_2_org_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
 }
 
-void MainWindow::on_back_4_clicked()
+void MainWindow::on_back_4_org_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
 }
 
-void MainWindow::on_buttonquitter_3_clicked()
+void MainWindow::on_buttonquitter_3_org_clicked()
 {
     close();
 }
 
-void MainWindow::on_buttonsedeconn_3_clicked()
+void MainWindow::on_buttonsedeconn_3_org_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
 }
 
-void MainWindow::on_back_3_clicked()
+void MainWindow::on_back_3_org_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
 }
 
-void MainWindow::on_buttonquitter_4_clicked()
+void MainWindow::on_buttonquitter_4_org_clicked()
 {
     close();
 }
 
-void MainWindow::on_buttonsedeconn_4_clicked()
+void MainWindow::on_buttonsedeconn_4_org_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
 }
 
-void MainWindow::on_back_2_clicked()
+void MainWindow::on_back_2_org_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
 }
 
-void MainWindow::on_buttonquitter_5_clicked()
+void MainWindow::on_buttonquitter_5_org_clicked()
 {
     close();
 }
 
-void MainWindow::on_buttonsedeconn_5_clicked()
+void MainWindow::on_buttonsedeconn_5_org_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
 }
 
-void MainWindow::on_button_traiteur_clicked()
+void MainWindow::on_button_traiteur_org_clicked()
 {
     ui->stackedWidget->setCurrentIndex(3);
 }
 
-void MainWindow::on_button_decorateur_clicked()
+void MainWindow::on_button_decorateur_org_clicked()
 {
     ui->stackedWidget->setCurrentIndex(2);
 }
 
-void MainWindow::on_buttonanimateur_clicked()
+void MainWindow::on_buttonanimateur_org_clicked()
 {
     ui->stackedWidget->setCurrentIndex(4);
 }
 
-void MainWindow::on_buttonprofil_clicked()
+void MainWindow::on_buttonprofil_org_clicked()
 {
     ui->stackedWidget->setCurrentIndex(5);
 }
 
-void MainWindow::on_back_clicked()
+void MainWindow::on_back_org_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
 }
