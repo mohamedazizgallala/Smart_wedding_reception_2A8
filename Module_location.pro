@@ -3,6 +3,7 @@ QT += network
 QT += printsupport
 QT += charts
 QT +=multimedia
+QT +=serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -21,28 +22,30 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    arduino.cpp \
     car.cpp \
     connexion.cpp \
-    dialog.cpp \
     local.cpp \
     main.cpp \
-    mainwindow.cpp \
-    pie.cpp \
-    smtp.cpp
+    mainwindow_location.cpp \
+    pie_location.cpp \
+    send_email_location.cpp \
+    smtp_location.cpp
 
 HEADERS += \
+    arduino.h \
     car.h \
     connexion.h \
-    dialog.h \
     local.h \
-    mainwindow.h \
-    pie.h \
-    smtp.h
+    mainwindow_location.h \
+    pie_location.h \
+    send_email_location.h \
+    smtp_location.h
 
 FORMS += \
-    dialog.ui \
-    mainwindow.ui \
-    pie.ui
+    mainwindow_location.ui \
+    pie_location.ui \
+    send_email_location.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -50,4 +53,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
+    buttonsound.qrc \
     images.qrc
+
+DISTFILES += \
+    The Voice_ button sound effect.wav

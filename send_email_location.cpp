@@ -1,6 +1,6 @@
-#include "dialog.h"
+#include "send_email_location.h"
 #include "ui_dialog.h"
-#include "smtp.h"
+#include "smtp_location.h"
 
 Dialog::Dialog(QWidget *parent) :
     QDialog(parent),

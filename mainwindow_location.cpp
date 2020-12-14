@@ -1,7 +1,7 @@
-#include "mainwindow.h"
+#include "mainwindow_location.h"
 #include "ui_mainwindow.h"
-#include "dialog.h"
-#include "pie.h"
+#include "send_email_location.h"
+#include "pie_location.h"
 #include <QMediaPlayer>
 #include <QUrl>
 MainWindow::MainWindow(QWidget *parent)
