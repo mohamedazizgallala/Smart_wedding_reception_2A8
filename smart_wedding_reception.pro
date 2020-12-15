@@ -27,10 +27,12 @@ SOURCES += \
     car.cpp \
     connexion.cpp \
     decorateur.cpp \
+    evenement.cpp \
     exportexcelobject.cpp \
     local.cpp \
     main.cpp \
     mainwindow.cpp \
+    offre.cpp \
     pie_location.cpp \
     send_email_location.cpp \
     smtp_location.cpp \
@@ -42,9 +44,11 @@ HEADERS += \
     car.h \
     connexion.h \
     decorateur.h \
+    evenement.h \
     exportexcelobject.h \
     local.h \
     mainwindow.h \
+    offre.h \
     pie_location.h \
     send_email_location.h \
     smtp_location.h \
