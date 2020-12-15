@@ -1,5 +1,5 @@
-#include "mainwindow_location.h"
-#include "ui_mainwindow_location.h"
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
 #include "send_email_location.h"
 #include "pie_location.h"
 #include <QMediaPlayer>
@@ -9,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->stackedWidget->setCurrentIndex(0);
 
     //***********************
     //***********************
@@ -1008,12 +1009,18 @@ void MainWindow::on_buttonajouter_3_org_clicked()
 {
 
 }
+void MainWindow::on_login_button_org_clicked()
+{
+
+}
 
 //*****************************************************
 //******************************************************
 /*******************************************************/
 
   //MODULE MARKETING
+
+
 
 
 

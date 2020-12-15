@@ -9,6 +9,7 @@ int main(int argc, char *argv[])
     Connexion c;
     bool test=c.create_cnx();
     MainWindow w;
+
     if (test)
    { w.show();
        // QMessageBox::information(nullptr, QObject::tr("Database is open"),

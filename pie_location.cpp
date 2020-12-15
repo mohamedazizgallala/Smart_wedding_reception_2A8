@@ -1,5 +1,5 @@
 #include "pie_location.h"
-#include "ui_pie.h"
+#include "ui_pie_location.h"
 #include "car.h"
 
 pie::pie(QWidget *parent) :
