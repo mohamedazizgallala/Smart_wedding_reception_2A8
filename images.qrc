@@ -1,0 +1,22 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>image/103854343_259019528641376_3453490155072435271_n.jpg</file>
+        <file>image/121527165_283003159406450_6476818707641022998_n.jpg</file>
+        <file>image/126205197_181879636821640_5647087082797402769_n.png</file>
+        <file>image/thebigdaylogo.png</file>
+        <file>image/bfa_power-off_flat-circle-white-on-ios-pink-gradient_512x512.png</file>
+        <file>image/computer-icons-button-arrow-png-favpng-1sXz4GPFdZq5tvjfd9Q8gYCVt.png</file>
+        <file>image/eng.png</file>
+        <file>image/france.png</file>
+        <file>image/logout-icon-5-256.png</file>
+        <file>image/refresh.png</file>
+        <file>image/trash.png</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>image/bfa_power-off_flat-circle-white-on-ios-pink-gradient_512x512.png</file>
+        <file>image/computer-icons-button-arrow-png-favpng-1sXz4GPFdZq5tvjfd9Q8gYCVt.png</file>
+        <file>image/eng.png</file>
+        <file>image/france.png</file>
+        <file>image/logout-icon-5-256.png</file>
+    </qresource>
+</RCC>
