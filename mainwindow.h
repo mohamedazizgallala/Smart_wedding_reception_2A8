@@ -15,6 +15,8 @@
 #include "animateur.h"
 #include "exportexcelobject.h"
 #include "evenement.h"
+#include "graphiste.h"
+#include "photographe.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -275,8 +277,52 @@ private slots:
        //***********************************
        //*****************************/
 
-       //module beaute
+       //module graphisme
 
+
+        void on_button_espace_photographes_clicked();
+
+        void on_Button_espacegraphistes_clicked();
+
+        void on_ajouter_photographe_clicked();
+
+        void on_ajouter_graphiste_clicked();
+
+        void on_supprimer_graphiste_clicked();
+
+        void on_supprimer_photographe_clicked();
+
+        void on_modifier_photographe_clicked();
+
+        void on_modifier_graphiste_clicked();
+
+        void on_retour_clicked();
+
+        void on_tri_photographe_clicked();
+
+        void on_tri_graphiste_clicked();
+
+        void on__quit_button_2_clicked();
+
+        void on_quit_button_clicked();
+
+        void on_exporterpdf_photographe_clicked();
+
+        void on_selectionnermail_photographe_clicked();
+
+        void on_envoyermail_photographe_clicked();
+
+        void on_selectionnermail_graphiste_clicked();
+
+        void on_envoyermail_graphiste_clicked();
+
+        void on_exporterpdf_graphiste_clicked();
+
+        void on_rechercher_graphiste_clicked();
+
+        void on_recherche_photographe_clicked();
+
+        void on_retour2_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -292,7 +338,10 @@ private:
     //variable marketing
        evenement tmpev;
 
-    //variable beaute
+    //variable graphisme
+       Photographe tempphoto;
+       QString email_recipient;
+       Graphiste tempgraph;
 
 };
 #endif // MAINWINDOW_H
