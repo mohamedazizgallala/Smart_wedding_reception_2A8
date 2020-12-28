@@ -17,6 +17,12 @@
 #include "evenement.h"
 #include "graphiste.h"
 #include "photographe.h"
+//beaute
+#include "coiffeurs.h"
+#include "locateurs.h"
+#include "email.h"
+#include "adresseemail.h"
+#include "smtpclient.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -324,6 +330,64 @@ private slots:
 
         void on_retour2_clicked();
 
+
+
+        //********************************************
+       //***********************************
+       //*****************************/
+
+       //module beauté
+
+
+       //passer de page a une autre page et close
+        void on_button_beaute_clicked();
+
+        void on_pushButton_ajoutcoiff_clicked();
+
+        void on_pushButton_maillocat_clicked();
+
+        void on_pushButton_mailcoiff_clicked();
+
+        void on_tableView_coiff_activated(const QModelIndex &index);
+
+        void on_fm_coiff_clicked();
+
+        void on_fs_coiff_clicked();
+
+        void on_pushButton_rechcoiff_clicked();
+
+        void on_upanim_ascoif_clicked();
+
+        void on_downanim_dscoiff_clicked();
+
+        void on_nomrecherche_coiff_textChanged(const QString &arg1);
+
+        void on_pushButton_quitcoiff_2_clicked();
+
+        void on_pushButton_rtcoiff_clicked();
+
+        void on_tableView_locat_activated(const QModelIndex &index);
+
+        void on_pushButton_ajoutlocat_clicked();
+
+        void on_fm_locat_clicked();
+
+        void on_fs_locat_clicked();
+
+        void on_upanim_aslocat_clicked();
+
+        void on_downanim_dslocat_clicked();
+
+        void on_pushButton_rechlocat_clicked();
+
+        void on_nomrecherche_locat_textChanged(const QString &arg1);
+
+        void on_pushButton_send_clicked();
+
+        void on_pushButton_anmailbt_clicked();
+
+        void on_pushButton_statcoiff_clicked();
+
 private:
     Ui::MainWindow *ui;
     //variable location
@@ -342,6 +406,12 @@ private:
        Photographe tempphoto;
        QString email_recipient;
        Graphiste tempgraph;
+    //variables beauté
+
+      // Ui::MainWindow *ui;
+       coiffeurs coiff;
+       locateurs locat;
+       Smtpclient *client;
 
 };
 #endif // MAINWINDOW_H
