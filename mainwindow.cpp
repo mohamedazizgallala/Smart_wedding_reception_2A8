@@ -1965,20 +1965,17 @@ void MainWindow::on__quit_button_2_clicked()
 
 
 //***********Coiffeurs************
-void MainWindow::on_button_beaute_clicked()//aller au module beauté
-{
-  ui->stackedWidget->setCurrentIndex(25);
-}
+
 
 
 void MainWindow::on_pushButton_maillocat_clicked()//page du mailing locat
 {
-   ui->stackedWidget->setCurrentIndex(26);
+   ui->stackedWidget->setCurrentIndex(25);
 }
 
 void MainWindow::on_pushButton_mailcoiff_clicked()//page du mailing coiff
 {
-    ui->stackedWidget->setCurrentIndex(26);
+    ui->stackedWidget->setCurrentIndex(25);
 }
 
 
@@ -2138,7 +2135,7 @@ void MainWindow::on_pushButton_quitcoiff_2_clicked()//fermer la fenetre
 
 void MainWindow::on_pushButton_rtcoiff_clicked()//retour a la page du menu
 {
-
+  ui->stackedWidget->setCurrentIndex(0);
 }
 //***********Locateurs************
 
@@ -2287,7 +2284,7 @@ void MainWindow::on_pushButton_send_clicked()//envoyer un mail
 
 void MainWindow::on_pushButton_anmailbt_clicked()//annuler l'envoie
 {
-    ui->stackedWidget->setCurrentIndex(25);
+    ui->stackedWidget->setCurrentIndex(24);
 }
 //******************statistique coiff****************
 
