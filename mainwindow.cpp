@@ -18,10 +18,13 @@
 #include "locateurs.h"
 #include <qtableview.h>
 #include "statbeaute.h"
+<<<<<<< HEAD
 #include "cll.h"
 #include "employe.h"
 #include "emp.h"
 #include "client.h"
+=======
+>>>>>>> 727f9d44de14de0029223897a20c26dd64aaeee6
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -141,6 +144,7 @@ player.setVolume(1.0);
           ui->stackedWidget->setCurrentIndex(21);
        //else if (type=="beaute")
          //  ui->stackedWidget->setCurrentIndex();
+<<<<<<< HEAD
        else if (type=="RH")
        {
            cll u;
@@ -150,6 +154,10 @@ player.setVolume(1.0);
 
 
 
+=======
+      // else if (type=="RH")
+          // ui->stackedWidget->setCurrentIndex();
+>>>>>>> 727f9d44de14de0029223897a20c26dd64aaeee6
        }
 }
  //********************************************

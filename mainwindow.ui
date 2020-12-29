@@ -50,7 +50,11 @@
 }</string>
     </property>
     <property name="currentIndex">
+<<<<<<< HEAD
      <number>23</number>
+=======
+     <number>24</number>
+>>>>>>> 727f9d44de14de0029223897a20c26dd64aaeee6
     </property>
     <widget class="QWidget" name="loginWindow">
      <widget class="QFrame" name="login_frame">
