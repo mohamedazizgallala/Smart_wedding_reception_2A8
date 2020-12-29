@@ -8,7 +8,7 @@ cll::cll(QWidget *parent) :
     ui(new Ui::cll)
 {
     ui->setupUi(this);
-    cll::on_pb_actualiser_2_clicked();
+    cll::on_pb_actualiser_2_clicked();//mkknvv
 }
 
 cll::~cll()
