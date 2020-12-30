@@ -29,10 +29,12 @@ SOURCES += \
     decorateur.cpp \
     evenement.cpp \
     exportexcelobject.cpp \
+    graphiste.cpp \
     local.cpp \
     main.cpp \
     mainwindow.cpp \
     offre.cpp \
+    photographe.cpp \
     pie_location.cpp \
     send_email_location.cpp \
     smtp_location.cpp \
@@ -46,9 +48,11 @@ HEADERS += \
     decorateur.h \
     evenement.h \
     exportexcelobject.h \
+    graphiste.h \
     local.h \
     mainwindow.h \
     offre.h \
+    photographe.h \
     pie_location.h \
     send_email_location.h \
     smtp_location.h \
@@ -65,8 +69,15 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
+    ../graph/img.qrc \
+    ../graph/sound.qrc \
     buttonsound.qrc \
     images.qrc
 
 DISTFILES += \
+    ../graph/info.txt \
+    ../graph/wess.pro.user \
     The Voice_ button sound effect.wav
+
+SUBDIRS += \
+    ../graph/wess.pro
