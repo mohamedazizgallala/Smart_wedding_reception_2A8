@@ -50,7 +50,7 @@
 }</string>
     </property>
     <property name="currentIndex">
-     <number>21</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="loginWindow">
      <widget class="QFrame" name="login_frame">
@@ -58,7 +58,7 @@
        <rect>
         <x>140</x>
         <y>20</y>
-        <width>291</width>
+        <width>421</width>
         <height>351</height>
        </rect>
       </property>
@@ -179,11 +179,39 @@ font: italic 11pt &quot;Century Gothic&quot;;</string>
         <string>Password here</string>
        </property>
       </widget>
+      <widget class="QLabel" name="Date">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>80</y>
+         <width>151</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Date</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="timer">
+       <property name="geometry">
+        <rect>
+         <x>230</x>
+         <y>30</y>
+         <width>151</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>time</string>
+       </property>
+      </widget>
       <zorder>Password_here</zorder>
       <zorder>ID_here</zorder>
       <zorder>login_icon</zorder>
       <zorder>id</zorder>
       <zorder>password</zorder>
+      <zorder>Date</zorder>
+      <zorder>timer</zorder>
      </widget>
      <widget class="QLabel" name="logo_the_big_day">
       <property name="geometry">

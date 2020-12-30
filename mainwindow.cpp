@@ -14,6 +14,7 @@
 #include <QDate>
 #include "graphiste.h"
 #include "smtp_location.h"
+#include <QTimer>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -22,6 +23,16 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     ui->stackedWidget->setCurrentIndex(0);
+
+    //Timer
+          QTimer *timer_p=new QTimer(this);
+          connect(timer_p,SIGNAL(timeout()),this,SLOT(showTime()));
+          timer_p->start();
+
+      //DAate systeme
+          QDateTime Date_p=QDateTime::currentDateTime();
+          QString Date_txt=Date_p.toString("dddd dd MMMM yyyy");
+          ui->Date->setText(Date_txt);
 
     //***********************
     //***********************
@@ -72,8 +83,6 @@ MainWindow::MainWindow(QWidget *parent)
           QItemSelectionModel *selectt = ui->tablegraphistes->selectionModel();
           email_recipient =selectt->selectedRows(4).value(0).data().toString();
 
-          ui->lineedit_id->setValidator(new QIntValidator(0,99999999,this));
-          ui->_lineedit_id_2->setValidator(new QIntValidator(0,99999999,this));
           //*****************************
            //***************************
 
@@ -91,22 +100,18 @@ MainWindow::~MainWindow()
      //general LOGIN
 void MainWindow::on_login_button_clicked()
 {
+    ui->stackedWidget->setCurrentIndex(21);
  /*player.setMedia(QUrl::fromLocalFile("C:/Users/malek/Desktop/Module_location/The Voice_button sound effect.wav"));
 player.setVolume(1.0);
- player.play();*/
+ player.play();
 
    QSqlQuery query;
     QMessageBox msgBox;
-
-
-
         QString id =ui->id->text(), pw=ui->password->text(),type="";
-        query.prepare("SELECT role FROM employe WHERE id =:id and password=:pw");
+        query.prepare("SELECT * FROM EMPLOYEES_LOGIN WHERE ID =:id AND PASSWORD =:password");
         query.bindValue(":id", id);
-        query.bindValue(":pw",pw);
+        query.bindValue(":password",pw);
         query.exec();
-
-
 
         while(query.next())
       {
@@ -120,7 +125,7 @@ player.setVolume(1.0);
        msgBox.exec();
        if (type== "location")
         ui->stackedWidget->setCurrentIndex(1);
-       else if (type== "organisation")
+      /* else if (type== "organisation")
            ui->stackedWidget->setCurrentIndex(10);
        else if (type=="marketing")
            ui->stackedWidget->setCurrentIndex(18);
@@ -130,8 +135,9 @@ player.setVolume(1.0);
          //  ui->stackedWidget->setCurrentIndex();
       // else if (type=="RH")
           // ui->stackedWidget->setCurrentIndex();
-       }
+       }*/
 }
+
  //********************************************
 //***********************************
 //*****************************/
@@ -1579,17 +1585,18 @@ void MainWindow::on_recherchee_mar_clicked()
 
 void MainWindow::on_Button_espacegraphistes_clicked()
 {
-  ui->stackedWidget->setCurrentIndex(24);
+  ui->stackedWidget->setCurrentIndex(23);
 }
 
 void MainWindow::on_button_espace_photographes_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(23);
+    ui->stackedWidget->setCurrentIndex(22);
 }
 
 void MainWindow::on_ajouter_photographe_clicked()
 {
   int id = ui->lineedit_id->text().toInt();
+   ui->lineedit_id->setValidator(new QIntValidator(0,99999999,this));
     QString nom = ui->lineedit_nom->text();
     QString prenom = ui->lineedit_prenom->text();
     int tel = ui->lineeedit_tel->text().toInt();
@@ -1607,6 +1614,7 @@ void MainWindow::on_ajouter_photographe_clicked()
 void MainWindow::on_ajouter_graphiste_clicked()
 {
     int id = ui->_lineedit_id_2->text().toInt();
+     ui->_lineedit_id_2->setValidator(new QIntValidator(0,99999999,this));
     QString nom = ui->_lineedit_nom_2->text();
     QString prenom = ui->_lineedit_prenom_2->text();
     int tel = ui->_lineeedit_tel_2->text().toInt();
@@ -1691,7 +1699,7 @@ void MainWindow::on_modifier_graphiste_clicked()
 
 void MainWindow::on_retour_clicked()
 {
-     ui->stackedWidget->setCurrentIndex(22);
+     ui->stackedWidget->setCurrentIndex(21);
 }
 
 
@@ -1903,7 +1911,6 @@ void MainWindow::on_exporterpdf_graphiste_clicked()
 }
 
 
-
 void MainWindow::on_envoyermail_photographe_clicked()
 {
     Smtp * smtp=new Smtp("wissal.soudani@esprit.tn","wissalesprit","smtp.gmail.com",465);
@@ -1935,10 +1942,9 @@ void MainWindow::on_selectionnermail_graphiste_clicked()
 }
 
 
-
 void MainWindow::on_retour2_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(22);
+ ui->stackedWidget->setCurrentIndex(21);
 }
 
 
