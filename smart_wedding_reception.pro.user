@@ -1,18 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<<<<<<< HEAD
 <!-- Written by QtCreator 4.11.0, 2020-12-29T19:35:59. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
   <value type="QByteArray">{fe87d6e9-70c3-4569-94e1-b891ed68223f}</value>
-=======
-<!-- Written by QtCreator 4.12.2, 2020-12-28T22:22:50. -->
-<qtcreator>
- <data>
-  <variable>EnvironmentId</variable>
-  <value type="QByteArray">{67753c90-eaca-475a-a8f2-1152ca3399b9}</value>
->>>>>>> 727f9d44de14de0029223897a20c26dd64aaeee6
  </data>
  <data>
   <variable>ProjectExplorer.Project.ActiveTarget</variable>
@@ -67,60 +59,28 @@
     <value type="QString">-fno-delayed-template-parsing</value>
    </valuelist>
    <value type="bool" key="ClangCodeModel.UseGlobalConfig">true</value>
-<<<<<<< HEAD
-=======
-   <value type="QString" key="ClangCodeModel.WarningConfigId">Builtin.Questionable</value>
-   <valuemap type="QVariantMap" key="ClangTools">
-    <value type="bool" key="ClangTools.BuildBeforeAnalysis">true</value>
-    <value type="QString" key="ClangTools.DiagnosticConfig">Builtin.DefaultTidyAndClazy</value>
-    <value type="int" key="ClangTools.ParallelJobs">4</value>
-    <valuelist type="QVariantList" key="ClangTools.SelectedDirs"/>
-    <valuelist type="QVariantList" key="ClangTools.SelectedFiles"/>
-    <valuelist type="QVariantList" key="ClangTools.SuppressedDiagnostics"/>
-    <value type="bool" key="ClangTools.UseGlobalSettings">true</value>
-   </valuemap>
->>>>>>> 727f9d44de14de0029223897a20c26dd64aaeee6
   </valuemap>
  </data>
  <data>
   <variable>ProjectExplorer.Project.Target.0</variable>
   <valuemap type="QVariantMap">
-<<<<<<< HEAD
    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Desktop Qt 5.9.9 MinGW 32bit</value>
    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Desktop Qt 5.9.9 MinGW 32bit</value>
    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">qt.qt5.599.win32_mingw53_kit</value>
-=======
-   <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Desktop Qt 5.12.9 MinGW 64-bit</value>
-   <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Desktop Qt 5.12.9 MinGW 64-bit</value>
-   <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">qt.qt5.5129.win64_mingw73_kit</value>
->>>>>>> 727f9d44de14de0029223897a20c26dd64aaeee6
    <value type="int" key="ProjectExplorer.Target.ActiveBuildConfiguration">0</value>
    <value type="int" key="ProjectExplorer.Target.ActiveDeployConfiguration">0</value>
    <value type="int" key="ProjectExplorer.Target.ActiveRunConfiguration">0</value>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.0">
-<<<<<<< HEAD
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:/Users/user/Desktop/build-smart_wedding_reception-Desktop_Qt_5_9_9_MinGW_32bit-Debug</value>
-=======
-    <value type="bool">true</value>
-    <value type="int" key="EnableQmlDebugging">0</value>
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Users\HP\Desktop\clone\build-smart_wedding_reception-Desktop_Qt_5_12_9_MinGW_64_bit-Debug</value>
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">C:/Users/HP/Desktop/clone/build-smart_wedding_reception-Desktop_Qt_5_12_9_MinGW_64_bit-Debug</value>
->>>>>>> 727f9d44de14de0029223897a20c26dd64aaeee6
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
       <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">QtProjectManager.QMakeBuildStep</value>
-<<<<<<< HEAD
       <value type="bool" key="QtProjectManager.QMakeBuildStep.LinkQmlDebuggingLibrary">true</value>
       <value type="QString" key="QtProjectManager.QMakeBuildStep.QMakeArguments"></value>
       <value type="bool" key="QtProjectManager.QMakeBuildStep.QMakeForced">false</value>
       <value type="bool" key="QtProjectManager.QMakeBuildStep.SeparateDebugInfo">false</value>
       <value type="bool" key="QtProjectManager.QMakeBuildStep.UseQtQuickCompiler">false</value>
-=======
-      <value type="QString" key="QtProjectManager.QMakeBuildStep.QMakeArguments"></value>
-      <value type="bool" key="QtProjectManager.QMakeBuildStep.QMakeForced">false</value>
-      <valuelist type="QVariantList" key="QtProjectManager.QMakeBuildStep.SelectedAbis"/>
->>>>>>> 727f9d44de14de0029223897a20c26dd64aaeee6
      </valuemap>
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.1">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
@@ -157,35 +117,18 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Debug</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4BuildConfiguration</value>
     <value type="int" key="Qt4ProjectManager.Qt4BuildConfiguration.BuildConfiguration">2</value>
-<<<<<<< HEAD
    </valuemap>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.1">
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:/Users/user/Desktop/build-smart_wedding_reception-Desktop_Qt_5_9_9_MinGW_32bit-Release</value>
-=======
-    <value type="int" key="QtQuickCompiler">2</value>
-    <value type="int" key="SeparateDebugInfo">2</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.1">
-    <value type="bool">true</value>
-    <value type="int" key="EnableQmlDebugging">2</value>
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Users\HP\Desktop\clone\build-smart_wedding_reception-Desktop_Qt_5_12_9_MinGW_64_bit-Release</value>
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">C:/Users/HP/Desktop/clone/build-smart_wedding_reception-Desktop_Qt_5_12_9_MinGW_64_bit-Release</value>
->>>>>>> 727f9d44de14de0029223897a20c26dd64aaeee6
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
       <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">QtProjectManager.QMakeBuildStep</value>
-<<<<<<< HEAD
       <value type="bool" key="QtProjectManager.QMakeBuildStep.LinkQmlDebuggingLibrary">false</value>
       <value type="QString" key="QtProjectManager.QMakeBuildStep.QMakeArguments"></value>
       <value type="bool" key="QtProjectManager.QMakeBuildStep.QMakeForced">false</value>
       <value type="bool" key="QtProjectManager.QMakeBuildStep.SeparateDebugInfo">false</value>
       <value type="bool" key="QtProjectManager.QMakeBuildStep.UseQtQuickCompiler">false</value>
-=======
-      <value type="QString" key="QtProjectManager.QMakeBuildStep.QMakeArguments"></value>
-      <value type="bool" key="QtProjectManager.QMakeBuildStep.QMakeForced">false</value>
-      <valuelist type="QVariantList" key="QtProjectManager.QMakeBuildStep.SelectedAbis"/>
->>>>>>> 727f9d44de14de0029223897a20c26dd64aaeee6
      </valuemap>
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.1">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
@@ -222,35 +165,18 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Release</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4BuildConfiguration</value>
     <value type="int" key="Qt4ProjectManager.Qt4BuildConfiguration.BuildConfiguration">0</value>
-<<<<<<< HEAD
    </valuemap>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.2">
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:/Users/user/Desktop/build-smart_wedding_reception-Desktop_Qt_5_9_9_MinGW_32bit-Profile</value>
-=======
-    <value type="int" key="QtQuickCompiler">0</value>
-    <value type="int" key="SeparateDebugInfo">2</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.2">
-    <value type="bool">true</value>
-    <value type="int" key="EnableQmlDebugging">0</value>
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Users\HP\Desktop\clone\build-smart_wedding_reception-Desktop_Qt_5_12_9_MinGW_64_bit-Profile</value>
-    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">C:/Users/HP/Desktop/clone/build-smart_wedding_reception-Desktop_Qt_5_12_9_MinGW_64_bit-Profile</value>
->>>>>>> 727f9d44de14de0029223897a20c26dd64aaeee6
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
       <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">QtProjectManager.QMakeBuildStep</value>
-<<<<<<< HEAD
       <value type="bool" key="QtProjectManager.QMakeBuildStep.LinkQmlDebuggingLibrary">true</value>
       <value type="QString" key="QtProjectManager.QMakeBuildStep.QMakeArguments"></value>
       <value type="bool" key="QtProjectManager.QMakeBuildStep.QMakeForced">false</value>
       <value type="bool" key="QtProjectManager.QMakeBuildStep.SeparateDebugInfo">true</value>
       <value type="bool" key="QtProjectManager.QMakeBuildStep.UseQtQuickCompiler">false</value>
-=======
-      <value type="QString" key="QtProjectManager.QMakeBuildStep.QMakeArguments"></value>
-      <value type="bool" key="QtProjectManager.QMakeBuildStep.QMakeForced">false</value>
-      <valuelist type="QVariantList" key="QtProjectManager.QMakeBuildStep.SelectedAbis"/>
->>>>>>> 727f9d44de14de0029223897a20c26dd64aaeee6
      </valuemap>
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.1">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
@@ -287,11 +213,6 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Profile</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4BuildConfiguration</value>
     <value type="int" key="Qt4ProjectManager.Qt4BuildConfiguration.BuildConfiguration">0</value>
-<<<<<<< HEAD
-=======
-    <value type="int" key="QtQuickCompiler">0</value>
-    <value type="int" key="SeparateDebugInfo">0</value>
->>>>>>> 727f9d44de14de0029223897a20c26dd64aaeee6
    </valuemap>
    <value type="int" key="ProjectExplorer.Target.BuildConfigurationCount">3</value>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.DeployConfiguration.0">
@@ -302,11 +223,6 @@
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">ProjectExplorer.BuildSteps.Deploy</value>
     </valuemap>
     <value type="int" key="ProjectExplorer.BuildConfiguration.BuildStepListCount">1</value>
-<<<<<<< HEAD
-=======
-    <valuemap type="QVariantMap" key="ProjectExplorer.DeployConfiguration.CustomData"/>
-    <value type="bool" key="ProjectExplorer.DeployConfiguration.CustomDataEnabled">false</value>
->>>>>>> 727f9d44de14de0029223897a20c26dd64aaeee6
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">ProjectExplorer.DefaultDeployConfiguration</value>
    </valuemap>
    <value type="int" key="ProjectExplorer.Target.DeployConfigurationCount">1</value>
@@ -371,13 +287,8 @@
     </valuelist>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-<<<<<<< HEAD
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Users/user/Desktop/Smart_wedding_reception_2A8-master/smart_wedding_reception.pro</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/user/Desktop/Smart_wedding_reception_2A8-master/smart_wedding_reception.pro</value>
-=======
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Users/HP/Desktop/clone/Smart_wedding_reception_2A8/smart_wedding_reception.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/HP/Desktop/clone/Smart_wedding_reception_2A8/smart_wedding_reception.pro</value>
->>>>>>> 727f9d44de14de0029223897a20c26dd64aaeee6
     <value type="QString" key="RunConfiguration.Arguments"></value>
     <value type="bool" key="RunConfiguration.Arguments.multi">false</value>
     <value type="QString" key="RunConfiguration.OverrideDebuggerStartup"></value>
@@ -388,11 +299,7 @@
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
     <value type="QString" key="RunConfiguration.WorkingDirectory"></value>
-<<<<<<< HEAD
     <value type="QString" key="RunConfiguration.WorkingDirectory.default">C:/Users/user/Desktop/build-smart_wedding_reception-Desktop_Qt_5_9_9_MinGW_32bit-Debug</value>
-=======
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">C:/Users/HP/Desktop/clone/build-smart_wedding_reception-Desktop_Qt_5_12_9_MinGW_64_bit-Debug</value>
->>>>>>> 727f9d44de14de0029223897a20c26dd64aaeee6
    </valuemap>
    <value type="int" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
   </valuemap>

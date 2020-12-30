@@ -27,20 +27,14 @@ SOURCES += \
     animateur.cpp \
     arduino.cpp \
     car.cpp \
-<<<<<<< HEAD
     client.cpp \
     cll.cpp \
-=======
->>>>>>> 727f9d44de14de0029223897a20c26dd64aaeee6
     coiffeurs.cpp \
     connexion.cpp \
     decorateur.cpp \
     email.cpp \
-<<<<<<< HEAD
     emp.cpp \
     employe.cpp \
-=======
->>>>>>> 727f9d44de14de0029223897a20c26dd64aaeee6
     evenement.cpp \
     exportexcelobject.cpp \
     graphiste.cpp \
@@ -62,20 +56,14 @@ HEADERS += \
     animateur.h \
     arduino.h \
     car.h \
-<<<<<<< HEAD
     client.h \
     cll.h \
-=======
->>>>>>> 727f9d44de14de0029223897a20c26dd64aaeee6
     coiffeurs.h \
     connexion.h \
     decorateur.h \
     email.h \
-<<<<<<< HEAD
     emp.h \
     employe.h \
-=======
->>>>>>> 727f9d44de14de0029223897a20c26dd64aaeee6
     evenement.h \
     exportexcelobject.h \
     graphiste.h \
@@ -92,11 +80,8 @@ HEADERS += \
     traiteur.h
 
 FORMS += \
-<<<<<<< HEAD
     cll.ui \
     employe.ui \
-=======
->>>>>>> 727f9d44de14de0029223897a20c26dd64aaeee6
     mainwindow.ui \
     pie_location.ui \
     send_email_location.ui \
@@ -120,7 +105,4 @@ DISTFILES += \
 
 SUBDIRS += \
     ../graph/wess.pro
-<<<<<<< HEAD
 
-=======
->>>>>>> 727f9d44de14de0029223897a20c26dd64aaeee6
