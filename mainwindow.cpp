@@ -15,16 +15,37 @@
 #include "graphiste.h"
 #include "smtp_location.h"
 #include <QTimer>
-
+#include <QDateTime>
+#include "arduino.h"
+#include <QSerialPort>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    int ret=Ard.connect_arduino();
+    switch(ret){
+    case(0):qDebug()<<"arduino is available and connected to: "<< Ard.getarduino_port_name();
+    break;
+    case(1):qDebug()<<"arduino is available but not connected to "<< Ard.getarduino_port_name();
+    break;
+    case(-1):qDebug()<<"arduino is not available ";
+    }
+    QObject::connect(Ard.getserial(),SIGNAL(readyRead()),this,SLOT(detect()));
+    //QObject::connect(Ard.getserial(),SIGNAL(readyRead()),this,SLOT(Ard.read_from_arduino()));
+
     ui->stackedWidget->setCurrentIndex(0);
 
-    //Timer
+
+
+   //controle de saisie id_photographe
+     ui->lineedit_id->setValidator(new QIntValidator(0,99999999,this));
+   //controle de saisie id_graphiste
+      ui->_lineedit_id_2->setValidator(new QIntValidator(0,99999999,this));
+
+     //Timer
           QTimer *timer_p=new QTimer(this);
           connect(timer_p,SIGNAL(timeout()),this,SLOT(showTime()));
           timer_p->start();
@@ -36,6 +57,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     //***********************
     //***********************
+
+
+          //***************************
 
     //table view module location
     ui->table_car->setModel(cartemp.afficher_car()); //actualiser la table
@@ -85,6 +109,12 @@ MainWindow::MainWindow(QWidget *parent)
 
           //*****************************
            //***************************
+          //arduino weswes
+          //Ard.connect_arduino();
+          //Ard.read_from_arduino();
+
+
+          //*********************
 
 }
 
@@ -96,10 +126,19 @@ MainWindow::~MainWindow()
 //**************************************************
 //*****************************
 /****************/
+void MainWindow::detect(){
+    data1=Ard.read_from_arduino();
+    if (data1=="2"){
+        QMessageBox::information(nullptr, QObject::tr("Mouvement"),
+                                 QObject::tr("employe graphisme Arrivé."), QMessageBox::Ok);
+
+    }
+}
 
      //general LOGIN
 void MainWindow::on_login_button_clicked()
 {
+    //A.write_to_arduino("1");
     ui->stackedWidget->setCurrentIndex(21);
  /*player.setMedia(QUrl::fromLocalFile("C:/Users/malek/Desktop/Module_location/The Voice_button sound effect.wav"));
 player.setVolume(1.0);
@@ -141,6 +180,8 @@ player.setVolume(1.0);
  //********************************************
 //***********************************
 //*****************************/
+//arduino
+
 
 //module location
 void MainWindow::on_add_car_clicked()
@@ -1596,7 +1637,6 @@ void MainWindow::on_button_espace_photographes_clicked()
 void MainWindow::on_ajouter_photographe_clicked()
 {
   int id = ui->lineedit_id->text().toInt();
-   ui->lineedit_id->setValidator(new QIntValidator(0,99999999,this));
     QString nom = ui->lineedit_nom->text();
     QString prenom = ui->lineedit_prenom->text();
     int tel = ui->lineeedit_tel->text().toInt();
@@ -1605,16 +1645,20 @@ void MainWindow::on_ajouter_photographe_clicked()
     bool test =P.ajouter();
       if (test)
 
-     {  ui->tablephotographes->setModel(tempphoto.afficher());
+     {
+        ui->tablephotographes->setModel(tempphoto.afficher());
         QMessageBox::information(nullptr, QObject::tr("ajout photographe"),
                                  QObject::tr("photographe ajouté :"), QMessageBox::Cancel);
-     }
+
+       Ard.write_to_arduino("1");
+      }
+      else {  Ard.write_to_arduino("0"); }
+
 }
 
 void MainWindow::on_ajouter_graphiste_clicked()
 {
     int id = ui->_lineedit_id_2->text().toInt();
-     ui->_lineedit_id_2->setValidator(new QIntValidator(0,99999999,this));
     QString nom = ui->_lineedit_nom_2->text();
     QString prenom = ui->_lineedit_prenom_2->text();
     int tel = ui->_lineeedit_tel_2->text().toInt();
@@ -1623,11 +1667,14 @@ void MainWindow::on_ajouter_graphiste_clicked()
     bool test =g.ajouter();
       if (test)
 
-     {  ui->tablegraphistes->setModel(tempgraph.afficher());
+     {
+          ui->tablegraphistes->setModel(tempgraph.afficher());
         QMessageBox::information(nullptr, QObject::tr("ajout graphiste"),
                                  QObject::tr("graphiste ajouté :"), QMessageBox::Cancel);
 
+        Ard.write_to_arduino("1");
      }
+      else {  Ard.write_to_arduino("0"); }
 }
 
 
@@ -1953,6 +2000,9 @@ void MainWindow::on__quit_button_2_clicked()
     close();
 }
 
+void MainWindow::readdata(){
+    //qDebug()<<A.read_from_arduino();
+}
 
 //********************************************
 //***********************************

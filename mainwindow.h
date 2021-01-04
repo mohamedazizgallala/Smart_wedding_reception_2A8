@@ -17,6 +17,7 @@
 #include "evenement.h"
 #include "graphiste.h"
 #include "photographe.h"
+#include "arduino.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -169,6 +170,8 @@ private slots:
     void on_back_org_clicked();
 
     void on_buttonajouter_3_org_clicked();
+
+    void readdata();
 
     //***************************************
     //******************************************
@@ -323,6 +326,7 @@ private slots:
         void on_recherche_photographe_clicked();
 
         void on_retour2_clicked();
+        void detect();
 
 private:
     Ui::MainWindow *ui;
@@ -342,6 +346,8 @@ private:
        Photographe tempphoto;
        QString email_recipient;
        Graphiste tempgraph;
+       Arduino Ard;
+       QByteArray data1;
 
 };
 #endif // MAINWINDOW_H

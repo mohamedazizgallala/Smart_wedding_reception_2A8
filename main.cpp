@@ -20,7 +20,5 @@ int main(int argc, char *argv[])
                          //  QObject::tr("La connexion est établie."), QMessageBox::Cancel); }
 
 
-
-
     return a.exec();
 }
