@@ -2,7 +2,20 @@
 
 Arduino::Arduino()
 {
+    data="";
+    arduino_port_name="";
+    arduino_is_available=false;
+    serial=new QSerialPort;
+}
 
+QString Arduino::getarduino_port_name()
+{
+    return arduino_port_name;
+}
+
+QSerialPort *Arduino::getserial()
+{
+   return serial;
 }
 int Arduino::connect_arduino()
 {
@@ -17,22 +30,21 @@ int Arduino::connect_arduino()
             }
         }
     }
-    qDebug() << "arduino_port_name is: " << arduino_port_name;
-    if (arduino_is_available)
+    qDebug() <<"arduino_port_name is:" << arduino_port_name;
+    if(arduino_is_available)
     {
         serial->setPortName(arduino_port_name);
-        if (serial->open(QSerialPort::ReadWrite))
+        if(serial->open(QSerialPort::ReadWrite))
         {
             serial->setBaudRate(QSerialPort::Baud9600);
             serial->setDataBits(QSerialPort::Data8);
             serial->setParity(QSerialPort::NoParity);
             serial->setStopBits(QSerialPort::OneStop);
             serial->setFlowControl(QSerialPort::NoFlowControl);
-            return 0;
+     }
+
         }
-        qDebug() << serial->error();
-        return 1;
-    }
+    return 0;
 }
 
 int Arduino::close_arduino()
@@ -50,6 +62,7 @@ QByteArray Arduino:: read_from_arduino()
    if (serial->isReadable())
    {
        data=serial->readAll();
+       //qDebug()<<data;
        return data;
    }
 }

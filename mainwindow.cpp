@@ -14,21 +14,52 @@
 #include <QDate>
 #include "graphiste.h"
 #include "smtp_location.h"
-#include "coiffeurs.h"
-#include "locateurs.h"
-#include <qtableview.h>
-#include "statbeaute.h"
-
+#include <QTimer>
+#include <QDateTime>
+#include "arduino.h"
+#include <QSerialPort>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    int ret=Ard.connect_arduino();
+    switch(ret){
+    case(0):qDebug()<<"arduino is available and connected to: "<< Ard.getarduino_port_name();
+    break;
+    case(1):qDebug()<<"arduino is available but not connected to "<< Ard.getarduino_port_name();
+    break;
+    case(-1):qDebug()<<"arduino is not available ";
+    }
+    QObject::connect(Ard.getserial(),SIGNAL(readyRead()),this,SLOT(detect()));
+    //QObject::connect(Ard.getserial(),SIGNAL(readyRead()),this,SLOT(Ard.read_from_arduino()));
+
     ui->stackedWidget->setCurrentIndex(0);
+
+
+
+   //controle de saisie id_photographe
+     ui->lineedit_id->setValidator(new QIntValidator(0,99999999,this));
+   //controle de saisie id_graphiste
+      ui->_lineedit_id_2->setValidator(new QIntValidator(0,99999999,this));
+
+     //Timer
+          QTimer *timer_p=new QTimer(this);
+          connect(timer_p,SIGNAL(timeout()),this,SLOT(showTime()));
+          timer_p->start();
+
+      //DAate systeme
+          QDateTime Date_p=QDateTime::currentDateTime();
+          QString Date_txt=Date_p.toString("dddd dd MMMM yyyy");
+          ui->Date->setText(Date_txt);
 
     //***********************
     //***********************
+
+
+          //***************************
 
     //table view module location
     ui->table_car->setModel(cartemp.afficher_car()); //actualiser la table
@@ -76,16 +107,15 @@ MainWindow::MainWindow(QWidget *parent)
           QItemSelectionModel *selectt = ui->tablegraphistes->selectionModel();
           email_recipient =selectt->selectedRows(4).value(0).data().toString();
 
-          ui->lineedit_id->setValidator(new QIntValidator(0,99999999,this));
-          ui->_lineedit_id_2->setValidator(new QIntValidator(0,99999999,this));
           //*****************************
            //***************************
-         //table view module beauté
-          //coiff
-          ui->tableView_coiff->setModel(coiff.afficher());
-          //locat
-          ui->tableView_locat->setModel(locat.afficher());
-          connect(this->ui->pushButton_send, SIGNAL(clicked(bool)), this, SLOT(send_mail()));
+          //arduino weswes
+          //Ard.connect_arduino();
+          //Ard.read_from_arduino();
+
+
+          //*********************
+
 }
 
 MainWindow::~MainWindow()
@@ -96,26 +126,31 @@ MainWindow::~MainWindow()
 //**************************************************
 //*****************************
 /****************/
+void MainWindow::detect(){
+    data1=Ard.read_from_arduino();
+    if (data1=="2"){
+        QMessageBox::information(nullptr, QObject::tr("Mouvement"),
+                                 QObject::tr("employe graphisme Arrivé."), QMessageBox::Ok);
+
+    }
+}
 
      //general LOGIN
 void MainWindow::on_login_button_clicked()
 {
+    //A.write_to_arduino("1");
+    ui->stackedWidget->setCurrentIndex(21);
  /*player.setMedia(QUrl::fromLocalFile("C:/Users/malek/Desktop/Module_location/The Voice_button sound effect.wav"));
 player.setVolume(1.0);
- player.play();*/
+ player.play();
 
    QSqlQuery query;
     QMessageBox msgBox;
-
-
-
         QString id =ui->id->text(), pw=ui->password->text(),type="";
-        query.prepare("SELECT role FROM employe WHERE id =:id and password=:pw");
+        query.prepare("SELECT * FROM EMPLOYEES_LOGIN WHERE ID =:id AND PASSWORD =:password");
         query.bindValue(":id", id);
-        query.bindValue(":pw",pw);
+        query.bindValue(":password",pw);
         query.exec();
-
-
 
         while(query.next())
       {
@@ -129,7 +164,7 @@ player.setVolume(1.0);
        msgBox.exec();
        if (type== "location")
         ui->stackedWidget->setCurrentIndex(1);
-       else if (type== "organisation")
+      /* else if (type== "organisation")
            ui->stackedWidget->setCurrentIndex(10);
        else if (type=="marketing")
            ui->stackedWidget->setCurrentIndex(18);
@@ -139,11 +174,14 @@ player.setVolume(1.0);
          //  ui->stackedWidget->setCurrentIndex();
       // else if (type=="RH")
           // ui->stackedWidget->setCurrentIndex();
-       }
+       }*/
 }
+
  //********************************************
 //***********************************
 //*****************************/
+//arduino
+
 
 //module location
 void MainWindow::on_add_car_clicked()
@@ -1588,12 +1626,12 @@ void MainWindow::on_recherchee_mar_clicked()
 
 void MainWindow::on_Button_espacegraphistes_clicked()
 {
-  ui->stackedWidget->setCurrentIndex(24);
+  ui->stackedWidget->setCurrentIndex(23);
 }
 
 void MainWindow::on_button_espace_photographes_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(23);
+    ui->stackedWidget->setCurrentIndex(22);
 }
 
 void MainWindow::on_ajouter_photographe_clicked()
@@ -1607,10 +1645,15 @@ void MainWindow::on_ajouter_photographe_clicked()
     bool test =P.ajouter();
       if (test)
 
-     {  ui->tablephotographes->setModel(tempphoto.afficher());
+     {
+        ui->tablephotographes->setModel(tempphoto.afficher());
         QMessageBox::information(nullptr, QObject::tr("ajout photographe"),
                                  QObject::tr("photographe ajouté :"), QMessageBox::Cancel);
-     }
+
+       Ard.write_to_arduino("1");
+      }
+      else {  Ard.write_to_arduino("0"); }
+
 }
 
 void MainWindow::on_ajouter_graphiste_clicked()
@@ -1624,11 +1667,14 @@ void MainWindow::on_ajouter_graphiste_clicked()
     bool test =g.ajouter();
       if (test)
 
-     {  ui->tablegraphistes->setModel(tempgraph.afficher());
+     {
+          ui->tablegraphistes->setModel(tempgraph.afficher());
         QMessageBox::information(nullptr, QObject::tr("ajout graphiste"),
                                  QObject::tr("graphiste ajouté :"), QMessageBox::Cancel);
 
+        Ard.write_to_arduino("1");
      }
+      else {  Ard.write_to_arduino("0"); }
 }
 
 
@@ -1700,7 +1746,7 @@ void MainWindow::on_modifier_graphiste_clicked()
 
 void MainWindow::on_retour_clicked()
 {
-     ui->stackedWidget->setCurrentIndex(22);
+     ui->stackedWidget->setCurrentIndex(21);
 }
 
 
@@ -1912,7 +1958,6 @@ void MainWindow::on_exporterpdf_graphiste_clicked()
 }
 
 
-
 void MainWindow::on_envoyermail_photographe_clicked()
 {
     Smtp * smtp=new Smtp("wissal.soudani@esprit.tn","wissalesprit","smtp.gmail.com",465);
@@ -1944,10 +1989,9 @@ void MainWindow::on_selectionnermail_graphiste_clicked()
 }
 
 
-
 void MainWindow::on_retour2_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(22);
+ ui->stackedWidget->setCurrentIndex(21);
 }
 
 
@@ -1956,347 +2000,33 @@ void MainWindow::on__quit_button_2_clicked()
     close();
 }
 
+void MainWindow::readdata(){
+    //qDebug()<<A.read_from_arduino();
+}
 
 //********************************************
 //***********************************
 //*****************************/
 
-//Module Beauté
-
-
-//***********Coiffeurs************
-
-
-
-void MainWindow::on_pushButton_maillocat_clicked()//page du mailing locat
-{
-   ui->stackedWidget->setCurrentIndex(25);
-}
-
-void MainWindow::on_pushButton_mailcoiff_clicked()//page du mailing coiff
-{
-    ui->stackedWidget->setCurrentIndex(25);
-}
-
-
-void MainWindow::on_tableView_coiff_activated(const QModelIndex &index)//affichage liste coiff
-{
-    QString val=ui->tableView_coiff->model()->data(index).toString();
-    QSqlQuery q;
-    q.prepare("select * from COIFFEURS where NOM='"+val+"'");
-    if(q.exec())
-    {
-        while (q.next()) {
-            ui->lineEdit_nomcoiff->setText(q.value(0).toString());
-            ui->lineEdit_adrcoiff->setText(q.value(1).toString());
-            ui->lineEdit_numcoiff->setText(q.value(2).toString());
-
-            ui->lineEdit_prxcoiff->setText(q.value(3).toString());
-
-        }
-}
-}
-
-
-void MainWindow::on_pushButton_ajoutcoiff_clicked()//ajout coiffeur
-{
-    QString nom=ui->lineEdit_nomcoiff->text();
-    QString adresse=ui->lineEdit_adrcoiff->text();
-    int num=ui->lineEdit_numcoiff->text().toInt();
-     int prix=ui->lineEdit_prxcoiff->text().toInt();
-     QString operateur;
-
-     QString num_string=QString :: number(num);
-
-     if (num_string[0] == "9")
-             operateur = "Telecom";
-           if (num_string[0] == "2")
-             operateur = "Ooredoo";
-           if (num_string[0] == "5")
-             operateur = "Orange";
-
-
-
-  /* qDebug()<<nom;
-        qDebug()<<adresse;
-            qDebug()<<num;
-           qDebug()<<prix;*/
 
 
-    coiffeurs coiff(nom,adresse,operateur,num,prix);
-    bool test=coiff.ajouter();
-    if(test)
-{
-    ui->tableView_coiff->setModel(coiff.afficher());
-    QMessageBox::information(nullptr, QObject::tr("Ajouter un coiff"),
-                      QObject::tr("coif ajouté.\n"
-                                  "Click Cancel to exit."), QMessageBox::Cancel);
-    ui->lineEdit_nomcoiff->setText("");
-    ui->lineEdit_adrcoiff->setText("");
-    ui->lineEdit_numcoiff->setText("");
-    ui->lineEdit_prxcoiff->setText("");
-    }
-      else
-       { QMessageBox::critical(nullptr, QObject::tr("Ajouter un coiff"),
-                      QObject::tr("Erreur !.\n"
-                              "Click Cancel to exit."), QMessageBox::Cancel);}
-}
 
-
-
-void MainWindow::on_fm_coiff_clicked()//modifier un coiff
-{
-    QString nom =ui->lineEdit_nomcoiff->text();
-       QString adresse =ui->lineEdit_adrcoiff->text();
-       int numero=ui->lineEdit_numcoiff->text().toInt();
-       int prix =ui->lineEdit_prxcoiff->text().toInt();
-        QString operateur;
-       coiffeurs coiff(nom,adresse,operateur,numero,prix);
-          bool test=coiff.modifier(nom);
-          if(test)
-        {
-              ui->lineEdit_nomcoiff->setText("");
-                       ui->lineEdit_adrcoiff->setText("");
-                       ui->lineEdit_numcoiff->setText("");
-                       ui->lineEdit_prxcoiff->setText("");
-                ui->tableView_coiff->setModel(coiff.afficher());//afficher tableau coiff
-
-        QMessageBox::information(nullptr, QObject::tr("modifier un coiffeur"),
-                          QObject::tr("modifié.\n"
-                                      "Click Cancel to exit."), QMessageBox::Cancel);
 
-        }
-          else
-              QMessageBox::critical(nullptr, QObject::tr("modifier"),
-                          QObject::tr("non modifié !.\n"
-                                      "Click Cancel to exit."), QMessageBox::Cancel);
-
-}
-
-
-
-void MainWindow::on_fs_coiff_clicked()//supprimer un coif
-{
-    QString i = ui->lineEdit_nomcoiff->text();
-        bool test = coiff.supprimer(i);
-
-        if (i=="")
-            test=false;
-        if(test){
-            ui->tableView_coiff->setModel(coiff.afficher());
-            QMessageBox::information(nullptr,"supression coiffeurs","coiffeurs supprimée avec succes.");}
-}
-
-
-
-void MainWindow::on_pushButton_rechcoiff_clicked()//recherche coiff
-{
-    /* QString nom=ui->nomrecherche_an->text();
-       ui->tableView_2->setModel(coiff.recherche_nom(nom));*/
-
-       QString rech=ui->nomrecherche_coiff->text();
-       if(rech!="")  { ui->tableView_coiff->setModel(coiff.recherche(rech)); }
-       else{ QMessageBox::information(this,"Pour chercher il Faut","tapez quelque chose !");
-       ui->tableView_coiff->setModel(coiff.afficher());
-   }
-}
-
-
-void MainWindow::on_upanim_ascoif_clicked()//tri asc coiff
-{
-    if(ui->comboBox_coif->currentIndex()==0)
-       ui->tableView_coiff->setModel(coiff.afficherup_nom());
-       else if(ui->comboBox_coif->currentIndex()==1)
-       ui->tableView_coiff->setModel(coiff.afficherup_prix());
-}
-
-
-
-void MainWindow::on_downanim_dscoiff_clicked()//tri desc coiff
-{
-    if(ui->comboBox_coif->currentIndex()==0)
-       ui->tableView_coiff->setModel(coiff.afficherdown_nom());
-       else if(ui->comboBox_coif->currentIndex()==1)
-       ui->tableView_coiff->setModel(coiff.afficherdown_prix());
-}
-
-
-
-void MainWindow::on_nomrecherche_coiff_textChanged(const QString &arg1)//entrer un texte dans la barre de rech coiff
-{
-    if(arg1=="")
-{  ui->tableView_coiff->setModel(coiff.afficher());  }
-}
-
-void MainWindow::on_pushButton_quitcoiff_2_clicked()//fermer la fenetre
-{
-    close();
-}
-
-void MainWindow::on_pushButton_rtcoiff_clicked()//retour a la page du menu
-{
-  ui->stackedWidget->setCurrentIndex(0);
-}
-//***********Locateurs************
-
-
-void MainWindow::on_tableView_locat_activated(const QModelIndex &index)//affichage liste locat
-{
-    QString val=ui->tableView_locat->model()->data(index).toString();
-              QSqlQuery q;
-              q.prepare("SELECT * FROM LOCATEURS WHERE NOML='"+val+"'");
-              if(q.exec())
-              {
-                  while (q.next()) {
-                      ui->lineEdit_nomlocat->setText(q.value(0).toString());
-                      ui->lineEdit_adrlocat->setText(q.value(1).toString());
-                      ui->lineEdit_numlocat->setText(q.value(2).toString());
-                      ui->lineEdit_prxlocat->setText(q.value(3).toString());
-
-                  }
-              }
-}
-
-
-
-void MainWindow::on_pushButton_ajoutlocat_clicked()//ajout locat
-{
-    QString noml=ui->lineEdit_nomlocat->text();
-          QString adressel=ui->lineEdit_adrlocat->text();
-          int numerol=ui->lineEdit_numlocat->text().toInt();
-          int prixl=ui->lineEdit_prxlocat->text().toInt();
-         locateurs locat1(noml,adressel,numerol,prixl);
-          bool test=locat1.ajouter();
-          if(test){
-                   ui->tableView_locat->setModel(locat.afficher());
-                   QMessageBox::information(nullptr,"ajout locateurs","locateurs ajoutée avec succes.");
-                   ui->lineEdit_nomlocat->setText("");
-                   ui->lineEdit_adrlocat->setText("");
-                   ui->lineEdit_numlocat->setText("");
-                   ui->lineEdit_prxlocat->setText("");
-               }
-               else QMessageBox::warning(nullptr,"ajout locateurs","locateurs non ajoutée.");
-
-}
-
-
-
-void MainWindow::on_fm_locat_clicked()//modifier locat
-{
-    QString noml =ui->lineEdit_nomlocat->text();
-       QString adressel =ui->lineEdit_adrlocat->text();
-       int numerol=ui->lineEdit_numlocat->text().toInt();
-       int prixl =ui->lineEdit_prxlocat->text().toInt();
-       QString numl=QString::number(numerol);
-       QString prxl=QString::number(prixl);
-       locateurs locat(noml,adressel,numerol,prixl);
-          bool test=locat.modifier(noml);
-          if(test)
-        {
-              ui->tableView_locat->setModel(locat.afficher());//afficher tableau locat
-              ui->lineEdit_nomlocat->setText(noml);
-              ui->lineEdit_adrlocat->setText(adressel);
-              ui->lineEdit_numlocat->setText(numl);
-              ui->lineEdit_prxlocat->setText(prxl);
-
-        QMessageBox::information(nullptr, QObject::tr("modifier un locateurs"),
-                          QObject::tr("modifié.\n"
-                                      "Click Cancel to exit."), QMessageBox::Cancel);
-}
-}
-
-
-void MainWindow::on_fs_locat_clicked()//supprimer un locat
-{
-    QString i = ui->lineEdit_nomlocat->text();
-        bool test = locat.supprimer(i);
-
-        if (i=="")
-            test=false;
-        if(test){
-            ui->tableView_locat->setModel(locat.afficher());
-            QMessageBox::information(nullptr,"supression locateurs","locateurs supprimée avec succes.");
-
-        }
-        else QMessageBox::warning(nullptr,"supression locateurs","locateurs non supprimée.");
-}
-
-
-
-void MainWindow::on_upanim_aslocat_clicked()//tri asc locat
-{
-    if(ui->comboBox_locat->currentIndex()==0)
-       ui->tableView_locat->setModel(locat.afficherup_nom());
-       else if(ui->comboBox_locat->currentIndex()==1)
-       ui->tableView_locat->setModel(locat.afficherup_prix());
-}
-
-
-
-void MainWindow::on_downanim_dslocat_clicked()//tri desc locat
-{
-    if(ui->comboBox_locat->currentIndex()==0)
-      ui->tableView_locat->setModel(locat.afficherdown_nom());
-      else if(ui->comboBox_locat->currentIndex()==1)
-      ui->tableView_locat->setModel(locat.afficherdown_prix());
-}
-
-
-
-void MainWindow::on_pushButton_rechlocat_clicked()//recherche locat
-{
-    /* QString noml=ui->nomrecherche_locat->text();
-      ui->tableView_locat->setModel(locat.recherche_nom(nom));*/
-
-      QString rech=ui->nomrecherche_locat->text();
-      if(rech!="")  { ui->tableView_locat->setModel(locat.recherche(rech)); }
-      else{ QMessageBox::information(this,"Pour chercher il Faut","tapez quelque chose !");
-      ui->tableView_locat->setModel(locat.afficher());
-  }
-}
-
-
-
-void MainWindow::on_nomrecherche_locat_textChanged(const QString &arg1)
-{
-
-        if(arg1=="")
-    {  ui->tableView_locat->setModel(locat.afficher());  }
-}
-
-//********Mailing beauté*****
-
-void MainWindow::on_pushButton_send_clicked()//envoyer un mail
-{
-    QString subject,content;
-       //AdresseEmail from,to,compte;
-       content = ui->textEdit_msg->toPlainText();
-       subject= ui->lineEdit_obj->text();
-       AdresseEmail from("coifflocat20@gmail.com");
-       AdresseEmail to(ui->linEdit_from->text());
-       AdresseEmail compte ("coifflocat20@gmail.com", "esprit123");
-       Email email(compte,from,to,subject,content);
-       this->client = new Smtpclient("smtp.gmail.com");
-       connect(this->client, SIGNAL(status(Status::e,QString)),
-               this, SLOT(onstatus(Status::e, QString)), Qt::UniqueConnection);
-       this->client->envoiEmail(email);
-}
-
-void MainWindow::on_pushButton_anmailbt_clicked()//annuler l'envoie
-{
-    ui->stackedWidget->setCurrentIndex(24);
-}
-//******************statistique coiff****************
-
-
-void MainWindow::on_pushButton_statcoiff_clicked()
-{
-    int res;
-        statistiques w(this);
-        w.setWindowTitle("Statistiques des operateurs");
-
-        res = w.exec();
-        qDebug() << res;
-        if (res == QDialog::Rejected)
-          return;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

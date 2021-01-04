@@ -1,11 +1,10 @@
-QT       += core gui sql
+QT += core gui sql
 QT += network
 QT += printsupport
 QT += charts
 QT +=multimedia
 QT +=serialport
-QT       += sql charts
-QT       += widgets
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -23,19 +22,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    adresseemail.cpp \
     animateur.cpp \
     arduino.cpp \
     car.cpp \
-    coiffeurs.cpp \
     connexion.cpp \
     decorateur.cpp \
-    email.cpp \
     evenement.cpp \
     exportexcelobject.cpp \
     graphiste.cpp \
     local.cpp \
-    locateurs.cpp \
     main.cpp \
     mainwindow.cpp \
     offre.cpp \
@@ -43,39 +38,30 @@ SOURCES += \
     pie_location.cpp \
     send_email_location.cpp \
     smtp_location.cpp \
-    smtpclient.cpp \
-    statbeaute.cpp \
     traiteur.cpp
 
 HEADERS += \
-    adresseemail.h \
     animateur.h \
     arduino.h \
     car.h \
-    coiffeurs.h \
     connexion.h \
     decorateur.h \
-    email.h \
     evenement.h \
     exportexcelobject.h \
     graphiste.h \
     local.h \
-    locateurs.h \
     mainwindow.h \
     offre.h \
     photographe.h \
     pie_location.h \
     send_email_location.h \
     smtp_location.h \
-    smtpclient.h \
-    statbeaute.h \
     traiteur.h
 
 FORMS += \
     mainwindow.ui \
     pie_location.ui \
-    send_email_location.ui \
-    statbeaute.ui
+    send_email_location.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
