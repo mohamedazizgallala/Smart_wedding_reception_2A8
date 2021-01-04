@@ -15,9 +15,11 @@
 #include "graphiste.h"
 #include "smtp_location.h"
 #include <QTimer>
+#include <QTime>
 #include <QDateTime>
 #include "arduino.h"
 #include <QSerialPort>
+#include "smtp_graphisme.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -34,10 +36,8 @@ MainWindow::MainWindow(QWidget *parent)
     case(-1):qDebug()<<"arduino is not available ";
     }
     QObject::connect(Ard.getserial(),SIGNAL(readyRead()),this,SLOT(detect()));
-    //QObject::connect(Ard.getserial(),SIGNAL(readyRead()),this,SLOT(Ard.read_from_arduino()));
 
     ui->stackedWidget->setCurrentIndex(0);
-
 
 
    //controle de saisie id_photographe
@@ -47,8 +47,9 @@ MainWindow::MainWindow(QWidget *parent)
 
      //Timer
           QTimer *timer_p=new QTimer(this);
-          connect(timer_p,SIGNAL(timeout()),this,SLOT(showTime()));
-          timer_p->start();
+          connect(timer_p, SIGNAL(timeout()), this,SLOT(showTime()));
+          timer_p->start(1000);
+
 
       //DAate systeme
           QDateTime Date_p=QDateTime::currentDateTime();
@@ -1957,28 +1958,11 @@ void MainWindow::on_exporterpdf_graphiste_clicked()
         doc.print(&printer);
 }
 
-
-void MainWindow::on_envoyermail_photographe_clicked()
-{
-    Smtp * smtp=new Smtp("wissal.soudani@esprit.tn","wissalesprit","smtp.gmail.com",465);
-    smtp->sendMail("wissal.soudani@esprit.tn",ui->recepteur->text(),ui->objet->text(),ui->msg->toPlainText());
-
-}
-
-void MainWindow::on_envoyermail_graphiste_clicked()
-{
-    Smtp * smtp=new Smtp("wissal.soudani@esprit.tn","wissalesprit","smtp.gmail.com",465);
-    smtp->sendMail("wissal.soudani@esprit.tn",ui->recepteur_2->text(),ui->objet_2->text(),ui->msg_2->toPlainText());
-}
-
-
-
 void MainWindow::on_selectionnermail_photographe_clicked()
 {
-    QItemSelectionModel *select = ui->tablegraphistes->selectionModel();
+    QItemSelectionModel *select = ui->tablephotographes->selectionModel();
     email_recipient =select->selectedRows(4).value(0).data().toString();
     ui->recepteur->setText(email_recipient);
-    //ui->tabWidget_4->setCurrentWidget(this);
 }
 
 void MainWindow::on_selectionnermail_graphiste_clicked()
@@ -1987,6 +1971,19 @@ void MainWindow::on_selectionnermail_graphiste_clicked()
     email_recipient =select->selectedRows(4).value(0).data().toString();
     ui->recepteur_2->setText(email_recipient);
 }
+
+void MainWindow::on_envoyermail_photographe_clicked()
+{
+    Smtp * smtp=new Smtp("wissal.soudani@esprit.tn","wissalesprit","smtp.gmail.com",465);
+    smtp->sendMail("wissal.soudani@esprit.tn",ui->recepteur->text(),ui->objet->text(),ui->msg->toPlainText());
+}
+
+void MainWindow::on_envoyermail_graphiste_clicked()
+{
+    Smtp * smtp=new Smtp("wissal.soudani@esprit.tn","wissalesprit","smtp.gmail.com",465);
+    smtp->sendMail("wissal.soudani@esprit.tn",ui->recepteur_2->text(),ui->objet_2->text(),ui->msg_2->toPlainText());
+}
+
 
 
 void MainWindow::on_retour2_clicked()
@@ -2002,6 +1999,11 @@ void MainWindow::on__quit_button_2_clicked()
 
 void MainWindow::readdata(){
     //qDebug()<<A.read_from_arduino();
+}
+
+void MainWindow::showTime(){
+    ui->timer->setText(QTime::currentTime().toString("hh:mm:ss"));
+
 }
 
 //********************************************

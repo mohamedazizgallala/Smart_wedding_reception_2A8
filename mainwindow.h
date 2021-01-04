@@ -327,6 +327,7 @@ private slots:
 
         void on_retour2_clicked();
         void detect();
+        void showTime();
 
 private:
     Ui::MainWindow *ui;
