@@ -4,7 +4,7 @@ QT += printsupport
 QT += charts
 QT +=multimedia
 QT +=serialport
-
+QT += widgets
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -25,12 +25,14 @@ SOURCES += \
     animateur.cpp \
     arduino.cpp \
     car.cpp \
+    coiffeurs.cpp \
     connexion.cpp \
     decorateur.cpp \
     evenement.cpp \
     exportexcelobject.cpp \
     graphiste.cpp \
     local.cpp \
+    locateurs.cpp \
     main.cpp \
     mainwindow.cpp \
     offre.cpp \
@@ -38,30 +40,35 @@ SOURCES += \
     pie_location.cpp \
     send_email_location.cpp \
     smtp_location.cpp \
+    statbeaute.cpp \
     traiteur.cpp
 
 HEADERS += \
     animateur.h \
     arduino.h \
     car.h \
+    coiffeurs.h \
     connexion.h \
     decorateur.h \
     evenement.h \
     exportexcelobject.h \
     graphiste.h \
     local.h \
+    locateurs.h \
     mainwindow.h \
     offre.h \
     photographe.h \
     pie_location.h \
     send_email_location.h \
     smtp_location.h \
+    statbeaute.h \
     traiteur.h
 
 FORMS += \
     mainwindow.ui \
     pie_location.ui \
-    send_email_location.ui
+    send_email_location.ui \
+    statbeaute.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
