@@ -159,7 +159,7 @@ void MainWindow::on_login_button_clicked()
    QSqlQuery query;
     QMessageBox msgBox;
         QString id =ui->id->text(), pw=ui->password->text(),type="";
-        query.prepare("SELECT * FROM EMPLOYEES_LOGIN WHERE ID =:id AND PASSWORD =:password");
+        query.prepare("SELECT ROLE FROM EMPLOYE WHERE ID =:id AND PASSWORD =:password");
         query.bindValue(":id", id);
         query.bindValue(":password",pw);
         query.exec();
@@ -182,8 +182,8 @@ void MainWindow::on_login_button_clicked()
            ui->stackedWidget->setCurrentIndex(18);
        else if (type=="graphisme")
           ui->stackedWidget->setCurrentIndex(21);
-       //else if (type=="beaute")
-         //  ui->stackedWidget->setCurrentIndex();
+       else if (type=="beaute")
+          ui->stackedWidget->setCurrentIndex(24);
       // else if (type=="RH")
           // ui->stackedWidget->setCurrentIndex();
        }
