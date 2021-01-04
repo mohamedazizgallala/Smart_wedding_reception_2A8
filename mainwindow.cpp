@@ -139,11 +139,7 @@ void MainWindow::detect(){
      //general LOGIN
 void MainWindow::on_login_button_clicked()
 {
-    //A.write_to_arduino("1");
-    ui->stackedWidget->setCurrentIndex(21);
- /*player.setMedia(QUrl::fromLocalFile("C:/Users/malek/Desktop/Module_location/The Voice_button sound effect.wav"));
-player.setVolume(1.0);
- player.play();
+
 
    QSqlQuery query;
     QMessageBox msgBox;
@@ -165,7 +161,7 @@ player.setVolume(1.0);
        msgBox.exec();
        if (type== "location")
         ui->stackedWidget->setCurrentIndex(1);
-      /* else if (type== "organisation")
+       else if (type== "organisation")
            ui->stackedWidget->setCurrentIndex(10);
        else if (type=="marketing")
            ui->stackedWidget->setCurrentIndex(18);
@@ -175,7 +171,7 @@ player.setVolume(1.0);
          //  ui->stackedWidget->setCurrentIndex();
       // else if (type=="RH")
           // ui->stackedWidget->setCurrentIndex();
-       }*/
+       }
 }
 
  //********************************************
