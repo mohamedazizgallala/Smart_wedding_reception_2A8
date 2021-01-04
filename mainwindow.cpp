@@ -8,6 +8,8 @@
 #include<QTextDocument>
 #include<QTextStream>
 #include <QDate>
+#include <QDateTime>
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -18,6 +20,11 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tableView_2_mar->setModel(e.afficher());
     this->ui->stackedWidget->setCurrentIndex(0);
 
+
+
+        timer = new QTimer(this);
+        connect(timer, SIGNAL(timeout()), this, SLOT(timetest()));
+        timer->start(1000);
 }
 
 MainWindow::~MainWindow()
@@ -68,7 +75,7 @@ void MainWindow::on_RETOUR1_mar_clicked()
 
 void MainWindow::on_pushButton_3_mar_clicked()
 {
-    this->ui->stackedWidget->setCurrentIndex(7);
+    this->ui->stackedWidget->setCurrentIndex(1);
 }
 
 void MainWindow::on_lineEdit_mar_textChanged(const QString &arg1)
@@ -138,7 +145,7 @@ void MainWindow::on_eventsupprimer_2_mar_clicked()
 
 void MainWindow::on_retour4_2_mar_clicked()
 {
-    this->ui->stackedWidget->setCurrentIndex(7);
+    this->ui->stackedWidget->setCurrentIndex(4);
 }
 
 void MainWindow::on_pushButton_11_mar_clicked()
@@ -158,7 +165,7 @@ void MainWindow::on_RETOUR1_3_mar_clicked()
 
 void MainWindow::on_retour4_5_mar_clicked()
 {
-    this->ui->stackedWidget->setCurrentIndex(7);
+    this->ui->stackedWidget->setCurrentIndex(5);
 }
 
 void MainWindow::on_event_ajouter_2_mar_clicked()
@@ -219,14 +226,14 @@ void MainWindow::on_pushButton_24_mar_clicked()
    if(e.modifier())
    {
      ui->tableView_2_mar->setModel(e.afficher());}
-this->ui->stackedWidget->setCurrentIndex(8);
+this->ui->stackedWidget->setCurrentIndex(5);
 MainWindow::notif("Modification reussie","Modification reussie");
 
 }
 
 void MainWindow::on_pushButton_7_mar_clicked()
 {
-     this->ui->stackedWidget->setCurrentIndex(8);
+     this->ui->stackedWidget->setCurrentIndex(5);
 }
 
 
@@ -279,7 +286,7 @@ void MainWindow::on_pushButton_13_mar_clicked()
 
 void MainWindow::on_pushButton_65_mar_clicked()
 {
-    this->ui->stackedWidget->setCurrentIndex(6);
+    this->ui->stackedWidget->setCurrentIndex(3);
 
 }
 
@@ -291,7 +298,7 @@ void MainWindow::on_pushButton_14_mar_clicked()
 
 void MainWindow::on_retour4_3_mar_clicked()
 {
-    this->ui->stackedWidget->setCurrentIndex(7);
+    this->ui->stackedWidget->setCurrentIndex(4);
 
 }
 
@@ -355,7 +362,7 @@ void MainWindow::on_pushButton_mar_clicked()
 
 void MainWindow::on_pushButton_10_mar_clicked()
 {
-    this->ui->stackedWidget->setCurrentIndex(7);
+    this->ui->stackedWidget->setCurrentIndex(4);
 
 }
 
@@ -367,13 +374,13 @@ void MainWindow::on_pushButton_15_mar_clicked()
 
 void MainWindow::on_SUPPRIMER_2_mar_clicked()
 {
-    this->ui->stackedWidget->setCurrentIndex(5);
+    this->ui->stackedWidget->setCurrentIndex(2);
 
 }
 
 void MainWindow::on_SUPPRIMER_4_mar_clicked()
 {
-    this->ui->stackedWidget->setCurrentIndex(9);
+    this->ui->stackedWidget->setCurrentIndex(6);
 
 }
 
@@ -527,4 +534,13 @@ void MainWindow::on_recherchee_mar_clicked()
                          ui->tableView_2_mar->setModel(P.chercher_evenement_dates(text));
                      }
             }
+}
+void MainWindow::timetest()
+{
+QTime time = QTime::currentTime();
+QString time_text = time.toString("hh : mm : ss");
+ui->lblTime->setText(time_text);
+ui->lblTime_2->setText(time_text);
+ui->lblTime_3->setText(time_text);
+
 }

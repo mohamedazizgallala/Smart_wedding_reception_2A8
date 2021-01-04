@@ -13,21 +13,24 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-image: url(:/new/prefix1/image/121527165_283003159406450_6476818707641022998_n.jpg);</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
+      <x>100</x>
+      <y>30</y>
       <width>921</width>
       <height>551</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-image: url(:/new/prefix1/image/12997.jpg);</string>
+     <string notr="true">background-image: url(:/new/prefix1/image/103854343_259019528641376_3453490155072435271_n.jpg);</string>
     </property>
     <property name="currentIndex">
-     <number>9</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="autentification_mar">
      <widget class="QFrame" name="frame">
@@ -122,6 +125,9 @@ border-bottom:2px solid#717072;
 
 </string>
        </property>
+       <property name="echoMode">
+        <enum>QLineEdit::Password</enum>
+       </property>
       </widget>
       <widget class="QLabel" name="label_24">
        <property name="geometry">
@@ -214,6 +220,23 @@ QPushButton:hover{
        <string>Quitter</string>
       </property>
      </widget>
+     <widget class="QLabel" name="lblTime">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>40</y>
+        <width>201</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: transparent;
+font: 75 18pt &quot;MS Shell Dlg 2&quot;;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="page_12_mar">
      <widget class="QTabWidget" name="tabWidget">
@@ -227,6 +250,7 @@ QPushButton:hover{
       </property>
       <property name="styleSheet">
        <string notr="true">color: rgb(0, 0, 0);
+background-image: url(:/new/prefix1/image/103854343_259019528641376_3453490155072435271_n.jpg);
 font: 75 10pt &quot;Century Gothic&quot;;
 border:none;
 
@@ -547,6 +571,23 @@ border-bottom:2px solid#717072;
         <property name="styleSheet">
          <string notr="true">background:transparent;
 image: url(:/new/prefix1/image/—Pngtree—add vector icon_3791307.png);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lblTime_2">
+        <property name="geometry">
+         <rect>
+          <x>370</x>
+          <y>390</y>
+          <width>201</width>
+          <height>91</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: transparent;
+font: 75 18pt &quot;MS Shell Dlg 2&quot;;</string>
         </property>
         <property name="text">
          <string/>
@@ -929,9 +970,6 @@ QPushButton:hover{
       </widget>
      </widget>
     </widget>
-    <widget class="QWidget" name="page_2_mar"/>
-    <widget class="QWidget" name="page_3_mar"/>
-    <widget class="QWidget" name="page_4_mar"/>
     <widget class="QWidget" name="page_5_mar">
      <widget class="QPushButton" name="MODIF_mar">
       <property name="geometry">
@@ -1418,19 +1456,6 @@ image: url(:/new/prefix1/image/5848576ba6aca45b5a5c95b7.png);
        <string/>
       </property>
      </widget>
-     <widget class="QPushButton" name="testtest_mar">
-      <property name="geometry">
-       <rect>
-        <x>550</x>
-        <y>460</y>
-        <width>93</width>
-        <height>28</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>PushButton</string>
-      </property>
-     </widget>
     </widget>
     <widget class="QWidget" name="page_6_mar">
      <widget class="QPushButton" name="pushButton_13_mar">
@@ -1825,6 +1850,23 @@ QPushButton:hover{
         <property name="styleSheet">
          <string notr="true">background:transparent;
 image: url(:/new/prefix1/image/—Pngtree—add vector icon_3791307.png);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lblTime_3">
+        <property name="geometry">
+         <rect>
+          <x>360</x>
+          <y>400</y>
+          <width>201</width>
+          <height>91</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: transparent;
+font: 75 18pt &quot;MS Shell Dlg 2&quot;;</string>
         </property>
         <property name="text">
          <string/>
@@ -2439,8 +2481,6 @@ QPushButton:hover{
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="page_9_mar"/>
-    <widget class="QWidget" name="page_10_mar"/>
     <widget class="QWidget" name="page_21_mar"/>
    </widget>
   </widget>

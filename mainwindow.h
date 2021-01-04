@@ -1,5 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
+#include <QTimer>
+#include <QTime>
 
 #include <QMainWindow>
 #include "evenement.h"
@@ -120,6 +122,11 @@ void notif(QString t,QString m);
 private:
     Ui::MainWindow *ui;
     evenement tmpev;
+    QTimer *timer;
 
+public slots:
+    void timetest();
 };
+
+
 #endif // MAINWINDOW_H
