@@ -77,7 +77,32 @@ RESOURCES += \
 DISTFILES += \
     ../graph/info.txt \
     ../graph/wess.pro.user \
-    The Voice_ button sound effect.wav
+    The Voice_ button sound effect.wav \
+    image/103854343_259019528641376_3453490155072435271_n.jpg \
+    image/121527165_283003159406450_6476818707641022998_n.jpg \
+    image/126205197_181879636821640_5647087082797402769_n.png \
+    image/XkgL1v.jpg \
+    image/ajout.png \
+    image/bfa_power-off_flat-circle-white-on-ios-pink-gradient_512x512.png \
+    image/computer-icons-button-arrow-png-favpng-1sXz4GPFdZq5tvjfd9Q8gYCVt.png \
+    image/eng.png \
+    image/france.png \
+    image/images (1).jfif \
+    image/images.jfif \
+    image/login-user.png \
+    image/login.png \
+    image/logout-icon-5-256.png \
+    image/modify.png \
+    image/pdf.png \
+    image/refresh.png \
+    image/search icon.png \
+    image/thebigdaylogo.png \
+    image/trash.png \
+    image/tri.jfif \
+    image/téléchargement (1).jfif \
+    image/téléchargement.jfif \
+    image/vanguardslogo.png \
+    image/wedd.jpg
 
 SUBDIRS += \
     ../graph/wess.pro

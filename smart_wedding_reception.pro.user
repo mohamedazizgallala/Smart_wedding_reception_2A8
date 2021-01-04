@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.11.0, 2021-01-03T21:28:43. -->
+<!-- Written by QtCreator 4.11.0, 2021-01-04T17:48:41. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -287,8 +287,9 @@
     </valuelist>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Users/wissa/OneDrive/Bureau/integration_wiss/Smart_wedding_reception_2A8/smart_wedding_reception.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/wissa/OneDrive/Bureau/integration_wiss/Smart_wedding_reception_2A8/smart_wedding_reception.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">smart_wedding_reception2</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Users/wissa/OneDrive/Bureau/Nouveau dossier/Smart_wedding_reception_2A8/smart_wedding_reception.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/wissa/OneDrive/Bureau/Nouveau dossier/Smart_wedding_reception_2A8/smart_wedding_reception.pro</value>
     <value type="QString" key="RunConfiguration.Arguments"></value>
     <value type="bool" key="RunConfiguration.Arguments.multi">false</value>
     <value type="QString" key="RunConfiguration.OverrideDebuggerStartup"></value>

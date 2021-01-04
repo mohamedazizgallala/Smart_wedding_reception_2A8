@@ -11,6 +11,20 @@
         <file>image/logout-icon-5-256.png</file>
         <file>image/refresh.png</file>
         <file>image/trash.png</file>
+        <file>image/ajout.png</file>
+        <file>image/images (1).jfif</file>
+        <file>image/images.jfif</file>
+        <file>image/login.png</file>
+        <file>image/login-user.png</file>
+        <file>image/modify.png</file>
+        <file>image/pdf.png</file>
+        <file>image/search icon.png</file>
+        <file>image/téléchargement (1).jfif</file>
+        <file>image/téléchargement.jfif</file>
+        <file>image/tri.jfif</file>
+        <file>image/vanguardslogo.png</file>
+        <file>image/wedd.jpg</file>
+        <file>image/XkgL1v.jpg</file>
     </qresource>
     <qresource prefix="/">
         <file>image/bfa_power-off_flat-circle-white-on-ios-pink-gradient_512x512.png</file>
