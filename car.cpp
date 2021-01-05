@@ -35,6 +35,34 @@ QSqlQueryModel * car::afficher_car()
    return model;
 
 }
+QSqlQueryModel* car::trie_asc()
+{
+    QSqlQueryModel* model = new QSqlQueryModel();
+
+        model->setQuery("select *from CAR ORDER BY prix asc");
+
+        model->setHeaderData(0, Qt::Horizontal, QObject::tr("matricule"));
+         model->setHeaderData(2, Qt::Horizontal, QObject::tr("prix"));
+         model->setHeaderData(3, Qt::Horizontal, QObject::tr(" marque "));
+         model->setHeaderData(4, Qt::Horizontal, QObject::tr(" entreprise"));
+         model->setHeaderData(1,Qt::Horizontal,"couleur");
+
+    return model;
+}
+QSqlQueryModel* car::trie_dsc()
+{
+    QSqlQueryModel* model = new QSqlQueryModel();
+
+        model->setQuery("select *from CAR ORDER BY prix dsc");
+
+        model->setHeaderData(0, Qt::Horizontal, QObject::tr("matricule"));
+         model->setHeaderData(2, Qt::Horizontal, QObject::tr("prix"));
+         model->setHeaderData(3, Qt::Horizontal, QObject::tr(" marque "));
+         model->setHeaderData(4, Qt::Horizontal, QObject::tr(" entreprise"));
+         model->setHeaderData(1,Qt::Horizontal,"couleur");
+
+    return model;
+}
 bool car::supprimer_car(QString m)
 {
     QSqlQuery query;

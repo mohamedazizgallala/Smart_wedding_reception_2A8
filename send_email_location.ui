@@ -76,97 +76,35 @@ QPushButton:hover{
      <x>10</x>
      <y>10</y>
      <width>571</width>
-     <height>161</height>
+     <height>81</height>
     </rect>
    </property>
    <layout class="QFormLayout" name="formLayout">
     <item row="0" column="0">
-     <widget class="QLabel" name="cINLabel">
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
+     <widget class="QLabel" name="recipientLabel_2">
       <property name="text">
-       <string>Smtp-server</string>
+       <string>Subject</string>
       </property>
      </widget>
     </item>
     <item row="0" column="1">
-     <widget class="QLineEdit" name="server">
-      <property name="styleSheet">
-       <string notr="true">background:transparent;</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <widget class="QLabel" name="nomLabel">
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
-      <property name="text">
-       <string>Username</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QLineEdit" name="uname">
-      <property name="styleSheet">
-       <string notr="true">background:transparent;</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="0">
-     <widget class="QLabel" name="prenomLabel">
-      <property name="text">
-       <string>Password</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="1">
-     <widget class="QLineEdit" name="passwd">
-      <property name="styleSheet">
-       <string notr="true">background:transparent;</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="0">
-     <widget class="QLabel" name="serverPortLabel">
-      <property name="text">
-       <string>Server port</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="1">
-     <widget class="QLineEdit" name="port">
-      <property name="styleSheet">
-       <string notr="true">background:transparent;</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="0">
-     <widget class="QLabel" name="recipientLabel">
-      <property name="text">
-       <string>Recipient</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="1">
-     <widget class="QLineEdit" name="recipient">
-      <property name="styleSheet">
-       <string notr="true">background:transparent;</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="1">
      <widget class="QLineEdit" name="subject">
       <property name="styleSheet">
        <string notr="true">background:transparent;</string>
       </property>
      </widget>
     </item>
-    <item row="4" column="0">
-     <widget class="QLabel" name="recipientLabel_2">
+    <item row="1" column="0">
+     <widget class="QLabel" name="recipientLabel">
       <property name="text">
-       <string>Subject</string>
+       <string>Recipient</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="recipient">
+      <property name="styleSheet">
+       <string notr="true">background:transparent;</string>
       </property>
      </widget>
     </item>
@@ -176,9 +114,9 @@ QPushButton:hover{
    <property name="geometry">
     <rect>
      <x>50</x>
-     <y>180</y>
+     <y>100</y>
      <width>501</width>
-     <height>101</height>
+     <height>181</height>
     </rect>
    </property>
    <property name="styleSheet">

@@ -24,6 +24,8 @@
 //moslem
 #include "client.h"
 #include "emp.h"
+//sound
+#include <QSound>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -210,7 +212,7 @@ private slots:
 
         void on_MODIF_mar_clicked();
 
-        void on_pushButton_6_mar_clicked();
+
 
         void on_pushButton_8_mar_clicked();
 
@@ -260,23 +262,23 @@ private slots:
 
         void on_pushButton_15_mar_clicked();
 
-        void on_lineEdit_mar_cursorPositionChanged(int arg1, int arg2);
+
 
         void on_SUPPRIMER_2_mar_clicked();
 
         void on_SUPPRIMER_4_mar_clicked();
 
-        void on_tableView_2_mar_activated(const QModelIndex &index);
 
-        void on_pdf_mar_clicked();
+
+
 
         void on_tri_mar_clicked();
 
         void on_recherche_mar_clicked();
 
-        void on_msg_mar_cursorPositionChanged(int arg1, int arg2);
 
-        void on_testtest_mar_clicked();
+
+
 
         void on_trii_mar_clicked();
 
@@ -339,7 +341,7 @@ private slots:
 
 
         //passer de page a une autre page et close
-         void on_button_beaute_clicked();
+
 
          void on_pushButton_ajoutcoiff_clicked();
 
@@ -383,7 +385,7 @@ private slots:
 
          void on_pushButton_statcoiff_clicked();
 
-         void on_emchiemp_clicked();
+
 
          void on_pushButton_clicked();
 
@@ -412,6 +414,8 @@ private slots:
          void on_pushButton_4_clicked();
 
          void on_pushButton_5_clicked();
+
+         void on_car_tri_clicked();
 
 private:
     Ui::MainWindow *ui;

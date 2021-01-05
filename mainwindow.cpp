@@ -32,6 +32,20 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    //*****************************************************
+       //*************************************************
+       //Dont allow resize
+       //********************************************
+       //****************************************************
+      setFixedSize(621,421);  //fixe la taille de la fenêtre
+
+           setWindowFlags(Qt::CustomizeWindowHint); //supprime les paramétrages de fenêtre par défaut. Oblige donc de préciser les réglagess autorisés
+         setWindowFlags(Qt::WindowTitleHint); //Autorise le titre de la fenêtre
+          setWindowFlags(Qt::WindowSystemMenuHint);
+           setWindowFlags(Qt::WindowMinimizeButtonHint);//autorise le bouton de réduction de fenêtre
+           setWindowFlags(Qt::WindowCloseButtonHint); //autorise le bouton de fermeture
+   //***********************************************
+           //***************************************
     int ret=Ard.connect_arduino();
     switch(ret){
     case(0):qDebug()<<"arduino is available and connected to: "<< Ard.getarduino_port_name();
@@ -155,7 +169,6 @@ void MainWindow::detect(){
 void MainWindow::on_login_button_clicked()
 {
  //ui->stackedWidget->setCurrentIndex(21);
-
    QSqlQuery query;
     QMessageBox msgBox;
         QString id =ui->id->text(), pw=ui->password->text(),type="";
@@ -487,7 +500,7 @@ void MainWindow::on_search_carButton_clicked()
            QSqlQueryModel *verif_combinaison=cartemp.rechercher_combinaison_all(marque,couleur,entreprise);
            if (verif_combinaison!=nullptr)
            {
-               ui->tableView->setModel(verif_combinaison);
+               ui->table_car->setModel(verif_combinaison);
            }
 
        }
@@ -496,7 +509,7 @@ void MainWindow::on_search_carButton_clicked()
            QSqlQueryModel *verif_couleur=cartemp.rechercher_couleur(couleur);
            if (verif_couleur!=nullptr)
            {
-               ui->tableView->setModel(verif_couleur);
+               ui->table_car->setModel(verif_couleur);
            }
        }
     else if (ui->checkBox_marque->isChecked() && !ui->checkBox_couleur->isChecked() && !ui->checkBox_entreprise->isChecked())
@@ -504,7 +517,7 @@ void MainWindow::on_search_carButton_clicked()
            QSqlQueryModel *verif_marque=cartemp.rechercher_marque(marque);
            if (verif_marque!=nullptr)
            {
-               ui->tableView->setModel(verif_marque);
+               ui->table_car->setModel(verif_marque);
            }
        }
     else if (!ui->checkBox_marque->isChecked() && !ui->checkBox_couleur->isChecked() && ui->checkBox_entreprise->isChecked())
@@ -2617,4 +2630,20 @@ void MainWindow::on_pushButton_4_clicked()
 void MainWindow::on_pushButton_5_clicked()
 {
     ui->stackedWidget->setCurrentIndex(27);
+}
+
+void MainWindow::on_car_tri_clicked()
+{
+
+
+
+              if (ui->prix_croissant_car->isChecked()==true)
+
+                  ui->table_car->setModel(cartemp.trie_asc());
+
+
+
+              else if(ui->prix_decroissant_car->isChecked()==true)
+
+                  ui->table_car->setModel(cartemp.trie_dsc());
 }

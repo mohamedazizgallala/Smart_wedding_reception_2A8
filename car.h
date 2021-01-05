@@ -26,6 +26,8 @@ public:
     QSqlQueryModel *rechercher_couleur(QString);
     QSqlQueryModel *rechercher_entreprise(QString);
     int count_couleur(QString);
+    QSqlQueryModel * trie_dsc();
+         QSqlQueryModel * trie_asc();
 
 };
 
