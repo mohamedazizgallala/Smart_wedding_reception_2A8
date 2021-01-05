@@ -438,7 +438,7 @@ private:
        Graphiste tempgraph;
        Arduino Ard;
        QByteArray data1;
-       QPropertyAnimation *animation;
+
 
 
        //variables beauté

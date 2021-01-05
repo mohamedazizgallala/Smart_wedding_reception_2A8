@@ -205,12 +205,7 @@ void MainWindow::on_login_button_clicked()
           ui->stackedWidget->setCurrentIndex(27);
        }*/
 
-        animation = new QPropertyAnimation(ui->login_button,"geometry");
-        animation->setDuration(1000);
-        animation->setStartValue(QRect(80,480,141,51));
-        animation->setEndValue(QRect(150,480,500,51));
-        animation->setEasingCurve(QEasingCurve::InOutQuint);
-        animation->start(QPropertyAnimation::DeleteWhenStopped);
+
 }
 
  //********************************************
@@ -1664,24 +1659,14 @@ void MainWindow::on_Button_espacegraphistes_clicked()
 {
   ui->stackedWidget->setCurrentIndex(23);
 
-         animation = new QPropertyAnimation(ui->Button_espacegraphistes,"geometry");
-         animation->setDuration(1000);
-         animation->setStartValue(QRect(80,480,141,51));
-         animation->setEndValue(QRect(150,480,500,51));
-         animation->setEasingCurve(QEasingCurve::InOutQuint);
-         animation->start();
+
 }
 
 void MainWindow::on_button_espace_photographes_clicked()
 {
     ui->stackedWidget->setCurrentIndex(22);
 
-           animation = new QPropertyAnimation(ui->button_espace_photographes,"geometry");
-           animation->setDuration(1000);
-           animation->setStartValue(QRect(80,480,141,51));
-           animation->setEndValue(QRect(150,480,500,51));
-           animation->setEasingCurve(QEasingCurve::InOutQuint);
-           animation->start();
+
 }
 
 void MainWindow::on_ajouter_photographe_clicked()
@@ -1704,6 +1689,14 @@ void MainWindow::on_ajouter_photographe_clicked()
       }
       else {  Ard.write_to_arduino("0"); }
 
+      QPropertyAnimation *animation;
+      animation = new QPropertyAnimation(ui->ajouter_photographe,"geometry");
+      animation->setDuration(1000);
+      animation->setStartValue(QRect(300,260,75,23));
+      animation->setEndValue(QRect(300,260,150,23));
+      animation->setEasingCurve(QEasingCurve::InOutQuint);
+      animation->start();
+
 }
 
 void MainWindow::on_ajouter_graphiste_clicked()
@@ -1725,6 +1718,14 @@ void MainWindow::on_ajouter_graphiste_clicked()
         Ard.write_to_arduino("1");
      }
       else {  Ard.write_to_arduino("0"); }
+
+      QPropertyAnimation *animation;
+      animation = new QPropertyAnimation(ui->ajouter_graphiste,"geometry");
+      animation->setDuration(1000);
+      animation->setStartValue(QRect(300,260,75,23));
+      animation->setEndValue(QRect(300,260,150,23));
+      animation->setEasingCurve(QEasingCurve::InOutQuint);
+      animation->start();
 }
 
 
@@ -1739,6 +1740,13 @@ void MainWindow::on_supprimer_graphiste_clicked()
        QMessageBox::information(nullptr, QObject::tr(" suppression graphiste "),
                               QObject::tr("graphiste supprimé :"), QMessageBox::Cancel);
       }
+     QPropertyAnimation *animation;
+     animation = new QPropertyAnimation(ui->supprimer_graphiste,"geometry");
+     animation->setDuration(1000);
+     animation->setStartValue(QRect(350,170,121,31));
+     animation->setEndValue(QRect(350,170,150,31));
+     animation->setEasingCurve(QEasingCurve::InOutQuint);
+     animation->start();
 }
 
 
@@ -1752,6 +1760,13 @@ void MainWindow::on_supprimer_photographe_clicked()
        QMessageBox::information(nullptr, QObject::tr(" suppression photographe "),
                               QObject::tr("photographe supprimé :"), QMessageBox::Cancel);
       }
+     QPropertyAnimation *animation;
+     animation = new QPropertyAnimation(ui->supprimer_photographe,"geometry");
+     animation->setDuration(1000);
+     animation->setStartValue(QRect(350,170,121,31));
+     animation->setEndValue(QRect(350,170,150,31));
+     animation->setEasingCurve(QEasingCurve::InOutQuint);
+     animation->start();
 }
 
 
@@ -1772,6 +1787,13 @@ void MainWindow::on_modifier_photographe_clicked()
             ui->tablephotographes->setModel(tempphoto.afficher());
 
         }
+    QPropertyAnimation *animation;
+    animation = new QPropertyAnimation(ui->modifier_photographe,"geometry");
+    animation->setDuration(1000);
+    animation->setStartValue(QRect(380,230,81,20));
+    animation->setEndValue(QRect(380,230,150,20));
+    animation->setEasingCurve(QEasingCurve::InOutQuint);
+    animation->start();
 }
 
 void MainWindow::on_modifier_graphiste_clicked()
@@ -1791,6 +1813,13 @@ void MainWindow::on_modifier_graphiste_clicked()
             ui->tablegraphistes->setModel(tempgraph.afficher());
 
         }
+    QPropertyAnimation *animation;
+    animation = new QPropertyAnimation(ui->modifier_graphiste,"geometry");
+    animation->setDuration(1000);
+    animation->setStartValue(QRect(380,230,81,20));
+    animation->setEndValue(QRect(380,230,150,20));
+    animation->setEasingCurve(QEasingCurve::InOutQuint);
+    animation->start();
 }
 
 
@@ -1814,7 +1843,18 @@ void MainWindow::on_tri_photographe_clicked()
             else if(ui->rb_desc_historique->isChecked()==true)
 
                 ui->tablephotographes->setModel(p.trie2());
+
+{
+            QPropertyAnimation *animation;
+            animation = new QPropertyAnimation(ui->tri_photographe,"geometry");
+            animation->setDuration(1000);
+            animation->setStartValue(QRect(420,130,75,23));
+            animation->setEndValue(QRect(420,130,75,23));
+            animation->setEasingCurve(QEasingCurve::InOutQuint);
+            animation->start();
 }
+}
+
 
 void MainWindow::on_tri_graphiste_clicked()
 {
@@ -1830,8 +1870,17 @@ void MainWindow::on_tri_graphiste_clicked()
             else if(ui->_rb_desc_historique_2->isChecked()==true)
 
                 ui->tablegraphistes->setModel(g.trie2());
-}
+{
+            QPropertyAnimation *animation;
+            animation = new QPropertyAnimation(ui->tri_graphiste,"geometry");
+            animation->setDuration(1000);
+            animation->setStartValue(QRect(420,130,75,23));
+            animation->setEndValue(QRect(420,130,75,23));
+            animation->setEasingCurve(QEasingCurve::InOutQuint);
+            animation->start();
 
+}
+}
 
 
 void MainWindow::on_quit_button_clicked()
@@ -1894,6 +1943,14 @@ void MainWindow::on_recherche_photographe_clicked()
                   ui->tablephotographes->setModel(P.chercher_photo_prenom(text));
               }
      }
+
+   QPropertyAnimation *animation;
+   animation = new QPropertyAnimation(ui->recherche_mar,"geometry");
+   animation->setDuration(1000);
+   animation->setStartValue(QRect(420,10,75,23));
+   animation->setEndValue(QRect(420,10,150,23));
+   animation->setEasingCurve(QEasingCurve::InOutQuint);
+   animation->start();
 }
 
 void MainWindow::on_rechercher_graphiste_clicked()
@@ -1950,6 +2007,14 @@ void MainWindow::on_rechercher_graphiste_clicked()
                   ui->tablegraphistes->setModel(g.chercher_photo_prenom(text));
               }
      }
+
+   QPropertyAnimation *animation;
+   animation = new QPropertyAnimation(ui->rechercher_graphiste,"geometry");
+   animation->setDuration(1000);
+   animation->setStartValue(QRect(420,10,75,23));
+   animation->setEndValue(QRect(420,10,150,23));
+   animation->setEasingCurve(QEasingCurve::InOutQuint);
+   animation->start();
 }
 
 
@@ -1978,6 +2043,14 @@ void MainWindow::on_exporterpdf_photographe_clicked()
         doc.setHtml(pdf);
         doc.setPageSize(printer.pageRect().size()); // This is necessary if you want to hide the page number
         doc.print(&printer);
+
+        QPropertyAnimation *animation;
+        animation = new QPropertyAnimation(ui->exporterpdf_photographe,"geometry");
+        animation->setDuration(1000);
+        animation->setStartValue(QRect(390,290,91,23));
+        animation->setEndValue(QRect(390,290,150,23));
+        animation->setEasingCurve(QEasingCurve::InOutQuint);
+        animation->start();
 }
 
 void MainWindow::on_exporterpdf_graphiste_clicked()
@@ -2005,6 +2078,14 @@ void MainWindow::on_exporterpdf_graphiste_clicked()
         doc.setHtml(pdf);
         doc.setPageSize(printer.pageRect().size()); // This is necessary if you want to hide the page number
         doc.print(&printer);
+
+        QPropertyAnimation *animation;
+        animation = new QPropertyAnimation(ui->exporterpdf_graphiste,"geometry");
+        animation->setDuration(1000);
+        animation->setStartValue(QRect(390,290,91,23));
+        animation->setEndValue(QRect(390,290,150,23));
+        animation->setEasingCurve(QEasingCurve::InOutQuint);
+        animation->start();
 }
 
 void MainWindow::on_selectionnermail_photographe_clicked()
