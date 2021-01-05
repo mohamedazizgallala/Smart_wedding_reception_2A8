@@ -25,9 +25,11 @@ SOURCES += \
     animateur.cpp \
     arduino.cpp \
     car.cpp \
+    client.cpp \
     coiffeurs.cpp \
     connexion.cpp \
     decorateur.cpp \
+    emp.cpp \
     evenement.cpp \
     exportexcelobject.cpp \
     graphiste.cpp \
@@ -47,9 +49,11 @@ HEADERS += \
     animateur.h \
     arduino.h \
     car.h \
+    client.h \
     coiffeurs.h \
     connexion.h \
     decorateur.h \
+    emp.h \
     evenement.h \
     exportexcelobject.h \
     graphiste.h \

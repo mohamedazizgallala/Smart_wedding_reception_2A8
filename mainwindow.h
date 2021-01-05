@@ -21,6 +21,9 @@
 //beaute
 #include "coiffeurs.h"
 #include "locateurs.h"
+//moslem
+#include "client.h"
+#include "emp.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -316,11 +319,11 @@ private slots:
 
         void on_selectionnermail_photographe_clicked();
 
-        void on_envoyermail_photographe_clicked();
+        //void on_envoyermail_photographe_clicked();
 
         void on_selectionnermail_graphiste_clicked();
 
-        void on_envoyermail_graphiste_clicked();
+        //void on_envoyermail_graphiste_clicked();
 
         void on_exporterpdf_graphiste_clicked();
 
@@ -380,6 +383,36 @@ private slots:
 
          void on_pushButton_statcoiff_clicked();
 
+         void on_emchiemp_clicked();
+
+         void on_pushButton_clicked();
+
+         void on_pushButton_3_clicked();
+//moslem
+         //client cll
+         void on_pb_ok_2_clicked();
+
+         void on_pb_actualiser_2_clicked();
+
+         void on_pb_supprimer_clicked();
+
+         void on_pb_modifierp_2_clicked();
+
+         void on_pb_ok_3_clicked();
+         //employe emp
+         void on_pb_ok_clicked();
+
+         void on_pb_actualiser_5_clicked();
+
+         void on_pb_supprimer_2_clicked();
+
+         void on_pb_modifierp_5_clicked();
+
+         void on_pb_modifierp_6_clicked();
+         void on_pushButton_4_clicked();
+
+         void on_pushButton_5_clicked();
+
 private:
     Ui::MainWindow *ui;
     //variable location
@@ -402,10 +435,12 @@ private:
        QByteArray data1;
        //variables beauté
 
-           // Ui::MainWindow *ui;
+
             coiffeurs coiff;
             locateurs locat;
-
+//moslem
+            emp t;
+             client c;
 
 
 };

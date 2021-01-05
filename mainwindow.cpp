@@ -154,7 +154,7 @@ void MainWindow::detect(){
      //general LOGIN
 void MainWindow::on_login_button_clicked()
 {
-
+ //ui->stackedWidget->setCurrentIndex(21);
 
    QSqlQuery query;
     QMessageBox msgBox;
@@ -184,8 +184,8 @@ void MainWindow::on_login_button_clicked()
           ui->stackedWidget->setCurrentIndex(21);
        else if (type=="beaute")
           ui->stackedWidget->setCurrentIndex(24);
-      // else if (type=="RH")
-          // ui->stackedWidget->setCurrentIndex();
+       else if (type=="RH")
+          ui->stackedWidget->setCurrentIndex(27);
        }
 }
 
@@ -1971,30 +1971,19 @@ void MainWindow::on_exporterpdf_graphiste_clicked()
 
 void MainWindow::on_selectionnermail_photographe_clicked()
 {
-    QItemSelectionModel *select = ui->tablephotographes->selectionModel();
-    email_recipient =select->selectedRows(4).value(0).data().toString();
-    ui->recepteur->setText(email_recipient);
+    QDialog *d=new Dialog(this);
+    d->show();
+
+    d->exec();
 }
 
 void MainWindow::on_selectionnermail_graphiste_clicked()
 {
-    QItemSelectionModel *select = ui->tablegraphistes->selectionModel();
-    email_recipient =select->selectedRows(4).value(0).data().toString();
-    ui->recepteur_2->setText(email_recipient);
-}
+    QDialog *d=new Dialog(this);
+    d->show();
 
-void MainWindow::on_envoyermail_photographe_clicked()
-{
-    Smtp * smtp=new Smtp("wissal.soudani@esprit.tn","wissalesprit","smtp.gmail.com",465);
-    smtp->sendMail("wissal.soudani@esprit.tn",ui->recepteur->text(),ui->objet->text(),ui->msg->toPlainText());
+    d->exec();
 }
-
-void MainWindow::on_envoyermail_graphiste_clicked()
-{
-    Smtp * smtp=new Smtp("wissal.soudani@esprit.tn","wissalesprit","smtp.gmail.com",465);
-    smtp->sendMail("wissal.soudani@esprit.tn",ui->recepteur_2->text(),ui->objet_2->text(),ui->msg_2->toPlainText());
-}
-
 
 
 void MainWindow::on_retour2_clicked()
@@ -2349,6 +2338,109 @@ void MainWindow::on_pushButton_statcoiff_clicked()
 
 
 
+//MOSLEMMMM*************************************************
+
+void MainWindow::on_pushButton_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(25);
+}
+
+void MainWindow::on_pushButton_3_clicked()
+{
+     ui->stackedWidget->setCurrentIndex(26);
+}
+
+//slots employe
+void MainWindow::on_pb_ok_clicked()
+{
+    int id = ui->idtxt->text().toInt();
+    int cin= ui->cintxt_3->text().toInt();
+
+    QString nom= ui->nomtxt_3->text();
+    QString prenom= ui->prenomtxt_3->text();
+
+    QString role= ui->roletxt->currentText();
+
+  emp t(id,cin,nom,prenom,role);
+  bool test=t.ajouter();
+  if(test)
+{
+      MainWindow::on_pb_actualiser_5_clicked();
+QMessageBox::information(nullptr, QObject::tr("Ajouter un employe"),
+                  QObject::tr("employe ajouté.\n"
+                              "Click Cancel to exit."), QMessageBox::Cancel);
+
+}
+  else
+      QMessageBox::critical(nullptr, QObject::tr("Ajouter un employe"),
+                  QObject::tr("Erreur ! Check your data !.\n"
+                              "Click Cancel to exit."), QMessageBox::Cancel);
+}
+
+void MainWindow::on_pb_actualiser_5_clicked()
+{
+
+    QString ha = ui->tri_2->currentText();
+
+    if(ha == "ID")
+    {
+        ui->tab_15->setModel(t.afficher());
+        ui->supptxt->setModel(t.afficher());
+    }
+    if(ha == "PRENOM")
+    {
+        ui->tab_15->setModel(t.afficher2());
+        ui->supptxt->setModel(t.afficher2());
+    }
+    if(ha == "ROLE")
+    {
+        ui->tab_15->setModel(t.afficher3());
+        ui->supptxt->setModel(t.afficher3());
+    }
+}
+
+void MainWindow::on_pb_supprimer_2_clicked()
+{
+    int id = ui->supptxt->currentText().toInt();
+
+    bool test=t.supprimer(id);
+    if(test)
+    {MainWindow::on_pb_actualiser_5_clicked();//refresh
+
+        QMessageBox::information(nullptr, QObject::tr("Supprimer un client"),
+                    QObject::tr("Client supprimé.\n"
+                                "Click Cancel to exit."), QMessageBox::Cancel);
+        ui->tab_15->setModel(t.afficher());
+
+
+    }
+    else
+        QMessageBox::critical(nullptr, QObject::tr("Supprimer un client"),
+                    QObject::tr("Erreur !.\n"
+                                "Click Cancel to exit."), QMessageBox::Cancel);
+}
+
+void MainWindow::on_pb_modifierp_5_clicked()
+{
+    int id = ui->idtxt->text().toInt();
+    QString res= QString::number(id);
+    int cin = ui->cintxt_3->text().toInt();
+    QString res1= QString::number(cin);
+    QString nom = ui->nomtxt_3->text();
+    QString prenom = ui->prenomtxt_3->text();
+
+    QString role = ui->roletxt->currentText();
+
+    QSqlQuery query;
+    query.prepare ("update employes set cin='"+res1+"',nom = '"+nom+"',prenom = '"+prenom+"',role='"+role+"' where id = '"+res+"'");
+
+    if(query.exec())
+    {
+        MainWindow::on_pb_actualiser_5_clicked();
+        QMessageBox::information(this,tr("Edit"),tr("Updated Successfully, Press 'Actualiser' to Apply changes !"));
+    }
+    else QMessageBox::critical(this,tr("Edit"),tr("Update Failed !"));
+}
 
 
 
@@ -2360,11 +2452,169 @@ void MainWindow::on_pushButton_statcoiff_clicked()
 
 
 
+void MainWindow::on_pb_modifierp_6_clicked() //recherche
+{
+    QString nom = ui->Snomtxt_2->text();
+    QString prenom = ui->Sprenomtxt_2->text();
+    QString CIN = ui->SCIN_2->text();
+
+    QSqlQueryModel * model=new QSqlQueryModel();
+    model->setQuery("select * from EMPLOYES where nom = '"+nom+"' OR prenom = '"+prenom+"' OR CIN = '"+CIN+"' ");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("CIN "));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("NOM"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("PRENOM "));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("ROLE"));
+
+
+    ui->Stab_2->setModel(model);
+
+}
+
+
+//slot client
+void MainWindow::on_pb_ok_2_clicked()
+{
+
+    int cin= ui->cintxt_2->text().toInt();
+
+    QString nom= ui->nomtxt_2->text();
+    QString prenom= ui->prenomtxt_2->text();
+    QString coiff= ui->coi_2->currentText();
+
+    QString voiture= ui->voit_2->currentText();
+    QString offre= ui->off_2->currentText();
+    QString trait= ui->trait_2->currentText();
+
+    QString deco= ui->deco_2->currentText();
+    QString cerem= ui->certxt_2->currentText();
+    QString cost= ui->cost_2->currentText();
+
+    QString local= ui->loc_2->currentText();
+    QString music= ui->mus_2->currentText();
+    QString photo= ui->pho_2->currentText();
+
+
+  client c(cin,nom,prenom,offre,cerem,photo,local,voiture,music,trait,deco,cost,coiff);
+  bool test=c.ajouter();
+  if(test)
+{
+      MainWindow::on_pb_actualiser_2_clicked();
+QMessageBox::information(nullptr, QObject::tr("Ajouter un employe"),
+                  QObject::tr("employe ajouté.\n"
+                              "Click Cancel to exit."), QMessageBox::Cancel);
+
+}
+  else
+      QMessageBox::critical(nullptr, QObject::tr("Ajouter un employe"),
+                  QObject::tr("Erreur ! Check your data !.\n"
+                              "Click Cancel to exit."), QMessageBox::Cancel);
+}
 
 
 
+void MainWindow::on_pb_actualiser_2_clicked()
+{
+    QString ha = ui->tri->currentText();
 
+    if(ha == "CIN")
+    {
+        ui->tab_14->setModel(c.afficher());
+        ui->supptxt->setModel(c.afficher());
+    }
+    if(ha == "PRENOM")
+    {
+        ui->tab_14->setModel(c.afficher3());
+        ui->supptxt->setModel(c.afficher3());
+    }
+    if(ha == "NOM")
+    {
+        ui->tab_14->setModel(c.afficher4());
+        ui->supptxt->setModel(c.afficher4());
+    }
+}
 
+void MainWindow::on_pb_supprimer_clicked()
+{
+    int cin = ui->supptxt->currentText().toInt();
 
+    bool test=c.supprimer(cin);
+    if(test)
+    {MainWindow::on_pb_actualiser_2_clicked();//refresh
 
+        QMessageBox::information(nullptr, QObject::tr("Supprimer un client"),
+                    QObject::tr("Client supprimé.\n"
+                                "Click Cancel to exit."), QMessageBox::Cancel);
+        ui->tab_14->setModel(c.afficher());
 
+}
+}
+
+void MainWindow::on_pb_modifierp_2_clicked()
+{
+    int cin= ui->cintxt_2->text().toInt();
+    QString res= QString::number(cin);
+
+    QString nom= ui->nomtxt_2->text();
+    QString prenom= ui->prenomtxt_2->text();
+    QString coiff= ui->coi_2->currentText();
+
+    QString voiture= ui->voit_2->currentText();
+    QString offre= ui->off_2->currentText();
+    QString trait= ui->trait_2->currentText();
+
+    QString deco= ui->deco_2->currentText();
+    QString cerem= ui->certxt_2->currentText();
+    QString cost= ui->cost_2->currentText();
+
+    QString local= ui->loc_2->currentText();
+    QString music= ui->mus_2->currentText();
+    QString photo= ui->pho_2->currentText();
+
+    QSqlQuery query;
+    query.prepare ("update CLIENTS set nom = '"+nom+"',prenom = '"+prenom+"',coiff = '"+coiff+"', voiture = '"+voiture+"' , offre = '"+offre+"', trait = '"+trait+"', deco = '"+deco+"', cerem = '"+cerem+"', cost = '"+cost+"', local = '"+local+"' , music = '"+music+"', photo = '"+photo+"' where CIN = '"+res+"'");
+
+    if(query.exec())
+    {
+        MainWindow::on_pb_actualiser_2_clicked();
+        QMessageBox::information(this,tr("Edit"),tr("Updated Successfully, Press 'Actualiser' to Apply changes !"));
+    }
+    else QMessageBox::critical(this,tr("Edit"),tr("Update Failed !"));
+}
+
+void MainWindow::on_pb_ok_3_clicked()
+{
+    QString nom = ui->Snomtxt->text();
+    QString prenom = ui->Sprenomtxt->text();
+    QString CIN = ui->SCIN->text();
+
+    QSqlQueryModel * model=new QSqlQueryModel();
+    model->setQuery("select * from clients where nom = '"+nom+"' OR prenom = '"+prenom+"' OR CIN = '"+CIN+"' ");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("CIN "));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("NOM"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("PRENOM "));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("offre"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("cerem"));
+    model->setHeaderData(5, Qt::Horizontal, QObject::tr("coiff"));
+    model->setHeaderData(6, Qt::Horizontal, QObject::tr("cost"));
+    model->setHeaderData(7, Qt::Horizontal, QObject::tr("voiture"));
+    model->setHeaderData(8, Qt::Horizontal, QObject::tr("local"));
+    model->setHeaderData(9, Qt::Horizontal, QObject::tr("music"));
+    model->setHeaderData(10, Qt::Horizontal, QObject::tr("deco"));
+    model->setHeaderData(11, Qt::Horizontal, QObject::tr("trait"));
+    model->setHeaderData(12, Qt::Horizontal, QObject::tr("photo"));
+
+        ui->Stab->setModel(model);
+
+}
+
+void MainWindow::on_pushButton_4_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(27);
+}
+
+void MainWindow::on_pushButton_5_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(27);
+}
