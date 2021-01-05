@@ -223,8 +223,8 @@ QPushButton:hover{
      <widget class="QLabel" name="lblTime">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>40</y>
+        <x>360</x>
+        <y>460</y>
         <width>201</width>
         <height>91</height>
        </rect>
