@@ -26,12 +26,14 @@
 #include "statbeaute.h"
 
 
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 
+    ui->stackedWidget->setCurrentIndex(0);
     //*****************************************************
        //*************************************************
        //Dont allow resize
@@ -44,7 +46,8 @@ MainWindow::MainWindow(QWidget *parent)
           setWindowFlags(Qt::WindowSystemMenuHint);
            setWindowFlags(Qt::WindowMinimizeButtonHint);//autorise le bouton de réduction de fenêtre
            setWindowFlags(Qt::WindowCloseButtonHint); //autorise le bouton de fermeture
-   //***********************************************
+
+           //***********************************************
            //***************************************
     int ret=Ard.connect_arduino();
     switch(ret){
@@ -56,7 +59,6 @@ MainWindow::MainWindow(QWidget *parent)
     }
     QObject::connect(Ard.getserial(),SIGNAL(readyRead()),this,SLOT(detect()));
 
-    ui->stackedWidget->setCurrentIndex(0);
 
 
    //controle de saisie id_photographe
@@ -68,7 +70,6 @@ MainWindow::MainWindow(QWidget *parent)
           QTimer *timer_p=new QTimer(this);
           connect(timer_p, SIGNAL(timeout()), this,SLOT(showTime()));
           timer_p->start(1000);
-
 
       //DAate systeme
           QDateTime Date_p=QDateTime::currentDateTime();
@@ -154,8 +155,7 @@ MainWindow::~MainWindow()
 }
 
 //**************************************************
-//*****************************
-/****************/
+
 void MainWindow::detect(){
     data1=Ard.read_from_arduino();
     if (data1=="2"){
@@ -165,11 +165,15 @@ void MainWindow::detect(){
     }
 }
 
+//*****************************
+/****************/
+
      //general LOGIN
 void MainWindow::on_login_button_clicked()
 {
- //ui->stackedWidget->setCurrentIndex(21);
-   QSqlQuery query;
+ ui->stackedWidget->setCurrentIndex(21);
+
+  /* QSqlQuery query;
     QMessageBox msgBox;
         QString id =ui->id->text(), pw=ui->password->text(),type="";
         query.prepare("SELECT ROLE FROM EMPLOYE WHERE ID =:id AND PASSWORD =:password");
@@ -199,7 +203,14 @@ void MainWindow::on_login_button_clicked()
           ui->stackedWidget->setCurrentIndex(24);
        else if (type=="RH")
           ui->stackedWidget->setCurrentIndex(27);
-       }
+       }*/
+
+        animation = new QPropertyAnimation(ui->login_button,"geometry");
+        animation->setDuration(1000);
+        animation->setStartValue(QRect(80,480,141,51));
+        animation->setEndValue(QRect(150,480,500,51));
+        animation->setEasingCurve(QEasingCurve::InOutQuint);
+        animation->start(QPropertyAnimation::DeleteWhenStopped);
 }
 
  //********************************************
@@ -1652,11 +1663,25 @@ void MainWindow::on_recherchee_mar_clicked()
 void MainWindow::on_Button_espacegraphistes_clicked()
 {
   ui->stackedWidget->setCurrentIndex(23);
+
+         animation = new QPropertyAnimation(ui->Button_espacegraphistes,"geometry");
+         animation->setDuration(1000);
+         animation->setStartValue(QRect(80,480,141,51));
+         animation->setEndValue(QRect(150,480,500,51));
+         animation->setEasingCurve(QEasingCurve::InOutQuint);
+         animation->start();
 }
 
 void MainWindow::on_button_espace_photographes_clicked()
 {
     ui->stackedWidget->setCurrentIndex(22);
+
+           animation = new QPropertyAnimation(ui->button_espace_photographes,"geometry");
+           animation->setDuration(1000);
+           animation->setStartValue(QRect(80,480,141,51));
+           animation->setEndValue(QRect(150,480,500,51));
+           animation->setEasingCurve(QEasingCurve::InOutQuint);
+           animation->start();
 }
 
 void MainWindow::on_ajouter_photographe_clicked()

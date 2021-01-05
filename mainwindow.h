@@ -18,6 +18,7 @@
 #include "graphiste.h"
 #include "photographe.h"
 #include "arduino.h"
+#include "QPropertyAnimation"
 //beaute
 #include "coiffeurs.h"
 #include "locateurs.h"
@@ -437,11 +438,13 @@ private:
        Graphiste tempgraph;
        Arduino Ard;
        QByteArray data1;
+       QPropertyAnimation *animation;
+
+
        //variables beauté
-
-
             coiffeurs coiff;
             locateurs locat;
+
 //moslem
             emp t;
              client c;
