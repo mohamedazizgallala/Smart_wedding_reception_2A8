@@ -417,6 +417,8 @@ private slots:
          void on_pushButton_5_clicked();
 
          void on_car_tri_clicked();
+         void update_label_affichtemp();
+         void on_pushButton_valtemp_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -438,6 +440,8 @@ private:
        Graphiste tempgraph;
        Arduino Ard;
        QByteArray data1;
+       QByteArray data;
+       int temp;
 
 
 

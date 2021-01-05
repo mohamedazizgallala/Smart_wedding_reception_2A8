@@ -171,9 +171,7 @@ void MainWindow::detect(){
      //general LOGIN
 void MainWindow::on_login_button_clicked()
 {
- ui->stackedWidget->setCurrentIndex(21);
-
-  /* QSqlQuery query;
+  QSqlQuery query;
     QMessageBox msgBox;
         QString id =ui->id->text(), pw=ui->password->text(),type="";
         query.prepare("SELECT ROLE FROM EMPLOYE WHERE ID =:id AND PASSWORD =:password");
@@ -203,7 +201,7 @@ void MainWindow::on_login_button_clicked()
           ui->stackedWidget->setCurrentIndex(24);
        else if (type=="RH")
           ui->stackedWidget->setCurrentIndex(27);
-       }*/
+       }
 
 
 }
@@ -2752,4 +2750,26 @@ void MainWindow::on_car_tri_clicked()
               else if(ui->prix_decroissant_car->isChecked()==true)
 
                   ui->table_car->setModel(cartemp.trie_dsc());
+}
+void MainWindow::on_pushButton_valtemp_clicked()
+{
+temp=ui->lineEdit_valtemp->text().toInt();
+}
+
+
+void MainWindow::update_label_affichtemp(){
+    data=Ard.read_from_arduino();
+    int d=data.toInt();
+
+
+
+    if(d > temp)//si la temperature ambiante > temperature donnee
+       Ard.write_to_arduino("2");
+    else
+
+     if(d < temp)//si la temperature ambiante < temperature donnee
+       Ard.write_to_arduino("3");
+
+    //Ard.close_arduino();
+
 }
