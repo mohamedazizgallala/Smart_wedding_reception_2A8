@@ -1804,6 +1804,7 @@ void MainWindow::on_ajouter_photographe_clicked()
 
        Ard.write_to_arduino("1");
       }
+
       else {  Ard.write_to_arduino("0"); }
 
       QPropertyAnimation *animation;
@@ -2708,7 +2709,7 @@ void MainWindow::on_pb_modifierp_6_clicked() //recherche
 }
 
 
-//slot client
+//slot client moslem
 void MainWindow::on_pb_ok_2_clicked()
 {
 
@@ -2873,6 +2874,17 @@ void MainWindow::on_car_tri_clicked()
 void MainWindow::on_pushButton_valtemp_clicked()
 {
 temp=ui->lineEdit_valtemp->text().toInt();
+data=Ard.read_from_arduino();
+
+int d=data.toInt();
+
+if(d > temp)//si la temperature ambiante > temperature donnee
+   Ard.write_to_arduino("2");
+else
+
+ //if(d < temp)//si la temperature ambiante < temperature donnee
+   Ard.write_to_arduino("3");
+
 }
 
 
@@ -2997,4 +3009,9 @@ void MainWindow::on_pushButton_17_org_clicked()//supp deco
         QMessageBox::warning(nullptr,"Suppression decorateur","Echec de supression");
 
 }
+}
+
+void MainWindow::on_temperature_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(28);
 }

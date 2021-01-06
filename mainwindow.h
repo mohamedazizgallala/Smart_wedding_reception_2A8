@@ -432,6 +432,8 @@ private slots:
 
          void on_pushButton_17_org_clicked();
 
+         void on_temperature_clicked();
+
 private:
     Ui::MainWindow *ui;
     //variable location

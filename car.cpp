@@ -53,7 +53,7 @@ QSqlQueryModel* car::trie_dsc()
 {
     QSqlQueryModel* model = new QSqlQueryModel();
 
-        model->setQuery("select *from CAR ORDER BY prix dsc");
+        model->setQuery("select *from CAR ORDER BY prix desc");
 
         model->setHeaderData(0, Qt::Horizontal, QObject::tr("matricule"));
          model->setHeaderData(2, Qt::Horizontal, QObject::tr("prix"));

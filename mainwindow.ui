@@ -50,7 +50,7 @@
 }</string>
     </property>
     <property name="currentIndex">
-     <number>11</number>
+     <number>22</number>
     </property>
     <widget class="QWidget" name="loginWindow">
      <widget class="QFrame" name="login_frame">
@@ -385,6 +385,19 @@ QPushButton:hover{
         </property>
         <property name="text">
          <string>Afficher la liste des voitures</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="temperature">
+        <property name="geometry">
+         <rect>
+          <x>284</x>
+          <y>230</y>
+          <width>131</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Temperature</string>
         </property>
        </widget>
       </widget>
@@ -6137,7 +6150,7 @@ QPushButton:hover{
 background-image: url(:/new/prefix1/image/XkgL1v.jpg);</string>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -6331,8 +6344,8 @@ background-image: url(:/new/prefix1/image/XkgL1v.jpg);</string>
        <widget class="QPushButton" name="modifier_photographe">
         <property name="geometry">
          <rect>
-          <x>380</x>
-          <y>230</y>
+          <x>400</x>
+          <y>200</y>
           <width>81</width>
           <height>20</height>
          </rect>
@@ -6352,8 +6365,8 @@ background-image: url(:/new/prefix1/image/XkgL1v.jpg);</string>
        <widget class="QLabel" name="label_2">
         <property name="geometry">
          <rect>
-          <x>470</x>
-          <y>190</y>
+          <x>500</x>
+          <y>170</y>
           <width>41</width>
           <height>41</height>
          </rect>
@@ -6369,8 +6382,8 @@ background-image: url(:/new/prefix1/image/XkgL1v.jpg);</string>
        <widget class="QPushButton" name="quit_button">
         <property name="geometry">
          <rect>
-          <x>10</x>
-          <y>340</y>
+          <x>370</x>
+          <y>310</y>
           <width>51</width>
           <height>23</height>
          </rect>
@@ -6493,8 +6506,8 @@ background-image: url(:/new/prefix1/image/XkgL1v.jpg);</string>
        <widget class="QPushButton" name="selectionnermail_photographe">
         <property name="geometry">
          <rect>
-          <x>420</x>
-          <y>330</y>
+          <x>380</x>
+          <y>290</y>
           <width>81</width>
           <height>23</height>
          </rect>
@@ -6530,8 +6543,8 @@ background-image: url(:/new/prefix1/image/XkgL1v.jpg);</string>
        <widget class="QPushButton" name="exporterpdf_photographe">
         <property name="geometry">
          <rect>
-          <x>390</x>
-          <y>290</y>
+          <x>410</x>
+          <y>260</y>
           <width>91</width>
           <height>23</height>
          </rect>
@@ -6543,8 +6556,8 @@ background-image: url(:/new/prefix1/image/XkgL1v.jpg);</string>
        <widget class="QLabel" name="label_5">
         <property name="geometry">
          <rect>
-          <x>460</x>
-          <y>260</y>
+          <x>480</x>
+          <y>230</y>
           <width>71</width>
           <height>31</height>
          </rect>
@@ -6836,7 +6849,7 @@ image: url(:/new/prefix1/image/ajout.png);</string>
         <property name="geometry">
          <rect>
           <x>460</x>
-          <y>210</y>
+          <y>190</y>
           <width>81</width>
           <height>20</height>
          </rect>
@@ -6856,8 +6869,8 @@ image: url(:/new/prefix1/image/ajout.png);</string>
        <widget class="QLabel" name="_label_9">
         <property name="geometry">
          <rect>
-          <x>500</x>
-          <y>170</y>
+          <x>510</x>
+          <y>150</y>
           <width>41</width>
           <height>41</height>
          </rect>
@@ -6875,7 +6888,7 @@ image: url(:/new/prefix1/image/modify.png);
         <property name="geometry">
          <rect>
           <x>380</x>
-          <y>340</y>
+          <y>310</y>
           <width>51</width>
           <height>23</height>
          </rect>
@@ -7003,8 +7016,8 @@ image: url(:/new/prefix1/image/modify.png);
        <widget class="QPushButton" name="selectionnermail_graphiste">
         <property name="geometry">
          <rect>
-          <x>460</x>
-          <y>310</y>
+          <x>390</x>
+          <y>280</y>
           <width>81</width>
           <height>23</height>
          </rect>
@@ -7040,8 +7053,8 @@ image: url(:/new/prefix1/image/modify.png);
        <widget class="QLabel" name="label_9">
         <property name="geometry">
          <rect>
-          <x>510</x>
-          <y>240</y>
+          <x>520</x>
+          <y>210</y>
           <width>51</width>
           <height>31</height>
          </rect>
@@ -7056,8 +7069,8 @@ image: url(:/new/prefix1/image/modify.png);
        <widget class="QPushButton" name="exporterpdf_graphiste">
         <property name="geometry">
          <rect>
-          <x>460</x>
-          <y>270</y>
+          <x>450</x>
+          <y>250</y>
           <width>91</width>
           <height>23</height>
          </rect>
