@@ -83,7 +83,8 @@ RESOURCES += \
     img.qrc \
     sound.qrc \
     buttonsound.qrc \
-    images.qrc
+    images.qrc \
+    traduction.qrc
 
 DISTFILES += \
     ../graph/info.txt \

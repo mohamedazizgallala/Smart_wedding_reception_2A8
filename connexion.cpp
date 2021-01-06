@@ -8,9 +8,9 @@ bool Connexion::create_cnx() {
 
     bool test=false;
     db=QSqlDatabase::addDatabase("QODBC");
-    db.setDatabaseName("2A8");
-    db.setUserName("hackerwoman");
-    db.setPassword("esprit");
+    db.setDatabaseName("source_projet2A");
+    db.setUserName("aziz");
+    db.setPassword("aziz");
     if (db.open()) test=true;
     return test;
 }

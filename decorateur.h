@@ -29,6 +29,5 @@ class decorateur
     bool ajouter();
     QSqlQueryModel * afficher();
     bool supprimer(int);
-
-};
+    QSqlQueryModel * recherche(int);};
 #endif // DECORATEUR_H

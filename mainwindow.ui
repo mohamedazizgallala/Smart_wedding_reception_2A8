@@ -13,7 +13,7 @@
     <x>0</x>
     <y>0</y>
     <width>628</width>
-    <height>443</height>
+    <height>447</height>
    </rect>
   </property>
   <property name="mouseTracking">
@@ -39,7 +39,7 @@
       <x>0</x>
       <y>0</y>
       <width>621</width>
-      <height>421</height>
+      <height>441</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -50,7 +50,7 @@
 }</string>
     </property>
     <property name="currentIndex">
-     <number>28</number>
+     <number>11</number>
     </property>
     <widget class="QWidget" name="loginWindow">
      <widget class="QFrame" name="login_frame">
@@ -1944,7 +1944,7 @@ color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(35, 40, 3, 255), st
        <string>Quitter</string>
       </property>
       <property name="styleSheet">
-       <string notr="true">image: url(:/img/bfa_power-off_flat-circle-white-on-ios-pink-gradient_512x512.png);</string>
+       <string notr="true">border-image: url(:/new/prefix1/image/bfa_power-off_flat-circle-white-on-ios-pink-gradient_512x512.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -1953,8 +1953,8 @@ color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(35, 40, 3, 255), st
      <widget class="QPushButton" name="buttonsedeconn_org">
       <property name="geometry">
        <rect>
-        <x>580</x>
-        <y>410</y>
+        <x>590</x>
+        <y>400</y>
         <width>21</width>
         <height>21</height>
        </rect>
@@ -1967,7 +1967,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2';&quot;&gt;Se deconnecter&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="styleSheet">
-       <string notr="true">image: url(:/img/logout-icon-5-256.png);
+       <string notr="true">border-image: url(:/new/prefix1/image/logout-icon-5-256.png);
 </string>
       </property>
       <property name="text">
@@ -2141,7 +2141,7 @@ color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(35, 40, 3, 255), st
 </string>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="addanim_3_org">
        <attribute name="title">
@@ -2564,8 +2564,7 @@ border-radius:10px;
          <string>Supprimer</string>
         </property>
         <property name="styleSheet">
-         <string notr="true">image: url(:/img/trash.png);
-background : transparent;</string>
+         <string notr="true">border-image: url(:/new/prefix1/image/trash.png);</string>
         </property>
         <property name="text">
          <string/>
@@ -2653,7 +2652,7 @@ background : transparent;</string>
        <string>Quitter</string>
       </property>
       <property name="styleSheet">
-       <string notr="true">image: url(:/img/bfa_power-off_flat-circle-white-on-ios-pink-gradient_512x512.png);</string>
+       <string notr="true">border-image: url(:/new/prefix1/image/bfa_power-off_flat-circle-white-on-ios-pink-gradient_512x512.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -2672,7 +2671,8 @@ background : transparent;</string>
        <string>Se deconnecter</string>
       </property>
       <property name="styleSheet">
-       <string notr="true">image: url(:/img/logout-icon-5-256.png);</string>
+       <string notr="true">border-image: url(:/new/prefix1/image/logout-icon-5-256.png);
+</string>
       </property>
       <property name="text">
        <string/>
@@ -3039,11 +3039,11 @@ QPushButton:hover{
           <x>530</x>
           <y>0</y>
           <width>31</width>
-          <height>31</height>
+          <height>20</height>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">image: url(:/img/refresh.png);</string>
+         <string notr="true">border-image: url(:/new/prefix1/image/refresh.png);</string>
         </property>
         <property name="text">
          <string/>
@@ -3135,8 +3135,7 @@ border-radius:10px;
          <string>Supprimer</string>
         </property>
         <property name="styleSheet">
-         <string notr="true">image: url(:/img/trash.png);
-background : transparent;</string>
+         <string notr="true">border-image: url(:/new/prefix1/image/trash.png);</string>
         </property>
         <property name="text">
          <string/>
@@ -3157,7 +3156,7 @@ background : transparent;</string>
        <string>Retour</string>
       </property>
       <property name="styleSheet">
-       <string notr="true">image: url(:/img/computer-icons-button-arrow-png-favpng-1sXz4GPFdZq5tvjfd9Q8gYCVt.png);</string>
+       <string notr="true">border-image: url(:/new/prefix1/image/computer-icons-button-arrow-png-favpng-1sXz4GPFdZq5tvjfd9Q8gYCVt.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -3196,7 +3195,7 @@ color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(35, 40, 3, 255), st
        <string>Quitter</string>
       </property>
       <property name="styleSheet">
-       <string notr="true">image: url(:/img/bfa_power-off_flat-circle-white-on-ios-pink-gradient_512x512.png);</string>
+       <string notr="true">border-image: url(:/new/prefix1/image/bfa_power-off_flat-circle-white-on-ios-pink-gradient_512x512.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -3205,8 +3204,8 @@ color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(35, 40, 3, 255), st
      <widget class="QPushButton" name="buttonsedeconn_4_org">
       <property name="geometry">
        <rect>
-        <x>580</x>
-        <y>410</y>
+        <x>590</x>
+        <y>400</y>
         <width>21</width>
         <height>21</height>
        </rect>
@@ -3215,7 +3214,8 @@ color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(35, 40, 3, 255), st
        <string>Se déconnecter</string>
       </property>
       <property name="styleSheet">
-       <string notr="true">image: url(:/img/logout-icon-5-256.png);</string>
+       <string notr="true">border-image: url(:/new/prefix1/image/logout-icon-5-256.png);
+</string>
       </property>
       <property name="text">
        <string/>
@@ -3234,7 +3234,7 @@ color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(35, 40, 3, 255), st
        <string>Retour</string>
       </property>
       <property name="styleSheet">
-       <string notr="true">image: url(:/img/computer-icons-button-arrow-png-favpng-1sXz4GPFdZq5tvjfd9Q8gYCVt.png);</string>
+       <string notr="true">border-image: url(:/new/prefix1/image/computer-icons-button-arrow-png-favpng-1sXz4GPFdZq5tvjfd9Q8gYCVt.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -3256,7 +3256,7 @@ color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(35, 40, 3, 255), st
 </string>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="addanim_org">
        <attribute name="title">
@@ -3575,7 +3575,7 @@ QPushButton:hover{
          <rect>
           <x>10</x>
           <y>0</y>
-          <width>531</width>
+          <width>551</width>
           <height>251</height>
          </rect>
         </property>
@@ -3583,14 +3583,14 @@ QPushButton:hover{
        <widget class="QPushButton" name="pushButton_6_org">
         <property name="geometry">
          <rect>
-          <x>500</x>
+          <x>520</x>
           <y>0</y>
-          <width>31</width>
-          <height>31</height>
+          <width>41</width>
+          <height>21</height>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">image: url(:/img/refresh.png);</string>
+         <string notr="true">border-image: url(:/new/prefix1/image/refresh.png);</string>
         </property>
         <property name="text">
          <string/>
@@ -3682,8 +3682,7 @@ border-radius:10px;
          <string>Supprimer</string>
         </property>
         <property name="styleSheet">
-         <string notr="true">image: url(:/img/trash.png);
-background : transparent;</string>
+         <string notr="true">border-image: url(:/new/prefix1/image/trash.png);</string>
         </property>
         <property name="text">
          <string/>
@@ -3724,7 +3723,7 @@ color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(35, 40, 3, 255), st
        <string>Quitter</string>
       </property>
       <property name="styleSheet">
-       <string notr="true">image: url(:/img/bfa_power-off_flat-circle-white-on-ios-pink-gradient_512x512.png);</string>
+       <string notr="true">border-image: url(:/new/prefix1/image/bfa_power-off_flat-circle-white-on-ios-pink-gradient_512x512.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -3743,7 +3742,8 @@ color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(35, 40, 3, 255), st
        <string>Se deconnecter</string>
       </property>
       <property name="styleSheet">
-       <string notr="true">image: url(:/img/logout-icon-5-256.png);</string>
+       <string notr="true">border-image: url(:/new/prefix1/image/logout-icon-5-256.png);
+</string>
       </property>
       <property name="text">
        <string/>
@@ -3762,20 +3762,7 @@ color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(35, 40, 3, 255), st
        <string>Retour</string>
       </property>
       <property name="styleSheet">
-       <string notr="true">image: url(:/img/computer-icons-button-arrow-png-favpng-1sXz4GPFdZq5tvjfd9Q8gYCVt.png);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="login_button_org">
-      <property name="geometry">
-       <rect>
-        <x>450</x>
-        <y>180</y>
-        <width>41</width>
-        <height>23</height>
-       </rect>
+       <string notr="true">border-image: url(:/new/prefix1/image/computer-icons-button-arrow-png-favpng-1sXz4GPFdZq5tvjfd9Q8gYCVt.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -10209,6 +10196,19 @@ font: 75 8pt &quot;MS Shell Dlg 2&quot;;</string>
       </widget>
      </widget>
     </widget>
+   </widget>
+   <widget class="QPushButton" name="login_button_org">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>200</y>
+      <width>31</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>

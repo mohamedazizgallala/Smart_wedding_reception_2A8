@@ -420,6 +420,18 @@ private slots:
          void update_label_affichtemp();
          void on_pushButton_valtemp_clicked();
 
+         void on_search_carButton_10_org_clicked();
+
+         void on_pushButton_16_org_clicked();
+
+         void on_pushButton_13_org_clicked();
+
+         void on_pushButton_14_org_clicked();
+
+         void on_pushButton_15_org_clicked();
+
+         void on_pushButton_17_org_clicked();
+
 private:
     Ui::MainWindow *ui;
     //variable location
@@ -430,6 +442,7 @@ private:
    //variable organisation
    animateur tempanimateur;
        traiteur temptraiteur;
+       decorateur tempdecorateur;
 
     //variable marketing
        evenement tmpev;

@@ -101,6 +101,9 @@ MainWindow::MainWindow(QWidget *parent)
        ui->tableView_5_org->setModel(temptraiteur.afficher());
        ui->tableView_5_org->setSelectionBehavior(QAbstractItemView::SelectRows);
        ui->tableView_5_org->setSelectionMode(QAbstractItemView::SingleSelection);
+       ui->tableView_6_org->setModel(tempdecorateur.afficher());
+       ui->tableView_6_org->setSelectionBehavior(QAbstractItemView::SelectRows);
+       ui->tableView_6_org->setSelectionMode(QAbstractItemView::SingleSelection);
 
        //*****************************
         //***************************
@@ -799,11 +802,34 @@ void MainWindow::on_pushButton_3_org_clicked()
 
 void MainWindow::on_pushButton_4_org_clicked()//imprimer pdf
 {
-    QPrinter printer;
-    printer.setPrinterName("desirer printer name");
-    QPrintDialog dialog(&printer,this);
-    if(dialog.exec()==QDialog::Rejected) return;
-    ui->tableView_4_org->render(&printer);
+    {
+        QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Export PDF", QString(), "*.pdf");
+            if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append(".pdf"); }
+
+            QPrinter printer(QPrinter::PrinterResolution);
+            printer.setOutputFormat(QPrinter::PdfFormat);
+            printer.setPaperSize(QPrinter::A4);
+            printer.setOutputFileName(fileName);
+
+
+
+            QSqlQuery q;
+            q.prepare("SELECT * FROM animateur ");
+            q.exec();
+            QString pdf="<br> <img src='C:/Users/malek/Desktop/Module_location/image/thebigdaylogo.png' height='42' width='120'/> < img src='C:/Users/malek/Desktop/Module_location/image/vanguardslogo.png' height='42' width='100'/> <h1  style='color:red'>LISTE DES VOITURES  <br></h1>\n <br> <table>  <tr>  <th>Matricule </th>  <th>couleur </th> <th> entreprise </th>  <th>marque </th> <th>prix </th>   </tr>" ;
+
+
+            while ( q.next()) {
+
+                pdf= pdf+ " <br> <tr> <td>"+ q.value(0).toString()+"</td>     <td>" + q.value(1).toString() +"</td>   <td>" +q.value(4).toString() +"  "" " "</td>   <td>"+q.value(3).toString()+"</td>   <td>"+q.value(2).toString()+" "   " " "</td> " ;
+
+            }
+            QTextDocument doc;
+            doc.setHtml(pdf);
+            doc.setPageSize(printer.pageRect().size()); // This is necessary if you want to hide the page number
+            doc.print(&printer);
+
+    }
 
 
 }
@@ -969,11 +995,34 @@ void MainWindow::on_pushButton_8_org_clicked() //excel
 
 void MainWindow::on_pushButton_9_org_clicked() //pdf
 {
-    QPrinter printer;
-    printer.setPrinterName("desirer printer name");
-    QPrintDialog dialog(&printer,this);
-    if(dialog.exec()==QDialog::Rejected) return;
-    ui->tableView_5_org->render(&printer);
+    {
+        QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Export PDF", QString(), "*.pdf");
+            if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append(".pdf"); }
+
+            QPrinter printer(QPrinter::PrinterResolution);
+            printer.setOutputFormat(QPrinter::PdfFormat);
+            printer.setPaperSize(QPrinter::A4);
+            printer.setOutputFileName(fileName);
+
+
+
+            QSqlQuery q;
+            q.prepare("SELECT * FROM traiteur ");
+            q.exec();
+            QString pdf="<br> <img src='C:/Users/malek/Desktop/Module_location/image/thebigdaylogo.png' height='42' width='120'/> < img src='C:/Users/malek/Desktop/Module_location/image/vanguardslogo.png' height='42' width='100'/> <h1  style='color:red'>LISTE DES VOITURES  <br></h1>\n <br> <table>  <tr>  <th>Matricule </th>  <th>couleur </th> <th> entreprise </th>  <th>marque </th> <th>prix </th>   </tr>" ;
+
+
+            while ( q.next()) {
+
+                pdf= pdf+ " <br> <tr> <td>"+ q.value(0).toString()+"</td>     <td>" + q.value(1).toString() +"</td>   <td>" +q.value(4).toString() +"  "" " "</td>   <td>"+q.value(3).toString()+"</td>   <td>"+q.value(2).toString()+" "   " " "</td> " ;
+
+            }
+            QTextDocument doc;
+            doc.setHtml(pdf);
+            doc.setPageSize(printer.pageRect().size()); // This is necessary if you want to hide the page number
+            doc.print(&printer);
+
+    }
 }
 
 void MainWindow::on_pushButton_12_org_clicked() //supprimer traiteur
@@ -1121,7 +1170,77 @@ void MainWindow::on_back_org_clicked()
 }
 void MainWindow::on_buttonajouter_3_org_clicked()
 {
+    {
+        {
 
+            bool test_saisie=true;
+            int id_decorateur=ui->lineEdit_id_3_org->text().toInt();
+            if(id_decorateur<1111 || id_decorateur>9999)
+            { //test_saisie de saisie
+                test_saisie = false;
+                QMessageBox::critical(nullptr, QObject::tr("Ajout id "),
+                            QObject::tr("ID invalide!\n"
+                                        "OK pour quitter."), QMessageBox::Ok);
+            }
+            QString nom=ui->lineEdit_nom_3_org->text();
+            if(nom==""||nom.size()>20)
+            {
+                test_saisie = false;
+                QMessageBox::critical(nullptr, QObject::tr("Ajout un nom"),
+                            QObject::tr("nom vide/limite atteinte!\n"
+                                        "OK pour quitter."), QMessageBox::Ok);
+            }
+            QString adresse=ui->lineEdit_adresse_3_org->text();
+            if(adresse==""||adresse.size()>100)
+            {
+                test_saisie = false;
+                QMessageBox::critical(nullptr, QObject::tr("Ajout adresse "),
+                            QObject::tr("adresse vide!/limite atteinte\n"
+                                        "OK pour quitter."), QMessageBox::Ok);
+            }
+            QString description=ui->lineEdit_description_3_org->text();
+            if(description==""||description.size()>500)
+            {
+                test_saisie = false;
+                QMessageBox::critical(nullptr, QObject::tr("Ajout description "),
+                            QObject::tr("description vide ou trop longue!\n"
+                                        "OK pour quitter."), QMessageBox::Ok);
+            }
+            QString contacts=ui->lineEdit_contacts_3_org->text();
+            if(contacts==""||contacts.size()>200)
+            {
+                test_saisie = false;
+                QMessageBox::critical(nullptr, QObject::tr("Ajouter contacts "),
+                            QObject::tr("contacts trop long ou vide!\n"
+                                        "OK pour quitter."), QMessageBox::Ok);
+            }
+            int prix=ui->lineEdit_prix_3_org->text().toInt();
+            if(prix<0)
+            { //test_saisie de saisie
+                test_saisie = false;
+                QMessageBox::critical(nullptr, QObject::tr("Ajout prix"),
+                            QObject::tr("prix negatif\n"
+                                        "OK pour quitter."), QMessageBox::Ok);
+            }
+            if (test_saisie==true)
+            {
+
+            decorateur a(id_decorateur,nom,adresse,description,prix,contacts);
+            bool test=a.ajouter();
+            if (test)
+                {
+                ui->tableView_6_org->setModel(tempdecorateur.afficher());
+               QMessageBox::information(nullptr,QObject::tr("Ajout decorateur"),
+                                        QObject::tr("decorateur ajouté.\n"
+                                                    "Click to exit"), QMessageBox::Cancel);
+                }
+            }else
+                QMessageBox::critical(nullptr, QObject::tr("Ajout decorateur"),
+                            QObject::tr("Erreur !.\n"
+                                        "OK pour quitter."), QMessageBox::Ok);
+        }
+
+    }
 }
 void MainWindow::on_login_button_org_clicked()
 {
@@ -2772,4 +2891,110 @@ void MainWindow::update_label_affichtemp(){
 
     //Ard.close_arduino();
 
+}
+
+void MainWindow::on_search_carButton_10_org_clicked()//recherche deco
+{
+    int i=ui->lineEdit_9_org->text().toInt();
+    ui->tableView_6_org->setModel(tempdecorateur.recherche(i));
+}
+
+void MainWindow::on_pushButton_16_org_clicked()//modi deco
+{
+    if (ui->pushButton_16_org->isChecked())
+           {
+               //ui->pushButton_16_org->setDisabled(true);
+               ui->pushButton_16_org->setText("Modifiable");
+               QSqlTableModel *tableModel= new QSqlTableModel();
+               tableModel->setTable("decorateur");
+               tableModel->select();
+               ui->tableView_6_org->setModel(tableModel);
+           }
+           else
+           {
+               ui->pushButton_16_org->setText("Modifier");
+               ui->tableView_6_org->setModel(temptraiteur.afficher());
+
+           }
+}
+
+void MainWindow::on_pushButton_13_org_clicked()//excel deco
+{
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Exportation en fichier Excel"), qApp->applicationDirPath (),
+                                                        tr("Fichiers d'extension Excel (*.xls)"));
+        if (fileName.isEmpty())
+            return;
+
+        ExportExcelObject obj(fileName, "mydata", ui->tableView_5_org);
+
+        // you can change the column order and
+        // choose which colum to export
+        obj.addField(0, "Identifiant", "char(20)");
+        obj.addField(1, "Nom", "char(20)");
+        obj.addField(2, "Adresse", "char(20)");
+        obj.addField(3, "Description", "char(20)");
+        obj.addField(4, "Prix", "char(20)");
+        obj.addField(5, "Contacts", "char(20)");
+
+
+        int retVal = obj.export2Excel();
+
+        if( retVal > 0)
+        {
+            QMessageBox::information(this, tr("FAIS!"),
+                                     QString(tr("%1 enregistrements exportés!")).arg(retVal)
+                                     );
+        }
+}
+
+void MainWindow::on_pushButton_14_org_clicked()//pdf deco
+{
+    {
+        QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Export PDF", QString(), "*.pdf");
+            if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append(".pdf"); }
+
+            QPrinter printer(QPrinter::PrinterResolution);
+            printer.setOutputFormat(QPrinter::PdfFormat);
+            printer.setPaperSize(QPrinter::A4);
+            printer.setOutputFileName(fileName);
+
+
+
+            QSqlQuery q;
+            q.prepare("SELECT * FROM decorateur ");
+            q.exec();
+            QString pdf="<br> <img src='C:/Users/malek/Desktop/Module_location/image/thebigdaylogo.png' height='42' width='120'/> < img src='C:/Users/malek/Desktop/Module_location/image/vanguardslogo.png' height='42' width='100'/> <h1  style='color:red'>LISTE DES VOITURES  <br></h1>\n <br> <table>  <tr>  <th>Matricule </th>  <th>couleur </th> <th> entreprise </th>  <th>marque </th> <th>prix </th>   </tr>" ;
+
+
+            while ( q.next()) {
+
+                pdf= pdf+ " <br> <tr> <td>"+ q.value(0).toString()+"</td>     <td>" + q.value(1).toString() +"</td>   <td>" +q.value(4).toString() +"  "" " "</td>   <td>"+q.value(3).toString()+"</td>   <td>"+q.value(2).toString()+" "   " " "</td> " ;
+
+            }
+            QTextDocument doc;
+            doc.setHtml(pdf);
+            doc.setPageSize(printer.pageRect().size()); // This is necessary if you want to hide the page number
+            doc.print(&printer);
+
+    }
+}
+
+void MainWindow::on_pushButton_15_org_clicked()//actualiser deco
+{
+   ui->tableView_6_org->setModel(tempdecorateur.afficher());
+}
+
+void MainWindow::on_pushButton_17_org_clicked()//supp deco
+{
+    int id=ui->lineEdit_supprimer_3_org->text().toInt();
+    bool test=tempdecorateur.supprimer(id);
+    if (test)
+    {   ui->tableView_6_org->setModel(temptraiteur.afficher());
+        QMessageBox::information(nullptr,"Suppression decorateur","Supprimé avec succés");
+    }
+    else
+{
+        QMessageBox::warning(nullptr,"Suppression decorateur","Echec de supression");
+
+}
 }
